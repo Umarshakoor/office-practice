@@ -1,4 +1,5 @@
 import React from "react";
+import BlogApp from "../components/BlogApp";
 
 function Home() {
   return (
