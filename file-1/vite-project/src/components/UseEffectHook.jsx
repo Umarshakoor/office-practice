@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 function UseEffectHook() {
   const [count, setCount] = useState(0);
@@ -24,12 +24,16 @@ function UseEffectHook() {
   useEffect(() => {
     if (count === 5) setShow(true);
   }, [count]);
+
+  const increment = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
   return (
     <>
       <h1>Use Effect Hook</h1>
       <p>Count is {count}</p>
       {show ? <h2>Hello World</h2> : null}
-      <button onClick={() => setCount(count + 1)}>Increase Count</button>
+      <button onClick={() => increment()}>Increase Count</button>
       <button onClick={() => setCount(count - 1)}>Decrease Count</button>
       <ul>
         {products && products.length > 0

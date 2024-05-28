@@ -1,15 +1,41 @@
-import EffectHook from "./components/EffectHook";
-import WidthHeight from "./components/EffectState";
-import RenderText from "./components/RenderText";
-import Greeting from "./components/StateHook";
-import UseEffectHook from "./components/UseEffectHook";
+// import UseEffectHook from "./components/UseEffectHook";
+// import SwitchTabs from "./components/UseTransition";
 
-function App() {
+// function App() {
+//   return (
+//     <>
+//       <UseEffectHook />
+//     </>
+//   );
+// }
+
+// export default App;
+
+import { useState, useCallback } from "react";
+import ReactDOM from "react-dom/client";
+import Todos from "./components/Todos";
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
+
+  const increment = () => {
+    setCount((c) => c + 1);
+  };
+  const addTodo = () => {
+    setTodos((t) => [...t, "New Todo"]);
+  };
+
   return (
     <>
-      <UseEffectHook />
+      <Todos todos={todos} addTodo={addTodo} />
+      <hr />
+      <div>
+        Count: {count}
+        <button onClick={increment}>+</button>
+      </div>
     </>
   );
-}
+};
 
 export default App;
