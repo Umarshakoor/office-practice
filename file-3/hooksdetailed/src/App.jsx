@@ -1,10 +1,10 @@
 import "./App.css";
-import UseMemo from "./components/UseMemo";
+import HookMemo from "./components/UseMemo";
 
 function App() {
   return (
     <>
-      <UseMemo />
+      <HookMemo />
     </>
   );
 }
