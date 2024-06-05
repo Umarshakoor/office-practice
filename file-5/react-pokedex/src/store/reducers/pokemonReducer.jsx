@@ -1,9 +1,9 @@
 import {
-  FETCH_POKEMON_REQUEST,
-  FETCH_POKEMON_SUCCESS,
-  FETCH_POKEMON_FAILURE,
+  FETCH_POKEMNON_REQUEST,
+  FETCH_POKEMNON_SUCCESS,
+  FETCH_POKEMNON_FAILURE,
   SELECT_POKEMON,
-} from "../actions/pokemonActions";
+} from "../actions/pokemonAction";
 
 const initialState = {
   loading: false,
@@ -14,22 +14,22 @@ const initialState = {
 
 const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_POKEMON_REQUEST:
+    case FETCH_POKEMNON_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case FETCH_POKEMON_SUCCESS:
+    case FETCH_POKEMNON_SUCCESS:
       return {
         ...state,
         loading: false,
         pokemonList: action.payload,
       };
-    case FETCH_POKEMON_FAILURE:
+    case FETCH_POKEMNON_FAILURE:
       return {
         ...state,
         loading: false,
-        error: action.error,
+        error: action.payload,
       };
     case SELECT_POKEMON:
       return {
