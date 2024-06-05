@@ -1,0 +1,11 @@
+/* App.css */
+.app {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.app > div {
+  flex: 1;
+  margin: 0 10px;
+}
