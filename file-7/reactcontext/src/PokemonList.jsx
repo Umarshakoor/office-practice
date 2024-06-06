@@ -9,7 +9,7 @@ function PokemonList() {
 
   useEffect(() => {
     fetchPokemon();
-  }, [offset]);
+  }, [pokemons]);
   // console.log(pokemons);
 
   const fetchPokemon = async () => {
@@ -26,8 +26,20 @@ function PokemonList() {
     }
   };
 
+  useEffect(() => {
+    const storedPokemons = JSON.parse(localStorage.getItem("pokemons"));
+    if (storedPokemons) {
+      setPokemons(storedPokemons);
+    }
+  }, []);
+
+  useEffect(() => {
+    {
+      localStorage.setItem("pokemons", JSON.stringify(pokemons));
+    }
+  });
+
   const handleNextPage = () => {
-    console.log(setOffSet, offset);
     setOffSet(offset + limit);
   };
 

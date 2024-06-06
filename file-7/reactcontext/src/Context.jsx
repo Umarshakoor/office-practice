@@ -3,13 +3,13 @@ import { createContext, useMemo } from "react";
 import { useState } from "react";
 
 export const StateContext = createContext({
-  offset: 1,
+  offset: 0,
   setOffSet: () => {},
   limit: 20,
 });
 
 export const StateProvider = ({ children }) => {
-  const [offset, setOffSet] = useState(1);
+  const [offset, setOffSet] = useState(0);
   const limit = 20;
   const value = useMemo(
     () => ({
