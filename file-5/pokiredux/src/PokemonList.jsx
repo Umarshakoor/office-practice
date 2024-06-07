@@ -54,8 +54,8 @@ const PokemonList = () => {
       <div className="pokemon-grid">
         {filteredPokemonList.map((pokemon, index) => (
           <div key={index} className="pokemon-item">
+            <h3>{pokemon.url}</h3>
             <button onClick={() => dispatch(selectPokemon(pokemon.name))}>
-              {pokemon.url}
               {pokemon.name}
             </button>
           </div>

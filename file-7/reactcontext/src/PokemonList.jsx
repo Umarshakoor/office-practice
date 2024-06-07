@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import useMyContext from "./contextHook";
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 function PokemonList() {
   const { offset, setOffSet, limit } = useMyContext();
   const [pokemons, setPokemons] = useState(null);
-  // console.log(pokemons);
+  const baseUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
   useEffect(() => {
     fetchPokemon();
-  }, [pokemons]);
+  }, [offset]);
   // console.log(pokemons);
 
   useEffect(() => {
@@ -23,26 +22,23 @@ function PokemonList() {
     if (!pokemons) {
       fetchPokemon();
     } else {
-      localStorage.setItem("pokemons", JSON.stringify(pokemons));
+      // localStorage.setItem("pokemons", JSON.stringify(pokemons));
       localStorage.setItem("offset", offset);
     }
   }, [pokemons, offset, limit]);
 
   const fetchPokemon = async () => {
     try {
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
-        // fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
-      );
+      const response = await fetch(baseUrl);
+
+      // fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setPokemons(data);
     } catch (error) {
       console.error("Error fetching Pokemon data:", error);
     }
   };
-
-
 
   const handleNextPage = () => {
     setOffSet(offset + limit);
@@ -59,25 +55,18 @@ function PokemonList() {
       <h2>Pokemon List</h2>
       {/* showing pokemon url in a list */}
       {pokemons?.results.length > 0 &&
-        pokemons.results.map((pokemon) => {
+        pokemons.results.map((pokemon, i) => {
           return (
-            <li key={pokemon.name}>
-              {pokemon.url}
-              {pokemon.name}
-            </li>
+            <>
+              <div>
+                <h4>{pokemon.name}</h4>
+              </div>
+              <Link key={i} to={pokemon.url}>
+                {pokemon.url}
+              </Link>
+            </>
           );
         })}
-
-      {/*       <BrowserRouter>
-        <Routes>
-          {pokemons?.results.length > 0 &&
-            pokemons.results.map((pokemon) => (
-              <Route key={pokemon.name} path={`${pokemon.url}{pokemon.name}`}>
-                <Link to={`${pokemon.url}`}>{pokemon.url}</Link>
-              </Route>
-            ))}
-        </Routes>
-      </BrowserRouter> */}
 
       <div className="pagination">
         <button onClick={handlePreviousPage} disabled={offset === 0}>

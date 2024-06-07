@@ -5,7 +5,7 @@ import "./PokemonDetails.css";
 
 const PokemonDetails = () => {
   const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
-  const [pokemonDetails, setPokemonDetails] = useState(null);
+  const [pokemonDetails, setPokemonDetails] = useState([]);
 
   useEffect(() => {
     if (selectedPokemon) {
