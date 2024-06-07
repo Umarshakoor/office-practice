@@ -12,6 +12,22 @@ function PokemonList() {
   }, [pokemons]);
   // console.log(pokemons);
 
+  useEffect(() => {
+    const savedOffset = localStorage.getItem("offset");
+    if (savedOffset) {
+      setOffSet(Number(savedOffset));
+    }
+  }, [setOffSet]);
+
+  useEffect(() => {
+    if (!pokemons) {
+      fetchPokemon();
+    } else {
+      localStorage.setItem("pokemons", JSON.stringify(pokemons));
+      localStorage.setItem("offset", offset);
+    }
+  }, [pokemons, offset, limit]);
+
   const fetchPokemon = async () => {
     try {
       const response = await fetch(
@@ -26,18 +42,7 @@ function PokemonList() {
     }
   };
 
-  useEffect(() => {
-    const storedPokemons = JSON.parse(localStorage.getItem("pokemons"));
-    if (storedPokemons) {
-      setPokemons(storedPokemons);
-    }
-  }, []);
 
-  useEffect(() => {
-    {
-      localStorage.setItem("pokemons", JSON.stringify(pokemons));
-    }
-  });
 
   const handleNextPage = () => {
     setOffSet(offset + limit);
