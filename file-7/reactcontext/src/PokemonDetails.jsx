@@ -1,25 +1,19 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-function PokemonDetails() {
+const PokemonDetails = () => {
+  const { name } = useParams();
   const [pokemon, setPokemon] = useState(null);
-  const { id } = useParams();
-  const baseUrl = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchPokemon();
-  }, [id]);
-
-  const fetchPokemon = async () => {
-    try {
-      const response = await fetch(baseUrl);
+    const fetchPokemonDetail = async () => {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
       const data = await response.json();
       setPokemon(data);
-      console.log("data", data.sprites.front_default);
-    } catch (error) {
-      console.error("Error fetching Pokemon data:", error);
-    }
-  };
+    };
+    fetchPokemonDetail();
+  }, [name]);
 
   if (!pokemon) {
     return <div>Loading...</div>;
@@ -27,10 +21,16 @@ function PokemonDetails() {
 
   return (
     <div>
-      <h2>{pokemon.name}</h2>
-      <img src={pokemon.sprites?.front_default} alt={pokemon.name} />
+      <h1>{pokemon.name}</h1>
+      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+      <ul>
+        {pokemon.abilities.map((ability) => (
+          <li key={ability.ability.name}>{ability.ability.name}</li>
+        ))}
+      </ul>
+      <button onClick={() => navigate(-1)}>Back to List</button>
     </div>
   );
-}
+};
 
 export default PokemonDetails;
