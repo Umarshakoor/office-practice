@@ -9,14 +9,22 @@ function PokemonList() {
   useEffect(() => {
     fetchPokemon();
   }, [offset]);
-  // console.log(pokemons);
 
+  const fetchPokemon = async () => {
+    try {
+      const response = await fetch(baseUrl);
+      const data = await response.json();
+      setPokemons(data);
+    } catch (error) {
+      console.error("Error fetching Pokemon data:", error);
+    }
+  };
   useEffect(() => {
     const savedOffset = localStorage.getItem("offset");
     if (savedOffset) {
       setOffSet(Number(savedOffset));
     }
-  }, [setOffSet]);
+  }, []);
 
   useEffect(() => {
     if (!pokemons) {
@@ -26,19 +34,6 @@ function PokemonList() {
       localStorage.setItem("offset", offset);
     }
   }, [pokemons, offset, limit]);
-
-  const fetchPokemon = async () => {
-    try {
-      const response = await fetch(baseUrl);
-
-      // fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
-      const data = await response.json();
-      // console.log(data);
-      setPokemons(data);
-    } catch (error) {
-      console.error("Error fetching Pokemon data:", error);
-    }
-  };
 
   const handleNextPage = () => {
     setOffSet(offset + limit);
@@ -57,10 +52,12 @@ function PokemonList() {
         pokemons.results.map((pokemon, i) => {
           return (
             <>
-              <h4>{pokemon.name}</h4>
-              <li key={i}>
-                <Link to={`/pokemon/${pokemon.name}`}>{pokemon.url}</Link>
-              </li>
+              <div>
+                <h4>{pokemon.name}</h4>
+              </div>
+              <Link key={i} to={pokemon.url}>
+                {pokemon.url}
+              </Link>
             </>
           );
         })}

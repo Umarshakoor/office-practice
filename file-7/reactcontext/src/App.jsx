@@ -5,10 +5,12 @@ import PokemonDetails from "./PokemonDetails";
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<PokemonList />} />
-        <Route path="pokemon/:name" element={<PokemonDetails />} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route exact path="/" element={<PokemonList />} />
+          <Route path="/pokemon/:id" component={PokemonDetails} />
+        </Routes>
+      </div>
     </Router>
   );
 };
