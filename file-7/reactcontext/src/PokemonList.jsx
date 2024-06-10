@@ -24,7 +24,7 @@ function PokemonList() {
     if (savedOffset) {
       setOffSet(Number(savedOffset));
     }
-  }, [setOffSet]);
+  }, []);
 
   useEffect(() => {
     if (!pokemons) {
@@ -55,7 +55,7 @@ function PokemonList() {
               <div>
                 <h4>{pokemon.name}</h4>
               </div>
-              <Link key={i} to={`/pokemon/${pokemon.name}`}>
+              <Link key={i} to={`/home/pokemon/${pokemon.name}`}>
                 {pokemon.url}
               </Link>
             </>

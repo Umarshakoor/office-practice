@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 
 function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
   const { name } = useParams();
+  console.log(name);
   const navigate = useNavigate();
   const baseUrl = `https://pokeapi.co/api/v2/pokemon/${name}`;
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log([...searchParams]);
 
   useEffect(() => {
     fetchPokemon();
