@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function PokemonList() {
   const { offset, setOffSet, limit } = useMyContext();
   const [pokemons, setPokemons] = useState(null);
-  const baseUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+  const baseUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
   useEffect(() => {
     fetchPokemon();
@@ -55,7 +55,7 @@ function PokemonList() {
               <div>
                 <h4>{pokemon.name}</h4>
               </div>
-              <Link key={i} to={pokemon.url}>
+              <Link key={i} to={`/home/pokemon/${pokemon.name}`}>
                 {pokemon.url}
               </Link>
             </>

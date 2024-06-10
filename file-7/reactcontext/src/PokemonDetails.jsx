@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 
-const PokemonDetails = () => {
-  const { name } = useParams();
+function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
-  const { id } = useParams();
-  const baseUrl = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const { name } = useParams();
+  console.log(name);
+  const navigate = useNavigate();
+  const baseUrl = `https://pokeapi.co/api/v2/pokemon/${name}`;
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log([...searchParams]);
 
   useEffect(() => {
     fetchPokemon();
-  }, [id]);
+  }, [name]);
 
   const fetchPokemon = async () => {
     try {
       const response = await fetch(baseUrl);
       const data = await response.json();
       setPokemon(data);
+      console.log(data);
       console.log("data", data.sprites.front_default);
     } catch (error) {
       console.error("Error fetching Pokemon data:", error);
@@ -27,11 +31,25 @@ const PokemonDetails = () => {
   }
 
   return (
-    <div>
-      <h2>{pokemon.name}</h2>
-      <img src={pokemon.sprites?.front_default} alt={pokemon.name} />
-    </div>
+    <>
+      <div>
+        <h2>{pokemon.name}</h2>
+        <img
+          src={pokemon.sprites?.front_default}
+          height={300}
+          alt={pokemon.name}
+        />
+        <h2>Pokemon height: {pokemon.height}</h2>
+        <h2>Pokemon weight: {pokemon.weight}</h2>
+      </div>
+      {pokemon.abilities.map((ability) => {
+        <h3>{ability.stats}</h3>;
+      })}
+      <div>
+        <button onClick={() => navigate(-1)}>go back</button>
+      </div>
+    </>
   );
-};
+}
 
 export default PokemonDetails;
