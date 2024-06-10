@@ -8,8 +8,8 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route exact path="/" element={<PokemonList />} />
-          <Route path="/pokemon/:id" component={PokemonDetails} />
+          <Route path="/" element={<PokemonList />} />
+          <Route path="/pokemon/:name" element={<PokemonDetails />} />
         </Routes>
       </div>
     </Router>
