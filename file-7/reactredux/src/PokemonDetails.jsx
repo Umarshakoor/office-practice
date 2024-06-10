@@ -1,64 +1,65 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 
-const PokemonDetails = () => {
-  const selectedPokemon = useSelector((state) => state.pokemon.selectedPokemon);
-  const [pokemonDetails, setPokemonDetails] = useState([]);
+function PokemonDetails() {
+  const [pokemon, setPokemon] = useState(null);
+  // const { name } = useParams();
+  // console.log(name);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const name = searchParams.get("name");
+  console.log([...searchParams]);
+  const navigate = useNavigate();
+  const baseUrl = `https://pokeapi.co/api/v2/pokemon/${name}`;
 
   useEffect(() => {
-    if (selectedPokemon) {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon}`)
-        .then((response) => response.json())
-        .then((data) => setPokemonDetails(data))
-        .catch((error) =>
-          console.error("Error fetching Pokémon details:", error)
-        );
+    fetchPokemon();
+  }, [name]);
+
+  const fetchPokemon = async () => {
+    try {
+      const response = await fetch(baseUrl);
+      const data = await response.json();
+      setPokemon(data);
+      console.log(data);
+      console.log("data", data.sprites.front_default);
+    } catch (error) {
+      console.error("Error fetching Pokemon data:", error);
     }
-  }, [selectedPokemon]);
+  };
 
-  if (!selectedPokemon) {
-    return <div>Select a Pokémon to see its details</div>;
-  }
-
-  if (!pokemonDetails) {
+  if (!pokemon) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="pokemon-details">
-      <h1>{pokemonDetails.name}</h1>
-      <img
-        src={pokemonDetails.sprites.front_default}
-        alt={pokemonDetails.name}
-      />
-      <table>
-        <tbody>
-          <tr>
-            <td>Height:</td>
-            <td>{pokemonDetails.height}</td>
-          </tr>
-          <tr>
-            <td>Weight:</td>
-            <td>{pokemonDetails.weight}</td>
-          </tr>
-          <tr>
-            <td>Base Experience:</td>
-            <td>{pokemonDetails.base_experience}</td>
-          </tr>
-          <tr>
-            <td>Abilities:</td>
-            <td>
-              <ul>
-                {pokemonDetails.abilities.map((ability, index) => (
-                  <li key={index}>{ability.ability.name}</li>
-                ))}
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <>
+      <div>
+        <h2>{pokemon.name}</h2>
+        <img
+          src={pokemon.sprites?.front_default}
+          height={300}
+          alt={pokemon.name}
+        />
+        <h2>Pokemon height: {pokemon.height}</h2>
+        <h2>Pokemon weight: {pokemon.weight}</h2>
+      </div>
+      <ul>
+        {pokemon.abilities.map((ability) => (
+          <li key={ability.ability.name}>{ability.ability.name}</li>
+        ))}
+      </ul>
+      <ul>
+        {pokemon.stats.map((stat) => (
+          <li key={stat.stat.name}>
+            {stat.stat.name}: {stat.base_stat}
+          </li>
+        ))}
+      </ul>
+      <div>
+        <button onClick={() => navigate(-1)}>go back</button>
+      </div>
+    </>
   );
-};
+}
 
 export default PokemonDetails;

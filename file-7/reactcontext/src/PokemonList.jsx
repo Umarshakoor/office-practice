@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import useMyContext from "./contextHook";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 function PokemonList() {
   const { offset, setOffSet, limit } = useMyContext();
   const [pokemons, setPokemons] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = parseInt(searchParams.get("page") || "1");
   const baseUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
   useEffect(() => {
@@ -55,7 +57,7 @@ function PokemonList() {
               <div>
                 <h4>{pokemon.name}</h4>
               </div>
-              <Link key={i} to={`/home/pokemon/${pokemon.name}`}>
+              <Link key={i} to={`/pokemon?name=${pokemon.name}`}>
                 {pokemon.url}
               </Link>
             </>

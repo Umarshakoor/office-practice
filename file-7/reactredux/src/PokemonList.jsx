@@ -1,65 +1,55 @@
-// PokemonList.js
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPokemon, selectPokemon } from "./store/actions/PokemonAction.jsx";
+import { useSearchParams, Link } from "react-router-dom";
+import { setOffset, setLimit } from "./store/Slices/paginationSlice";
 
-const PokemonList = () => {
+function PokemonList() {
   const dispatch = useDispatch();
-  const { pokemonList, loading, error } = useSelector((state) => state.pokemon);
-  const [offset, setOffset] = useState(0);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredPokemonList, setFilteredPokemonList] = useState([]);
-  const limit = 20;
+  const offset = useSelector((state) => state.pagination.offset);
+  const limit = useSelector((state) => state.pagination.limit);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [pokemons, setPokemons] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchPokemon(offset, limit));
-  }, [dispatch, offset]);
+    const fetchPokemon = async () => {
+      try {
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+        );
+        const data = await response.json();
+        setPokemons(data);
+      } catch (error) {
+        console.error("Error fetching Pokemon data:", error);
+      }
+    };
 
-  useEffect(() => {
-    if (searchTerm === "") {
-      setFilteredPokemonList(pokemonList);
-    } else {
-      setFilteredPokemonList(
-        pokemonList.filter((pokemon) =>
-          pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      );
-    }
-  }, [pokemonList, searchTerm]);
+    fetchPokemon();
+  }, [offset, limit]);
 
   const handleNextPage = () => {
-    setOffset((prevOffset) => prevOffset + limit);
+    dispatch(setOffset(offset + limit));
+    setSearchParams({ offset: offset + limit, limit });
   };
 
   const handlePreviousPage = () => {
-    setOffset((prevOffset) =>
-      prevOffset - limit >= 0 ? prevOffset - limit : 0
-    );
+    dispatch(setOffset(offset - limit >= 0 ? offset - limit : 0));
+    setSearchParams({
+      offset: offset - limit >= 0 ? offset - limit : 0,
+      limit,
+    });
   };
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div>
-      <h1>Pokémon List</h1>
-      <input
-        type="text"
-        placeholder="Search Pokémon"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-bar"
-      />
-      <div className="pokemon-grid">
-        {filteredPokemonList.map((pokemon, index) => (
-          <div key={index} className="pokemon-item">
-            <h3>{pokemon.url}</h3>
-            <button onClick={() => dispatch(selectPokemon(pokemon.name))}>
-              {pokemon.name}
-            </button>
+      <h2>Pokemon List</h2>
+      {pokemons?.results.length > 0 &&
+        pokemons.results.map((pokemon, i) => (
+          <div key={i}>
+            <h4>{pokemon.name}</h4>
+            <Link to={`/pokemon?name=${pokemon.name}`}>{pokemon.name}</Link>
           </div>
         ))}
-      </div>
+
       <div className="pagination">
         <button onClick={handlePreviousPage} disabled={offset === 0}>
           Previous
@@ -68,6 +58,6 @@ const PokemonList = () => {
       </div>
     </div>
   );
-};
+}
 
 export default PokemonList;

@@ -3,12 +3,13 @@ import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 
 function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
-  const { name } = useParams();
-  console.log(name);
+  // const { name } = useParams();
+  // console.log(name);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const name = searchParams.get("name");
+  console.log([...searchParams]);
   const navigate = useNavigate();
   const baseUrl = `https://pokeapi.co/api/v2/pokemon/${name}`;
-  const [searchParams, setSearchParams] = useSearchParams();
-  console.log([...searchParams]);
 
   useEffect(() => {
     fetchPokemon();
@@ -42,9 +43,18 @@ function PokemonDetails() {
         <h2>Pokemon height: {pokemon.height}</h2>
         <h2>Pokemon weight: {pokemon.weight}</h2>
       </div>
-      {pokemon.abilities.map((ability) => {
-        <h3>{ability.stats}</h3>;
-      })}
+      <ul>
+        {pokemon.abilities.map((ability) => (
+          <li key={ability.ability.name}>{ability.ability.name}</li>
+        ))}
+      </ul>
+      <ul>
+        {pokemon.stats.map((stat) => (
+          <li key={stat.stat.name}>
+            {stat.stat.name}: {stat.base_stat}
+          </li>
+        ))}
+      </ul>
       <div>
         <button onClick={() => navigate(-1)}>go back</button>
       </div>
