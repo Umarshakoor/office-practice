@@ -46,7 +46,7 @@ function PokemonList() {
         pokemons.results.map((pokemon, i) => (
           <div key={i}>
             <h4>{pokemon.name}</h4>
-            <Link to={`/pokemon?name=${pokemon.name}`}>{pokemon.name}</Link>
+            <Link to={`/pokemon?name=${pokemon.name}`}>{pokemon.url}</Link>
           </div>
         ))}
 

@@ -1,18 +1,21 @@
-import { Provider } from "react-redux";
-import store from "./store/store";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PokemonList from "./PokemonList";
 import PokemonDetails from "./PokemonDetails";
 import "./App.css";
 
-const App = () => {
+function App() {
   return (
-    <Provider store={store}>
-      <div className="app">
-        <PokemonList />
-        <PokemonDetails />
-      </div>
-    </Provider>
+    <>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<PokemonList />} />
+            <Route path="/pokemon" element={<PokemonDetails />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
-};
+}
 
 export default App;
