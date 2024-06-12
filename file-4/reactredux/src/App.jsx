@@ -1,21 +1,19 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PokemonList from "./PokemonList";
+import PokemonDetails from "./PokemonDetails";
 import "./App.css";
-import Container from "./components/Container";
-import Controls from "./components/controls";
-import DisplayCounter from "./components/DisplayCounter";
-import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <div className="px-4 py-5 my-5 text-center">
-        <Container>
-          <Header />
-          <div className="col-lg-6 mx-auto">
-            <DisplayCounter />
-            <Controls />
-          </div>
-        </Container>
-      </div>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<PokemonList />} />
+            <Route path="/pokemon" element={<PokemonDetails />} />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
