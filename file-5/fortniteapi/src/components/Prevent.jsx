@@ -48,7 +48,7 @@ function Prevent() {
             <br /> officia consequat duis enim velit mollit.
           </Typography>
         </Box>
-        <Box margin={"-40px"} overflow={"auto"}>
+        <Box margin={"-40px"}>
           <img
             height="400px"
             src={wearMask}
