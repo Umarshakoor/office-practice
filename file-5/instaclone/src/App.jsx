@@ -1,30 +1,31 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Container, ThemeProvider } from "@mui/material";
+import { useState } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Profile from "./components/Profile";
-// import Feed from "./components/Feed";
-// import AppContext, { AppProvider } from "./context/AppContext.jsx";
-import theme from "./theme";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+// import AddPost from "./assets/AddPost";
+import { Container } from "@mui/material";
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+  const addPost = (post) => {
+    setPosts([post, ...posts]);
+  };
   return (
-    <ThemeProvider theme={theme}>
-      {/* <AppProvider> */}
-      {/* <AppContext> */}
+    <>
       <Router>
         <Navbar />
         <Container>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route path="/" element={<Home /* posts={posts} */ />} />
             <Route path="/profile" element={<Profile />} />
-            {/* <Route path="/feed" component={Feed} /> */}
+            {/* <Route path="/add" element={<AddPost addPost={addPost} />} /> */}
           </Routes>
         </Container>
       </Router>
-      {/* </AppContext> */}
-      {/* // </AppProvider> */}
-    </ThemeProvider>
+    </>
   );
 }
 
