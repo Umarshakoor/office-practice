@@ -5,7 +5,7 @@ function Navbar() {
     <Box>
       <AppBar position="relative" sx={{ bgcolor: "#f1f7ff" }} elevation="none">
         <Toolbar>
-          <CoronavirusIcon sx={{ color: "blue" }} />
+          <CoronavirusIcon sx={{ color: "blue", fontSize: 60 }} />
           <Tabs
             variant="contained"
             value={0}

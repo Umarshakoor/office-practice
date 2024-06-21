@@ -24,7 +24,7 @@ const Post = () => {
   }; */
 
   return (
-    <Card sx={{ marginBottom: 2 }}>
+    <Card sx={{ marginBottom: 2, marginTop: 5 }}>
       <CardHeader
         avatar={<Avatar aria-label="recipe">R</Avatar>}
         title="Username"

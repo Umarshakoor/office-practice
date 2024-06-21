@@ -5,61 +5,62 @@ import {
   Checkbox,
   Typography,
   Button,
+  Box,
 } from "@mui/material";
-import React from "react";
 
 function WhatCrona() {
   return (
-    <div>
-      <Grid container sx={{ marginTop: "70px" }}>
-        <Grid
-          xs={6}
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-          }}
-          item
-        >
+    <Grid container spacing={2} marginTop="70px">
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
+        <Box>
           <img
             src="https://img.freepik.com/free-photo/girl-working-laptop-mask-high-quality-photo_72229-779.jpg?t=st=1718372128~exp=1718375728~hmac=d15b5a85d4c2819a7187597c6d0ad11bdc38e56f220e26cb3be53cb0969c3bfa&w=900"
             height="250px"
           />
-        </Grid>
-        <Grid xs={6} item sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="h5" color={"#6200de"}>
-            What is Corona Virus?
-          </Typography>
-          <Typography variant="body2" color={"#8e9296"}>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. This is the
-            best Part of the
-          </Typography>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox checked />}
-              label="Have to talk about thid Covid 19 Virus?"
-            />
-            <FormControlLabel
-              control={<Checkbox checked />}
-              label="Have to talk about thid Covid 19 Virus?"
-            />
-            <FormControlLabel
-              control={<Checkbox checked />}
-              label="Have to talk about thid Covid 19 Virus?"
-            />
-          </FormGroup>
-          <Button
-            variant="contained"
-            sx={{
-              bgcolor: "#6200de",
-              borderRadius: "30px",
-            }}
-          >
-            How to Learn
-          </Button>
-        </Grid>
+        </Box>
       </Grid>
-    </div>
+
+      <Grid item xs={12} sm={6}>
+        <Typography variant="h5" color={"#6200de"}>
+          What is Corona Virus?
+        </Typography>
+        <br />
+        <Typography paragraph="true" color={"#8e9296"} gutterBottom>
+          Amet minim mollit non deserunt ullamco est sit aliqua
+          <br /> dolor do amet sint. Velit officia consequat duis
+          <br /> enim velit mollit. This is the best Part of the
+        </Typography>
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox checked />}
+            label="Have to talk about thid Covid 19 Virus?"
+          />
+          <FormControlLabel
+            control={<Checkbox checked />}
+            label="Have to talk about thid Covid 19 Virus?"
+          />
+          <FormControlLabel
+            control={<Checkbox checked />}
+            label="Have to talk about thid Covid 19 Virus?"
+          />
+        </FormGroup>
+        <br />
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: "#6200de",
+            borderRadius: "30px",
+          }}
+        >
+          How to Learn
+        </Button>
+      </Grid>
+    </Grid>
   );
 }
 

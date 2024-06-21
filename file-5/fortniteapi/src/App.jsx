@@ -1,8 +1,10 @@
 import "./App.css";
+import Dangerous from "./components/Dangerous";
 // import FetchFort from "./components/FetchFort";
 import Navbar from "./components/Navbar";
 import Prevent from "./components/Prevent";
 import Statistics from "./components/Statistics";
+import Steps from "./components/Steps";
 import WhatCrona from "./components/WhatCrona";
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
       <Prevent />
       <Statistics />
       <WhatCrona />
+      <Dangerous />
+      <Steps />
     </>
   );
 }

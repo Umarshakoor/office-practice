@@ -13,6 +13,7 @@ import {
   AddBox as AddBoxIcon,
   FavoriteBorder as FavoriteBorderIcon,
   Person as PersonIcon,
+  Menu as MenuIcon,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
@@ -20,16 +21,21 @@ const Navbar = () => {
   return (
     <>
       <AppBar position="static">
-        <Toolbar>
-          <Grid container alignItems="center">
+        <Toolbar
+          sx={(theme) => ({
+            [theme.breakpoints.up("xs")]: { justifyContent: "center" },
+            [theme.breakpoints.up("sm")]: { justifyContent: "left" },
+            bgcolor: "white",
+          })}
+        >
+          <Grid container spacing={1} alignItems="center">
             <Grid item xs={6} sm={3}>
-              <Typography
-                variant="h6"
-                component={Link}
-                to="/"
+              <MenuIcon sx={{ display: { xs: "block", sm: "none" } }} />
+              <Box
                 sx={{
-                  textDecoration: "none",
-                  color: "inherit",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <img
@@ -38,13 +44,22 @@ const Navbar = () => {
                   }
                   alt="Instagram"
                   style={{
-                    height: "2rem",
-                    /* marginRight: "0.5rem",
-                    marginTop: "0.8rem", */
+                    height: "30px",
+                    marginRight: "0.5rem",
                   }}
                 />
-                Instagram
-              </Typography>
+                <Typography
+                  variant="h6"
+                  component={Link}
+                  to="/"
+                  sx={{
+                    textDecoration: "none",
+                    color: "black",
+                  }}
+                >
+                  Instagram
+                </Typography>
+              </Box>
             </Grid>
             <Grid item xs={6} sm={6}>
               <Box
@@ -52,12 +67,19 @@ const Navbar = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  bgcolor: "rgba(0, 0, 0, 0.1)",
+                  borderRadius: "10px",
+                  boxShadow: "0 0 5px #ef6233",
                 }}
               >
                 <SearchIcon />
                 <InputBase
                   placeholder="Search..."
-                  sx={{ marginLeft: "1", width: "100%" }}
+                  sx={{
+                    marginLeft: "1",
+                    marginRight: "1",
+                    width: "100%",
+                  }}
                 />
               </Box>
             </Grid>
