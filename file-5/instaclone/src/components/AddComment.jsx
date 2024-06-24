@@ -1,5 +1,6 @@
-/* import { useState } from "react";
+import { useState } from "react";
 import { TextField, Button } from "@mui/material";
+import PropTypes from "prop-types";
 
 const AddComment = ({ addComment }) => {
   const [comment, setComment] = useState("");
@@ -28,5 +29,8 @@ const AddComment = ({ addComment }) => {
   );
 };
 
+AddComment.propTypes = {
+  addComment: PropTypes.func.isRequired,
+};
+
 export default AddComment;
- */

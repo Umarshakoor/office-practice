@@ -1,4 +1,5 @@
 import "./App.css";
+import Cards from "./components/Cards";
 import Dangerous from "./components/Dangerous";
 // import FetchFort from "./components/FetchFort";
 import Navbar from "./components/Navbar";
@@ -16,6 +17,7 @@ function App() {
       <WhatCrona />
       <Dangerous />
       <Steps />
+      <Cards />
     </>
   );
 }
