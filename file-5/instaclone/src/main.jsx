@@ -2,6 +2,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { StateProvider } from "./context/StateContext.jsx";
 
 const theme = createTheme({
   palette: {
@@ -23,6 +24,8 @@ const theme = createTheme({
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <App />
+    <StateProvider>
+      <App />
+    </StateProvider>
   </ThemeProvider>
 );

@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { TextField, Button, Box } from "@mui/material";
+import { StateContext } from "../context/StateContext";
 
-const AddPost = ({ addPost }) => {
-  const [post, setPost] = useState({ name: "", imagepng: "" });
+const AddPost = () => {
+  const [post, setPost] = useState({
+    name: "",
+    imagepng: "",
+    description: "",
+    date: "",
+  });
+
+  // let date = new Date().toUTCString().slice(5, 16);
+
+  const { posts, setPosts } = useContext(StateContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPost(post);
+    setPosts([...posts, post]);
     setPost({ name: "", imagepng: "" });
+    const currPOST = localStorage.getItem("posts");
+    currPOST.push(post);
+    console.log(currPOST);
+    console.log(posts);
   };
 
   return (
@@ -22,10 +36,10 @@ const AddPost = ({ addPost }) => {
       }}
     >
       <TextField
-        label="Post Text"
+        label="Full Name"
         variant="outlined"
-        fullWidth
         value={post.name}
+        required
         onChange={(e) => setPost({ ...post, name: e.target.value })}
       />
       <TextField
@@ -33,8 +47,20 @@ const AddPost = ({ addPost }) => {
         variant="outlined"
         fullWidth
         value={post.imagepng}
+        required
         onChange={(e) => setPost({ ...post, imagepng: e.target.value })}
       />
+      <TextField
+        label="Description"
+        variant="outlined"
+        fullWidth
+        multiline
+        rows={4}
+        value={post.description}
+        required
+        onChange={(e) => setPost({ ...post, description: e.target.value })}
+      />
+
       <Button type="submit" variant="contained">
         Post
       </Button>
