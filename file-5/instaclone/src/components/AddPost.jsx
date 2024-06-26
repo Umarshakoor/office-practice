@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
 import { StateContext } from "../context/StateContext";
 
@@ -7,21 +7,28 @@ const AddPost = () => {
     name: "",
     imagepng: "",
     description: "",
-    date: "",
+    // date: new Date().toISOString(),
+    // date: "",
   });
-
-  // let date = new Date().toUTCString().slice(5, 16);
 
   const { posts, setPosts } = useContext(StateContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPosts([...posts, post]);
-    setPost({ name: "", imagepng: "" });
-    const currPOST = localStorage.getItem("posts");
-    currPOST.push(post);
-    console.log(currPOST);
-    console.log(posts);
+    /* const newPosts = [post, ...posts]; */
+    setPosts([post, ...posts]);
+    setPost({
+      name: "",
+      imagepng: "",
+      description: "",
+      /* date: new Date().toISOString(), */
+      // date: "",
+    });
+
+    /* const currPOST = localStorage.getItem("posts");
+    currPOST.push(post); */
+
+    localStorage.setItem("posts", JSON.stringify(setPosts));
   };
 
   return (

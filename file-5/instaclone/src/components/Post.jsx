@@ -16,52 +16,16 @@ import {
   Comment as CommentIcon,
 } from "@mui/icons-material";
 import AddComment from "./AddComment";
-import AddPost from "./AddPost";
 import { dummyData } from "./Data";
 import { StateContext } from "../context/StateContext";
 
 const Post = () => {
   const [comments, setComments] = useState([]);
+  const { posts, setPosts } = useContext(StateContext);
 
   const addComment = (comment) => {
     setComments([...comments, comment]);
   };
-
-  const { posts, setPosts } = useContext(StateContext);
-
-  /*  useEffect(() => {
-    if (posts.length > 0) {
-      localStorage.setItem("blogs", JSON.stringify(posts));
-    }
-  }, [posts]);
-
-  useEffect(() => {
-    const storedPost = JSON.parse(localStorage.getItem("posts"));
-    if (storedPost) {
-      setPosts(storedPost);
-    }
-  }, [setPosts]);
-
-  useEffect(() => {
-    const handleStorageChanges = (event) => {
-      console.log(event);
-      if (event.key === "posts") {
-        setPosts(JSON.parse(event.newValue));
-      }
-    };
-    window.addEventListener("storage", handleStorageChanges);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChanges);
-    };
-  }, []); */
-
-  useEffect(() => {
-    const storedPost = JSON.parse(localStorage.getItem("posts"));
-    if (storedPost) {
-      setPosts(storedPost);
-    }
-  }, [setPosts]);
 
   useEffect(() => {
     if (posts.length > 0) {
@@ -70,18 +34,13 @@ const Post = () => {
   }, [posts]);
 
   useEffect(() => {
-    const handleStorageChanges = (event) => {
-      console.log(event);
-      if (event.key === "posts") {
-        setPosts(JSON.parse(event.newValue));
-      }
-    };
-    window.addEventListener("storage", handleStorageChanges);
+    const storedPosts = JSON.parse(localStorage.getItem("posts"));
+    if (storedPosts) {
+      setPosts(storedPosts);
+    }
+  }, []);
 
-    return () => {
-      window.removeEventListener("storage", handleStorageChanges);
-    };
-  }, [setPosts]);
+  // let date = new Date().toUTCString().slice(5, 16);
 
   const newdate = new Date().toDateString();
   console.log(newdate);

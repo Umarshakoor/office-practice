@@ -16,8 +16,18 @@ import {
   Menu as MenuIcon,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { StateContext } from "../context/StateContext";
 
 const Navbar = () => {
+  const [query, setQuery] = useState("");
+  const [filteredItems, setFilteredItems] = useState([]);
+
+  const { posts, setPosts } = useContext(StateContext);
+
+  console.log(posts);
+
+  console.log(query);
   return (
     <>
       <AppBar position="static">
@@ -74,7 +84,9 @@ const Navbar = () => {
               >
                 <SearchIcon />
                 <InputBase
+                  value={query}
                   placeholder="Search..."
+                  onChange={(e) => setQuery(e.target.value)}
                   sx={{
                     marginLeft: "1",
                     marginRight: "1",

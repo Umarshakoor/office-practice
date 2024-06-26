@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useMemo } from "react";
 
 export const StateContext = createContext();
 
@@ -7,10 +7,15 @@ export const StateContext = createContext();
 export const StateProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   console.log(posts);
+  const value = useMemo(
+    () => ({
+      posts,
+      setPosts,
+    }),
+    [posts, setPosts]
+  );
 
   return (
-    <StateContext.Provider value={{ posts, setPosts }}>
-      {children}
-    </StateContext.Provider>
+    <StateContext.Provider value={value}>{children}</StateContext.Provider>
   );
 };
