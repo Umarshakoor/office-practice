@@ -16,24 +16,6 @@ function Statistics() {
           Amet minim mollit non deserunt ullamco est sit
         </Typography>
       </Box>
-      {/*       <Grid container>
-        <Grid item xs={12} sm={6} md={4}>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Typography variant="h6">Total Cases</Typography>
-          </Box>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Typography variant="h6">Total Deaths</Typography>
-          </Box>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Typography variant="h6">Total Recovered</Typography>
-          </Box>
-        </Grid>
-      </Grid> */}
-      {/*       <Box
-        display="flex"
-        Direction="row"
-        sx={{ display: "flex", direction: "row", textAlign: "center" }}
-      ></Box> */}
       <Box
         sx={{
           display: "flex",
@@ -64,33 +46,6 @@ function Statistics() {
         </Box>
       </Box>
       <br />
-      {/* <Box
-        sx={{
-          border: "5px solid",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Box
-          sx={{
-            border: "5px solid",
-            borderColor: "red",
-            padding: 1,
-          }}
-        >
-          <p>Inner box 3</p>
-        </Box>
-        <Box
-          sx={{
-            border: "5px solid",
-            borderColor: "maroon",
-            padding: 1,
-          }}
-        >
-          <ModeStandbyRoundedIcon />
-          <p>Inner box 4</p>
-        </Box>
-      </Box> */}
       <Container
         sx={{
           display: "flex",

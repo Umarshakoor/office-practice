@@ -7,6 +7,7 @@ export const StateContext = createContext();
 export const StateProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const [query, setQuery] = useState("");
+  console.log("query", query);
   const value = useMemo(
     () => ({
       posts,

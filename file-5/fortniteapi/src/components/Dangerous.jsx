@@ -89,7 +89,7 @@ function Dangerous() {
     >
       <Grid item xs={12} sm={6}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <img src={virus} height="250px" />
+          <img src={virus} height="200px" />
         </Box>
       </Grid>
 
@@ -105,7 +105,7 @@ function Dangerous() {
           }}
         >
           <Typography variant="h5" color={"#6200de"}>
-            What is Corona Virus?
+            Why It is Dangerous?
           </Typography>
           <br />
           <Typography paragraph="true" color={"#8e9296"} gutterBottom>

@@ -16,7 +16,6 @@ import {
   Comment as CommentIcon,
 } from "@mui/icons-material";
 import AddComment from "./AddComment";
-import { dummyData } from "./Data";
 import { StateContext } from "../context/StateContext";
 
 const Post = () => {
@@ -44,10 +43,10 @@ const Post = () => {
   const newdate = new Date().toDateString();
 
   const filterArray = posts.filter((post) => post.name.includes(query));
-  /*   console.log("filterArray", filterArray.length);
-  console.log("query", !query); */
-  console.log("filterArray", filterArray);
+  console.log("filterArray", filterArray.length);
   console.log("query", query);
+  console.log("filterArray", filterArray);
+  // console.log("query", query);
 
   return (
     <Card sx={{ marginBottom: 2, marginTop: 5, width: "70%", margin: "auto" }}>
@@ -135,7 +134,7 @@ const Post = () => {
               <AddComment addComment={addComment} />
             </Box>
           ))}
-      {dummyData.map((data, i) => (
+      {/* {dummyData.map((data, i) => (
         <Box key={i}>
           <CardHeader
             avatar={<Avatar aria-label="recipe">{data.name[0]}</Avatar>}
@@ -175,7 +174,7 @@ const Post = () => {
           </CardContent>
           <AddComment addComment={addComment} />
         </Box>
-      ))}
+      ))} */}
     </Card>
   );
 };

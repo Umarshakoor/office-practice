@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
 import { StateContext } from "../context/StateContext";
+import { Link } from "react-router-dom";
 
 const AddPost = () => {
   const [post, setPost] = useState({
@@ -68,7 +69,7 @@ const AddPost = () => {
         onChange={(e) => setPost({ ...post, description: e.target.value })}
       />
 
-      <Button type="submit" variant="contained">
+      <Button type="submit" variant="contained" component={Link} to="/">
         Post
       </Button>
     </Box>

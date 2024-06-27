@@ -11,7 +11,6 @@ import {
   FormControlLabel,
   Button,
 } from "@mui/material";
-import React from "react";
 
 function Cards() {
   return (
@@ -124,7 +123,7 @@ function Cards() {
               }}
             >
               <Typography variant="h5" color={"#6200de"}>
-                What is Corona Virus?
+                How to Be Prevent CoronoVirus?
               </Typography>
               <br />
               <Typography paragraph="true" color={"#8e9296"} gutterBottom>

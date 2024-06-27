@@ -9,8 +9,7 @@ function Prevent() {
           borderRadius: "0 0 40% 0",
           bgcolor: "#f1f7ff",
           display: "flex",
-          justifyContent: "space-between",
-          height: "300px",
+          height: "400px",
           overflow: "hidden",
         }}
       >
@@ -47,27 +46,27 @@ function Prevent() {
             <br /> sit aliqua dolor do amet sint. Velit
             <br /> officia consequat duis enim velit mollit.
           </Typography>
+
+          <Button
+            variant="contained"
+            sx={{
+              marginLeft: "40px",
+              bgcolor: "#6200de",
+              borderRadius: "30px",
+            }}
+          >
+            How to Prevent
+          </Button>
         </Box>
-        <Box margin={"-40px"}>
+        <Box>
           <img
-            height="400px"
+            height="500"
             src={wearMask}
             alt="people wearing mask"
             loading="lazy"
           />
         </Box>
       </Box>
-      <Button
-        variant="contained"
-        sx={{
-          marginLeft: "40px",
-          marginTop: "-130px",
-          bgcolor: "#6200de",
-          borderRadius: "30px",
-        }}
-      >
-        How to Prevent
-      </Button>
     </>
   );
 }
