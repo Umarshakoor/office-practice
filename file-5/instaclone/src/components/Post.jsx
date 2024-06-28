@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useId } from "react";
 import {
   Card,
   CardHeader,
@@ -10,17 +10,25 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import {
-  Favorite as FavoriteIcon,
-  Share as ShareIcon,
-  Comment as CommentIcon,
-} from "@mui/icons-material";
+import { Favorite, Share, Comment, FavoriteBorder } from "@mui/icons-material";
 import AddComment from "./AddComment";
 import { StateContext } from "../context/StateContext";
 
 const Post = () => {
   const [comments, setComments] = useState([]);
   const { posts, setPosts, query } = useContext(StateContext);
+  const [likes, setLikes] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
+  const id = useId();
+  console.log(id);
+
+  console.log(posts);
+
+  // function for handling like
+  function handleLike() {
+    setIsLiked(!isLiked);
+    setLikes(isLiked ? likes - 1 : likes + 1);
+  }
 
   const addComment = (comment) => {
     setComments([...comments, comment]);
@@ -39,30 +47,34 @@ const Post = () => {
     }
   }, []);
 
-  // let date = new Date().toUTCString().slice(5, 16);
-  const newdate = new Date().toDateString();
+  // const newdate = new Date().toDateString();
 
   const filterArray = posts.filter((post) => post.name.includes(query));
-  console.log("filterArray", filterArray.length);
-  console.log("query", query);
-  console.log("filterArray", filterArray);
-  // console.log("query", query);
 
   return (
-    <Card sx={{ marginBottom: 2, marginTop: 5, width: "70%", margin: "auto" }}>
+    <Card
+      sx={{
+        marginBottom: 2,
+        marginTop: 5,
+        width: "70%",
+        margin: "auto",
+        border: "2px solid blue",
+      }}
+    >
       {!query
         ? posts.length > 0 &&
           posts.map((post, i) => (
-            <Box key={i}>
-              <CardHeader
-                avatar={<Avatar aria-label="recipe">{post.name[0]}</Avatar>}
-                title={post.name}
-                subheader={newdate}
-              />
+            <Box key={i} border={"5px solid green"}>
+              <box>
+                <CardHeader
+                  avatar={<Avatar aria-label="recipe">{post.name[0]}</Avatar>}
+                  title={post.name}
+                  subheader={post.date}
+                />
+              </box>
               <CardMedia
                 component="img"
                 height="50%"
-                // width="50"
                 image={post.imagepng}
                 alt="Paella dish"
               />
@@ -71,18 +83,25 @@ const Post = () => {
                   {post.description}
                 </Typography>
               </CardContent>
+
               <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
+                <IconButton
+                  aria-label="like"
+                  color={isLiked ? "primary" : "default"}
+                  onClick={handleLike}
+                >
+                  {isLiked ? <Favorite /> : <FavoriteBorder />}
+                  {`${likes === !likes ? 0 : likes}`}
                 </IconButton>
                 <IconButton aria-label="share">
-                  <ShareIcon />
+                  <Share />
                 </IconButton>
                 <IconButton aria-label="comment">
-                  <CommentIcon />
+                  <Comment />
                 </IconButton>
               </CardActions>
-              <CardContent>
+
+              <CardContent key={post.id}>
                 <Typography paragraph>Comments:</Typography>
                 {comments.map((comment, i) => (
                   <Typography key={i} variant="body2" color="text.secondary">
@@ -96,14 +115,13 @@ const Post = () => {
         : filterArray.map((post, i) => (
             <Box key={i}>
               <CardHeader
-                avatar={<Avatar aria-label="recipe">{post.name[0]}</Avatar>}
+                avatar={<Avatar>{post.name[0]}</Avatar>}
                 title={post.name}
-                subheader={newdate}
+                subheader={post.date}
               />
               <CardMedia
                 component="img"
                 height="50%"
-                // width="50"
                 image={post.imagepng}
                 alt="Paella dish"
               />
@@ -114,13 +132,13 @@ const Post = () => {
               </CardContent>
               <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
+                  <Favorite />
                 </IconButton>
                 <IconButton aria-label="share">
-                  <ShareIcon />
+                  <Share />
                 </IconButton>
                 <IconButton aria-label="comment">
-                  <CommentIcon />
+                  <Comment />
                 </IconButton>
               </CardActions>
               <CardContent>
@@ -134,7 +152,14 @@ const Post = () => {
               <AddComment addComment={addComment} />
             </Box>
           ))}
-      {/* {dummyData.map((data, i) => (
+    </Card>
+  );
+};
+export default Post;
+
+//hardcoded dummydata
+{
+  /* {dummyData.map((data, i) => (
         <Box key={i}>
           <CardHeader
             avatar={<Avatar aria-label="recipe">{data.name[0]}</Avatar>}
@@ -174,8 +199,5 @@ const Post = () => {
           </CardContent>
           <AddComment addComment={addComment} />
         </Box>
-      ))} */}
-    </Card>
-  );
-};
-export default Post;
+      ))} */
+}

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import { TextField, Button } from "@mui/material";
 import PropTypes from "prop-types";
 
 const AddComment = ({ addComment }) => {
+  const id = useId();
   const [comment, setComment] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
     addComment(comment);
@@ -18,6 +18,7 @@ const AddComment = ({ addComment }) => {
         variant="outlined"
         size="small"
         fullWidth
+        key={id}
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         sx={{ marginBottom: 1 }}

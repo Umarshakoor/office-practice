@@ -23,6 +23,7 @@ const Navbar = () => {
   const { query, setQuery } = useContext(StateContext);
 
   const handleSearch = (e) => {
+    e.preventDefault();
     const query = e.target.value;
     setQuery(query);
   };
