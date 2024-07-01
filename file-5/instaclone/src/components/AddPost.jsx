@@ -1,38 +1,46 @@
 import { useContext, useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
 import { StateContext } from "../context/StateContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddPost = () => {
   const navigate = useNavigate();
   const [post, setPost] = useState({
-    id: new Date(),
+    id: new Date().getTime(),
     name: "",
     imagepng: "",
     description: "",
     date: new Date().toLocaleDateString("en-GB"),
   });
 
-  const { posts, setPosts } = useContext(StateContext);
+  const { posts, setPosts, suggestions, setSuggestions } =
+    useContext(StateContext);
   const [posted, setPosted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPosts([post, ...posts]);
-    setPost({
-      name: "",
-      imagepng: "",
-      description: "",
-    });
-    setPosted(true);
-    navigateToHome();
+    if (post.name && post.imagepng && post.description) {
+      setPosts([post, ...posts]);
+
+      if (!suggestions.includes(post.name)) {
+        setSuggestions([...suggestions, post.name]);
+      }
+
+      setPost({
+        name: "",
+        imagepng: "",
+        description: "",
+      });
+      setPosted(true);
+      navigateToHome();
+    } else {
+      alert("Please fill all the fields");
+    }
   };
 
   const navigateToHome = () => {
     if (posted) {
       navigate("/");
-    } else {
-      alert("Form fill kro");
     }
   };
 
@@ -73,14 +81,7 @@ const AddPost = () => {
         onChange={(e) => setPost({ ...post, description: e.target.value })}
       />
 
-      <Button
-        type="submit"
-        variant="contained"
-        component={Link}
-        onClick={handleSubmit}
-        to={posted ? "/home" : "/add"}
-        // disabled={!post.name || !post.description || !post.imagepng}
-      >
+      <Button type="submit" variant="contained">
         Post
       </Button>
     </Box>

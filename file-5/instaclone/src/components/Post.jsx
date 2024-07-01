@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect, useId } from "react";
+import { useState, useContext, useEffect } from "react";
 import {
   Card,
   CardHeader,
@@ -10,28 +10,47 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import { Favorite, Share, Comment, FavoriteBorder } from "@mui/icons-material";
+import {
+  Favorite,
+  Share,
+  Comment,
+  FavoriteBorder,
+  Delete,
+} from "@mui/icons-material";
 import AddComment from "./AddComment";
 import { StateContext } from "../context/StateContext";
 
 const Post = () => {
-  const [comments, setComments] = useState([]);
-  const { posts, setPosts, query } = useContext(StateContext);
-  const [likes, setLikes] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
-  const id = useId();
-  console.log(id);
+  const { posts, setPosts, comments, setComments, query } =
+    useContext(StateContext);
+  const [likes, setLikes] = useState({});
+  const [isLiked, setIsLiked] = useState({});
 
-  console.log(posts);
+  const handleLike = (postId) => {
+    setIsLiked((prevLikes) => ({
+      ...prevLikes,
+      [postId]: !prevLikes[postId],
+    }));
 
-  // function for handling like
-  function handleLike() {
-    setIsLiked(!isLiked);
-    setLikes(isLiked ? likes - 1 : likes + 1);
-  }
+    setLikes((prevLikes) => ({
+      ...prevLikes,
+      [postId]: prevLikes[postId] ? prevLikes[postId] + 1 : 1,
+    }));
+  };
 
-  const addComment = (comment) => {
-    setComments([...comments, comment]);
+  const addComment = (postId, comment) => {
+    setComments((prevComments) => ({
+      ...prevComments,
+      [postId]: [...(prevComments[postId] || []), comment],
+    }));
+  };
+
+  const deletePost = (postId) => {
+    setPosts(posts.filter((post) => post.id !== postId));
+    setComments((prevComments) => {
+      const { [postId]: _, ...rest } = prevComments;
+      return rest;
+    });
   };
 
   useEffect(() => {
@@ -47,8 +66,6 @@ const Post = () => {
     }
   }, []);
 
-  // const newdate = new Date().toDateString();
-
   const filterArray = posts.filter((post) => post.name.includes(query));
 
   return (
@@ -63,20 +80,18 @@ const Post = () => {
     >
       {!query
         ? posts.length > 0 &&
-          posts.map((post, i) => (
-            <Box key={i} border={"5px solid green"}>
-              <box>
-                <CardHeader
-                  avatar={<Avatar aria-label="recipe">{post.name[0]}</Avatar>}
-                  title={post.name}
-                  subheader={post.date}
-                />
-              </box>
+          posts.map((post) => (
+            <Box key={post.id} border={"5px solid green"}>
+              <CardHeader
+                avatar={<Avatar aria-label="recipe">{post.name[0]}</Avatar>}
+                title={post.name}
+                subheader={post.date}
+              />
               <CardMedia
                 component="img"
                 height="50%"
                 image={post.imagepng}
-                alt="Paella dish"
+                alt="Post image"
               />
               <CardContent>
                 <Typography variant="body2" color="text.secondary">
@@ -87,11 +102,11 @@ const Post = () => {
               <CardActions disableSpacing>
                 <IconButton
                   aria-label="like"
-                  color={isLiked ? "primary" : "default"}
-                  onClick={handleLike}
+                  color={isLiked[post.id] ? "primary" : "default"}
+                  onClick={() => handleLike(post.id)}
                 >
-                  {isLiked ? <Favorite /> : <FavoriteBorder />}
-                  {`${likes === !likes ? 0 : likes}`}
+                  {isLiked[post.id] ? <Favorite /> : <FavoriteBorder />}
+                  {likes[post.id] || 0}
                 </IconButton>
                 <IconButton aria-label="share">
                   <Share />
@@ -99,21 +114,28 @@ const Post = () => {
                 <IconButton aria-label="comment">
                   <Comment />
                 </IconButton>
+                <IconButton
+                  aria-label="delete"
+                  onClick={() => deletePost(post.id)}
+                >
+                  <Delete />
+                </IconButton>
               </CardActions>
 
               <CardContent key={post.id}>
                 <Typography paragraph>Comments:</Typography>
-                {comments.map((comment, i) => (
-                  <Typography key={i} variant="body2" color="text.secondary">
-                    {comment}
-                  </Typography>
-                ))}
+                {comments[post.id] &&
+                  comments[post.id].map((comment, i) => (
+                    <Typography key={i} variant="body2" color="text.secondary">
+                      {comment}
+                    </Typography>
+                  ))}
               </CardContent>
-              <AddComment addComment={addComment} />
+              <AddComment postId={post.id} addComment={addComment} />
             </Box>
           ))
-        : filterArray.map((post, i) => (
-            <Box key={i}>
+        : filterArray.map((post) => (
+            <Box key={post.id}>
               <CardHeader
                 avatar={<Avatar>{post.name[0]}</Avatar>}
                 title={post.name}
@@ -123,7 +145,7 @@ const Post = () => {
                 component="img"
                 height="50%"
                 image={post.imagepng}
-                alt="Paella dish"
+                alt="Post image"
               />
               <CardContent>
                 <Typography variant="body2" color="text.secondary">
@@ -131,8 +153,13 @@ const Post = () => {
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                  <Favorite />
+                <IconButton
+                  aria-label="like"
+                  color={isLiked[post.id] ? "primary" : "default"}
+                  onClick={() => handleLike(post.id)}
+                >
+                  {isLiked[post.id] ? <Favorite /> : <FavoriteBorder />}
+                  {likes[post.id] || 0}
                 </IconButton>
                 <IconButton aria-label="share">
                   <Share />
@@ -140,64 +167,27 @@ const Post = () => {
                 <IconButton aria-label="comment">
                   <Comment />
                 </IconButton>
+                <IconButton
+                  aria-label="delete"
+                  onClick={() => deletePost(post.id)}
+                >
+                  <Delete />
+                </IconButton>
               </CardActions>
-              <CardContent>
+              <CardContent key={post.id}>
                 <Typography paragraph>Comments:</Typography>
-                {comments.map((comment, i) => (
-                  <Typography key={i} variant="body2" color="text.secondary">
-                    {comment}
-                  </Typography>
-                ))}
+                {comments[post.id] &&
+                  comments[post.id].map((comment, i) => (
+                    <Typography key={i} variant="body2" color="text.secondary">
+                      {comment}
+                    </Typography>
+                  ))}
               </CardContent>
-              <AddComment addComment={addComment} />
+              <AddComment postId={post.id} addComment={addComment} />
             </Box>
           ))}
     </Card>
   );
 };
-export default Post;
 
-//hardcoded dummydata
-{
-  /* {dummyData.map((data, i) => (
-        <Box key={i}>
-          <CardHeader
-            avatar={<Avatar aria-label="recipe">{data.name[0]}</Avatar>}
-            title={data.name}
-            subheader={data.date}
-          />
-          <CardMedia
-            component="img"
-            height="50%"
-            // width="50"
-            image={data.postpng}
-            alt="Paella dish"
-          />
-          <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              {data.description}
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
-            <IconButton aria-label="comment">
-              <CommentIcon />
-            </IconButton>
-          </CardActions>
-          <CardContent>
-            <Typography paragraph>Comments:</Typography>
-            {comments.map((comment, i) => (
-              <Typography key={i} variant="body2" color="text.secondary">
-                {comment}
-              </Typography>
-            ))}
-          </CardContent>
-          <AddComment addComment={addComment} />
-        </Box>
-      ))} */
-}
+export default Post;

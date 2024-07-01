@@ -1,13 +1,13 @@
-import { useState, useId } from "react";
+import { useState } from "react";
 import { TextField, Button } from "@mui/material";
 import PropTypes from "prop-types";
 
-const AddComment = ({ addComment }) => {
-  const id = useId();
+const AddComment = ({ postId, addComment }) => {
   const [comment, setComment] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    addComment(comment);
+    addComment(postId, comment);
     setComment("");
   };
 
@@ -18,7 +18,6 @@ const AddComment = ({ addComment }) => {
         variant="outlined"
         size="small"
         fullWidth
-        key={id}
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         sx={{ marginBottom: 1 }}
@@ -31,6 +30,7 @@ const AddComment = ({ addComment }) => {
 };
 
 AddComment.propTypes = {
+  postId: PropTypes.string.isRequired,
   addComment: PropTypes.func.isRequired,
 };
 

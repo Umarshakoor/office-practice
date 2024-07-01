@@ -1,36 +1,29 @@
+import { useContext } from "react";
 import {
-  Box,
-  Typography,
+  Avatar,
   List,
   ListItem,
+  ListItemAvatar,
   ListItemText,
-  Avatar,
-  Container,
 } from "@mui/material";
-import { useContext } from "react";
 import { StateContext } from "../context/StateContext";
 
 const Sidebar = () => {
-  // const recommendations = ["User1", "User2", "User3", "User4"];
-  const { posts } = useContext(StateContext);
-  const uniquefilter = posts.filter((post) => post.name);
-  console.log(uniquefilter);
-  const setfilter = new Set(uniquefilter);
-  console.log(setfilter);
+  const { suggestions } = useContext(StateContext);
+
+  const uniqueSuggestions = Array.from(new Set(suggestions)).slice(0, 6);
+
   return (
-    <Container>
-      <Box sx={{ padding: 2 }}>
-        <Typography variant="h6">Suggestions for you</Typography>
-        <List>
-          {uniquefilter.map((post, name) => (
-            <ListItem key={name}>
-              <Avatar>{post.name[0]}</Avatar>
-              <ListItemText primary={post.name} />
-            </ListItem>
-          ))}
-        </List>
-      </Box>
-    </Container>
+    <List>
+      {uniqueSuggestions.map((suggestion, index) => (
+        <ListItem key={index}>
+          <ListItemAvatar>
+            <Avatar>{suggestion[0].toUpperCase()}</Avatar>
+          </ListItemAvatar>
+          <ListItemText primary={suggestion} />
+        </ListItem>
+      ))}
+    </List>
   );
 };
 
