@@ -26,29 +26,29 @@ const Post = () => {
   const [likes, setLikes] = useState({});
   const [isLiked, setIsLiked] = useState({});
 
-  const handleLike = (postId) => {
+  const handleLike = (id) => {
     setIsLiked((prevLikes) => ({
       ...prevLikes,
-      [postId]: !prevLikes[postId],
+      [id]: !prevLikes[id],
     }));
 
     setLikes((prevLikes) => ({
       ...prevLikes,
-      [postId]: prevLikes[postId] ? prevLikes[postId] + 1 : 1,
+      [id]: prevLikes[id] ? prevLikes[id] + 1 : 1,
     }));
   };
 
-  const addComment = (postId, comment) => {
+  const addComment = (id, comment) => {
     setComments((prevComments) => ({
       ...prevComments,
-      [postId]: [...(prevComments[postId] || []), comment],
+      [id]: [...(prevComments[id] || []), comment],
     }));
   };
 
-  const deletePost = (postId) => {
-    setPosts(posts.filter((post) => post.id !== postId));
+  const deletePost = (id) => {
+    setPosts(posts.filter((post) => post.id !== id));
     setComments((prevComments) => {
-      const { [postId]: _, ...rest } = prevComments;
+      const { [id]: _, ...rest } = prevComments;
       return rest;
     });
   };
@@ -131,7 +131,7 @@ const Post = () => {
                     </Typography>
                   ))}
               </CardContent>
-              <AddComment postId={post.id} addComment={addComment} />
+              <AddComment id={post.id} addComment={addComment} />
             </Box>
           ))
         : filterArray.map((post) => (
@@ -183,7 +183,7 @@ const Post = () => {
                     </Typography>
                   ))}
               </CardContent>
-              <AddComment postId={post.id} addComment={addComment} />
+              <AddComment id={post.id} addComment={addComment} />
             </Box>
           ))}
     </Card>
