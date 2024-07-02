@@ -27,9 +27,11 @@ const AddPost = () => {
       }
 
       setPost({
+        id: new Date().getTime(),
         name: "",
         imagepng: "",
         description: "",
+        date: new Date().toLocaleDateString("en-GB"),
       });
       setPosted(true);
       navigateToHome();
@@ -81,7 +83,7 @@ const AddPost = () => {
         onChange={(e) => setPost({ ...post, description: e.target.value })}
       />
 
-      <Button type="submit" variant="contained">
+      <Button type="submit" variant="contained" onClick={navigateToHome}>
         Post
       </Button>
     </Box>

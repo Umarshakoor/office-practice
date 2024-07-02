@@ -8,6 +8,8 @@ export const StateProvider = ({ children }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [query, setQuery] = useState("");
 
+  console.log("context", comments);
+
   const value = useMemo(
     () => ({
       posts,

@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { TextField, Button } from "@mui/material";
-import PropTypes from "prop-types";
 
 const AddComment = ({ postId, addComment }) => {
   const [comment, setComment] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleComment = (e) => {
     e.preventDefault();
     addComment(postId, comment);
     setComment("");
   };
+  console.log("addcomment", postId);
+  console.log("addcomment", comment);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleComment}>
       <TextField
         label="Add a comment"
         variant="outlined"
@@ -27,11 +28,6 @@ const AddComment = ({ postId, addComment }) => {
       </Button>
     </form>
   );
-};
-
-AddComment.propTypes = {
-  postId: PropTypes.string.isRequired,
-  addComment: PropTypes.func.isRequired,
 };
 
 export default AddComment;
