@@ -7,7 +7,7 @@ import SignUp from "./components/SignUp";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#3f51b5",
+      main: "rgba(26, 84, 138, 1)",
     },
     secondary: {
       main: "#f50057",
