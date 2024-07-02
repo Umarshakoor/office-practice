@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { TextField, Button } from "@mui/material";
 
-const AddComment = ({ postId, addComment }) => {
+const AddComment = ({ id, addComment }) => {
   const [comment, setComment] = useState("");
 
   const handleComment = (e) => {
     e.preventDefault();
-    addComment(postId, comment);
+    addComment(id, comment);
     setComment("");
   };
-  console.log("addcomment", postId);
+  console.log("addcomment", id);
   console.log("addcomment", comment);
 
   return (
