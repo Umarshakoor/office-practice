@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -9,6 +9,7 @@ import {
   InputAdornment,
   OutlinedInput,
   IconButton,
+  useMediaQuery,
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Link } from "react-router-dom";
@@ -17,10 +18,11 @@ import loginpng from "../assets/loginpng.svg";
 import fb from "../assets/facebook.svg";
 import google from "../assets/google.svg";
 import "../index.css";
-// import { SocialIcon } from "react-social-icons/component";
 
 function LogIn() {
   //   const history = useHistory();
+
+  const isSmallScreen = useMediaQuery("(max-width: 900px");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -45,7 +47,7 @@ function LogIn() {
               sx={{
                 fontWeight: "600",
                 fontSize: "30px",
-                marginBottom: "10px",
+                marginTop: "10px",
               }}
             >
               Log in
@@ -65,6 +67,7 @@ function LogIn() {
               <Grid item display={"flex"} alignItems={"center"} xs={12} md={12}>
                 <img src={google} style={{ marginRight: "10px" }} />
                 <Button
+                  size="small"
                   sx={{
                     my: 1,
                     p: "1",
@@ -95,6 +98,7 @@ function LogIn() {
                     style={{ marginRight: "10px" }}
                   />
                   <Button
+                    size="small"
                     sx={{
                       my: 1,
                       p: "1",
@@ -113,13 +117,27 @@ function LogIn() {
               </Grid>
             </Grid>
             <Typography marginY={"10px"}>OR</Typography>
-            <form onSubmit={handleLogin} style={{ width: "300px" }}>
+            <form
+              onSubmit={handleLogin}
+              style={{
+                width: "300px",
+                // display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
               <TextField
                 label="Email"
                 variant="outlined"
-                sx={{ my: 1, width: "300px" }}
+                size="small"
+                sx={{
+                  my: 1,
+                  width: { xs: "300px", md: "250px", lg: "300px" },
+                  height: "10px",
+                  marginBottom: "40px",
+                }}
               />
-              <FormControl fullWidth>
+              <FormControl fullWidth size="small">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Password
                 </InputLabel>
@@ -162,6 +180,7 @@ function LogIn() {
                   height: "50px",
                   fontWeight: "600",
                   fontSize: "20px",
+                  "&:hover": { backgroundColor: "rgba(24, 85, 142, 1)" },
                 }}
                 disableRipple
               >
@@ -174,26 +193,32 @@ function LogIn() {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={12} md={8} lg={8}>
-          <Box
-            item
-            bgcolor="primary.main"
-            display="flex"
-            flexDirection={"column"}
-            alignItems={"center"}
-            justifyContent={"center"}
-            color="white"
-            height={"100vh"}
-          >
-            <Typography fontSize={"28px"} fontWeight={"700"}>
-              Good Projects are waiting for you
-            </Typography>
-            <img src={loginpng} height={"372px"} width={"340px"} />
-            <Typography marginTop={"70px"} fontSize={"18px"} fontWeight={"600"}>
-              BUILDING REHBER
-            </Typography>
-          </Box>
-        </Grid>
+        {!isSmallScreen && (
+          <Grid item xs={12} sm={12} md={8} lg={8}>
+            <Box
+              item
+              bgcolor="primary.main"
+              display="flex"
+              flexDirection={"column"}
+              alignItems={"center"}
+              justifyContent={"center"}
+              color="white"
+              height={"100vh"}
+            >
+              <Typography fontSize={"28px"} fontWeight={"700"}>
+                Good Projects are waiting for you
+              </Typography>
+              <img src={loginpng} height={"372px"} width={"340px"} />
+              <Typography
+                marginTop={"70px"}
+                fontSize={"18px"}
+                fontWeight={"600"}
+              >
+                BUILDING REHBER
+              </Typography>
+            </Box>
+          </Grid>
+        )}
       </Grid>
     </>
   );

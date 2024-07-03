@@ -1,5 +1,16 @@
-import react, { useState } from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { useState } from "react";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  FormControl,
+  OutlinedInput,
+  InputLabel,
+  InputAdornment,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Link } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -11,13 +22,10 @@ import "../index.css";
 const SignUp = () => {
   //   const history = useHistory();
 
+  const isSmallScreen = useMediaQuery("(max-width: 900px");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleLogin = (e) => {
-    e.preventDefualt();
-  };
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -42,7 +50,7 @@ const SignUp = () => {
                 fontSize: "30px",
               }}
             >
-              Log in
+              Sign Up
             </Typography>
             <Typography sx={{ fontWeight: "400", fontSize: "13px" }}>
               How do i get started
@@ -104,21 +112,27 @@ const SignUp = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Typography marginY={"20px"}>OR</Typography>
+            <Typography marginY={"10px"}>OR</Typography>
             <form
-              onSubmit={handleLogin}
+              onSubmit={handleSignUp}
               style={{ width: "361px", maxWidth: 360 }}
             >
               <TextField
-                label="Email"
+                label="name"
+                defaultValue="enter your Name"
                 variant="outlined"
                 fullWidth
                 sx={{ my: 1 }}
               />
-              <FormControl fullWidth>
-                <InputLabel htmlFor="outlined-adornment-password">
-                  Password
-                </InputLabel>
+              <TextField
+                label="Email"
+                defaultValue="name123@gmail.com"
+                variant="outlined"
+                fullWidth
+                sx={{ my: 1 }}
+              />
+              <FormControl fullWidth sx={{ my: 1 }}>
+                <InputLabel>Password</InputLabel>
                 <OutlinedInput
                   endAdornment={
                     <InputAdornment position="end">
@@ -132,6 +146,25 @@ const SignUp = () => {
                     </InputAdornment>
                   }
                   label="Password"
+                  defaultValue="*********"
+                />
+              </FormControl>
+              <FormControl fullWidth sx={{ my: 1 }}>
+                <InputLabel>Confirm Password</InputLabel>
+                <OutlinedInput
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                  defaultValue="Enter password"
                 />
               </FormControl>
 
@@ -166,87 +199,37 @@ const SignUp = () => {
             </form>
             <Box display={"flex"} gap={"10px"}>
               <Typography display={"inline"}>Dont have an account?</Typography>
-              <Link to="/signup"> Sign up</Link>
+              <Link to="/login">Logn in</Link>
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={12} md={8} lg={8}>
-          <Box
-            item
-            bgcolor="primary.main"
-            display="flex"
-            flexDirection={"column"}
-            alignItems={"center"}
-            justifyContent={"center"}
-            color="white"
-            height={"100vh"}
-          >
-            <Typography fontSize={"28px"} fontWeight={"700"}>
-              Good Projects are waiting for you
-            </Typography>
-            <img src={loginpng} height={"372px"} width={"340px"} />
-            <Typography marginTop={"70px"} fontSize={"18px"} fontWeight={"600"}>
-              BUILDING REHBER
-            </Typography>
-          </Box>
-        </Grid>
+        {!isSmallScreen && (
+          <Grid item xs={12} sm={12} md={8} lg={8}>
+            <Box
+              item
+              bgcolor="primary.main"
+              display="flex"
+              flexDirection={"column"}
+              alignItems={"center"}
+              justifyContent={"center"}
+              color="white"
+              height={"100vh"}
+            >
+              <Typography fontSize={"28px"} fontWeight={"700"}>
+                Good Projects are waiting for you
+              </Typography>
+              <img src={loginpng} height={"372px"} width={"340px"} />
+              <Typography
+                marginTop={"70px"}
+                fontSize={"18px"}
+                fontWeight={"600"}
+              >
+                BUILDING REHBER
+              </Typography>
+            </Box>
+          </Grid>
+        )}
       </Grid>
-
-      <Box display="flex" flexDirection="row" height="100vh">
-        <Box
-          flex={0.5}
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          p={3}
-        >
-          <Typography variant="h4">Sign Up</Typography>
-          <Typography variant="body1">How do I get started</Typography>
-          <Button variant="contained" startIcon={<Google />} sx={{ my: 1 }}>
-            Continue with Google
-          </Button>
-          <Button variant="contained" startIcon={<Facebook />} sx={{ my: 1 }}>
-            Continue with Facebook
-          </Button>
-          <Typography variant="body1">OR</Typography>
-          <form
-            onSubmit={handleSignUp}
-            style={{ width: "100%", maxWidth: 360 }}
-          >
-            <TextField
-              label="Email"
-              variant="outlined"
-              fullWidth
-              sx={{ my: 1 }}
-            />
-            <TextField
-              label="Password"
-              type="password"
-              variant="outlined"
-              fullWidth
-              sx={{ my: 1 }}
-            />
-            <Button variant="contained" type="submit" fullWidth sx={{ my: 1 }}>
-              Sign Up
-            </Button>
-          </form>
-          <Link to="/login">Already have an account? Log in</Link>
-        </Box>
-        <Box
-          flex={1}
-          bgcolor="primary.main"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          color="white"
-          p={3}
-        >
-          <Typography variant="h4">
-            Good Projects are waiting for you
-          </Typography>
-        </Box>
-      </Box>
     </>
   );
 };
