@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import SignUp from "./components/SignUp";
+import Stack from "./components/Stack";
 
 const theme = createTheme({
   palette: {
@@ -21,9 +22,10 @@ function App() {
       <CssBaseline />
       <Router>
         <Routes>
+          <Route path="/" element={<LogIn />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/" element={<LogIn />} />
+          <Route path="/stack" element={<Stack />} />
         </Routes>
       </Router>
     </ThemeProvider>
