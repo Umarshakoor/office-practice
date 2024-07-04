@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import SignUp from "./components/SignUp";
 import Stack from "./components/Stack";
+import TyreMenu from "./components/TyreMenu";
 
 const theme = createTheme({
   palette: {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/stack" element={<Stack />} />
+          <Route path="/tyre" element={<TyreMenu />} />
         </Routes>
       </Router>
     </ThemeProvider>
