@@ -64,165 +64,289 @@ function TyreMenu() {
           </Box>
         </Grid>
       </Grid>
-      <Grid container spacing={1}>
-        <Grid item xs={12}>
-          <Box display={"flex"} justifyContent={"center"} marginTop={"30px"}>
-            <Typography variant="text" align="center">
-              Passenger Front Tyre
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-      <Grid container alignItems={"center"}>
-        <Grid item xs={8}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <NativeSelect
-              fullWidth
-              defaultValue={30}
-              inputProps={{
-                name: "age",
-                id: "uncontrolled-native",
-              }}
+      <Box
+        sx={{
+          maxWidth: "360px",
+          margin: "0 auto",
+        }}
+      >
+        <Grid container>
+          <Grid item xs={12}>
+            <Box
+              display={"flex"}
+              justifyContent={"center"}
+              marginTop={"30px"}
+              marginBottom={"5px"}
             >
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </Box>
+              <Typography variant="text" fontSize={"12px"} align="center">
+                Passenger Front Tyre
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <Button sx={{ fontSize: "6px" }} variant="contained" size="medium">
-              Copy From Top Left
-            </Button>
-          </Box>
+        <Grid container alignItems={"center"}>
+          <Grid item xs={8}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <NativeSelect
+                fullWidth
+                defaultValue={30}
+                inputProps={{
+                  name: "age",
+                  id: "uncontrolled-native",
+                }}
+              >
+                <option value={10}>Ten</option>
+                <option value={20}>Twenty</option>
+                <option value={30}>Thirty</option>
+              </NativeSelect>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <Button
+                disableElevation={"true"}
+                disableRipple={"true"}
+                disableTouchRipple={"true"}
+                disableFocusRipple={"true"}
+                backgroundColor={"#292e42"}
+                sx={{
+                  backgroundColor: "#292e42",
+                  fontSize: "6px",
+                  padding: "10px 17px",
+                  borderRadius: "5px",
+                  justifyItems: "center",
+                  "&.MuiButton-root:hover": {
+                    backgroundcolor: "#292e42",
+                  },
+                  "&:active": {
+                    backgroundColor: "#292e42",
+                  },
+                }}
+                variant="contained"
+              >
+                Copy From Top Left
+              </Button>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
 
-      <Grid container my={"5px"} alignItems={"center"}>
-        <Grid item xs={8}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <NativeSelect
-              fullWidth
-              defaultValue={30}
-              inputProps={{
-                name: "age",
-                id: "uncontrolled-native",
-              }}
+        <Grid container my={"10px"} alignItems={"center"}>
+          <Grid item xs={8}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <NativeSelect
+                fullWidth
+                defaultValue={30}
+                inputProps={{
+                  name: "age",
+                  id: "uncontrolled-native",
+                }}
+              >
+                <option value={10}>Ten</option>
+                <option value={20}>Twenty</option>
+                <option value={30}>Thirty</option>
+              </NativeSelect>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <Button
+                disableElevation={"true"}
+                disableRipple={"true"}
+                disableTouchRipple={"true"}
+                disableFocusRipple={"true"}
+                backgroundColor={"#292e42"}
+                sx={{
+                  backgroundColor: "#292e42",
+                  fontSize: "6px",
+                  padding: "10px 17px",
+                  borderRadius: "5px",
+                  justifyItems: "center",
+                  "&.MuiButton-root:hover": {
+                    backgroundcolor: "#292e42",
+                  },
+                  "&:active": {
+                    backgroundColor: "#292e42",
+                  },
+                }}
+                variant="contained"
+              >
+                Copy From Top Left
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+        <Grid container my={"10px"} alignItems={"center"}>
+          <Grid item xs={8}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <NativeSelect
+                fullWidth
+                defaultValue={30}
+                inputProps={{
+                  name: "age",
+                  id: "uncontrolled-native",
+                }}
+              >
+                <option value={10}>Ten</option>
+                <option value={20}>Twenty</option>
+                <option value={30}>Thirty</option>
+              </NativeSelect>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <Button
+                disableElevation={"true"}
+                disableRipple={"true"}
+                disableTouchRipple={"true"}
+                disableFocusRipple={"true"}
+                backgroundColor={"#292e42"}
+                sx={{
+                  backgroundColor: "#292e42",
+                  fontSize: "6px",
+                  padding: "10px 17px",
+                  borderRadius: "5px",
+                  justifyItems: "center",
+                  "&.MuiButton-root:hover": {
+                    backgroundcolor: "#292e42",
+                  },
+                  "&:active": {
+                    backgroundColor: "#292e42",
+                  },
+                }}
+                variant="contained"
+              >
+                Copy From Top Left
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+        <Grid container my={"10px"} alignItems={"center"}>
+          <Grid item xs={8}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <NativeSelect
+                fullWidth
+                defaultValue={30}
+                inputProps={{
+                  name: "age",
+                  id: "uncontrolled-native",
+                }}
+              >
+                <option value={10}>Ten</option>
+                <option value={20}>Twenty</option>
+                <option value={30}>Thirty</option>
+              </NativeSelect>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <Button
+                disableElevation={"true"}
+                disableRipple={"true"}
+                disableTouchRipple={"true"}
+                disableFocusRipple={"true"}
+                backgroundColor={"#292e42"}
+                sx={{
+                  backgroundColor: "#292e42",
+                  fontSize: "6px",
+                  padding: "10px 17px",
+                  borderRadius: "5px",
+                  justifyItems: "center",
+                  "&:hover": {
+                    backgroundColor: "red !important",
+                  },
+                  "&:active": {
+                    backgroundColor: "#292e42",
+                  },
+                }}
+                variant="contained"
+              >
+                Copy From Left
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+        <Grid container my={"10px"} alignItems={"center"}>
+          <Grid item xs={8}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <NativeSelect
+                fullWidth
+                defaultValue={30}
+                inputProps={{
+                  name: "age",
+                  id: "uncontrolled-native",
+                }}
+              >
+                <option value={10}>Ten</option>
+                <option value={20}>Twenty</option>
+                <option value={30}>Thirty</option>
+              </NativeSelect>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
+            <Box display={"flex"} justifyContent={"center"}>
+              <Button
+                disableElevation={"true"}
+                disableRipple={"true"}
+                disableTouchRipple={"true"}
+                disableFocusRipple={"true"}
+                backgroundColor={"#292e42"}
+                sx={{
+                  backgroundColor: "#292e42",
+                  fontSize: "6px",
+                  padding: "10px 17px",
+                  borderRadius: "5px",
+                  justifyItems: "center",
+                  "&.MuiButton-root:hover": {
+                    backgroundcolor: "#292e42",
+                  },
+                  "&:active": {
+                    backgroundColor: "#292e42",
+                  },
+                }}
+                variant="contained"
+              >
+                Copy From Top Left
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+        <Grid container>
+          <Grid item xs={6}>
+            <Box
+              display={"flex"}
+              justifyContent={"flex-end"}
+              paddingRight={"4px"}
             >
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </Box>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#4c4c4c",
+                  fontSize: "10px",
+                  padding: "12px 30px",
+                  borderRadius: "10px",
+                }}
+              >
+                Back
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Box paddingleft={"4px"}>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#215ba5",
+                  fontSize: "10px",
+                  padding: "12px 30px",
+                  borderRadius: "10px",
+                }}
+              >
+                Save
+              </Button>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <Button sx={{ fontSize: "6px" }} variant="contained" size="medium">
-              Copy From Top Left
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-      <Grid container my={"5px"} alignItems={"center"}>
-        <Grid item xs={8}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <NativeSelect
-              fullWidth
-              defaultValue={30}
-              inputProps={{
-                name: "age",
-                id: "uncontrolled-native",
-              }}
-            >
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </Box>
-        </Grid>
-        <Grid item xs={4}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <Button sx={{ fontSize: "6px" }} variant="contained" size="medium">
-              Copy From Top Left
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-      <Grid container my={"5px"} alignItems={"center"}>
-        <Grid item xs={8}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <NativeSelect
-              fullWidth
-              defaultValue={30}
-              inputProps={{
-                name: "age",
-                id: "uncontrolled-native",
-              }}
-            >
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </Box>
-        </Grid>
-        <Grid item xs={4}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <Button sx={{ fontSize: "6px" }} variant="contained" size="medium">
-              Copy From Top Left
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-      <Grid container my={"5px"} alignItems={"center"}>
-        <Grid item xs={8}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <NativeSelect
-              fullWidth
-              defaultValue={30}
-              inputProps={{
-                name: "age",
-                id: "uncontrolled-native",
-              }}
-            >
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </Box>
-        </Grid>
-        <Grid item xs={4}>
-          <Box display={"flex"} justifyContent={"center"}>
-            <Button
-              sx={{ fontSize: "6px", backgroundColor: "#292e42" }}
-              variant="contained"
-              size="medium"
-            >
-              Copy From Top Left
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item xs={6}>
-          <Box display={"flex"}>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{ backgroundColor: "#4c4c4c" }}
-            >
-              Back
-            </Button>
-          </Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Box>
-            <Button variant="contained" size="large">
-              Save
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
+      </Box>
     </>
   );
 }
