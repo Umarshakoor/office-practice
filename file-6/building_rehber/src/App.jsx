@@ -5,8 +5,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import SignUp from "./components/SignUp";
 import Stack from "./components/Stack";
 import TyreMenu from "./components/TyreMenu";
+import "./App.css";
+import Dashboard from "./components/Dashboard";
 
 const theme = createTheme({
+  typography: {
+    fontFamily: "poppins",
+  },
   palette: {
     primary: {
       main: "rgba(26, 84, 138, 1)",
@@ -14,6 +19,25 @@ const theme = createTheme({
     secondary: {
       main: "#f50057",
     },
+  },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        "*, *::before,*::after": {
+          transitions: "none !important",
+          Animation: "none !important",
+        },
+      },
+    },
+  },
+
+  transitions: {
+    create: () => "npne",
   },
 });
 
@@ -28,6 +52,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/stack" element={<Stack />} />
           <Route path="/tyre" element={<TyreMenu />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </ThemeProvider>
