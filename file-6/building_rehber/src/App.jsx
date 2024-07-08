@@ -1,10 +1,11 @@
-import LogIn from "./components/LogIn";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import SignUp from "./components/SignUp";
-import Stack from "./components/Stack";
-import TyreMenu from "./components/TyreMenu";
+import Topbar from "./global/Topbar";
+import Sidebar from "./global/Sidebar";
+
+import "./index.css";
+import Dashboard from "./components/Dashboard";
 
 const theme = createTheme({
   palette: {
@@ -15,21 +16,26 @@ const theme = createTheme({
       main: "#f50057",
     },
   },
+  typography: {
+    fontFamily: ["Montserrat", "Poppins"].join(","),
+  },
 });
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
-        <Routes>
-          <Route path="/" element={<LogIn />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/stack" element={<Stack />} />
-          <Route path="/tyre" element={<TyreMenu />} />
-        </Routes>
-      </Router>
+      <div className="app">
+        <Sidebar />
+        <main className="content">
+          <Topbar />
+          <Router>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+            </Routes>
+          </Router>
+        </main>
+      </div>
     </ThemeProvider>
   );
 }
