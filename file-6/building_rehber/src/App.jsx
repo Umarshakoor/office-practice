@@ -19,6 +19,21 @@ const theme = createTheme({
   typography: {
     fontFamily: ["Montserrat", "Poppins"].join(","),
   },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
+  MuiCssBaseline: {
+    styleOverrides: {
+      ", *::before,::after": {
+        transitions: "none !important",
+        Animation: "none !important",
+      },
+    },
+  },
 });
 
 function App() {
@@ -32,6 +47,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </Router>
         </main>

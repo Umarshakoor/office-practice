@@ -1,54 +1,56 @@
 import {
   Box,
   Typography,
-  Menu,
-  MenuItem,
   IconButton,
   List,
   ListItem,
   ListItemIcon,
+  ListItemButton,
+  ListItemText,
+  Link,
 } from "@mui/material";
-import React, { useState } from "react";
+import { useState, useContext } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import RehberLogo from "../assets/RehberLogo.png";
-import { Link } from "react-router-dom";
 import {
   CalendarMonthOutlined,
   CallOutlined,
-  DashboardOutlined,
   EngineeringOutlined,
   HelpOutline,
   HomeOutlined,
-  MenuOutlined,
   NoteAltOutlined,
-  PeopleOutlined,
   PermIdentityOutlined,
   PersonOutlineOutlined,
 } from "@mui/icons-material";
-
-/* const Item = ({ title, to, icon, selected, setSelected }) => {
-  return (
-    <MenuItem
-      active={selected === title}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
-  );
-}; */
+import { StateContext } from "../state/AppState";
+// import { styled } from "@mui/material/styles";
 
 function Sidebar() {
-  // const [isCollapsed, setIsCollapsed] = useState(false);
-  // const [selected, setSelected] = useState("Dashboard");
+  /*   const myListButton = styled(ListItemButton)({
+    "&.Mui-selected": {
+      backgroundColor: "#1A548A",
+      color: "white",
+      ":hover": {
+        backgroundColor: "#1A548A",
+        color: "white",
+      },
+    },
+  }); */
+
+  const { isCollapsed, setIsCollapsed } = useContext(StateContext);
+  console.log("sidebar...", isCollapsed);
+  const [selected, setSelected] = useState("Dashboard");
+  const [selectedIndex, setSelectedIndex] = useState(1);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
   return (
-    <Box>
+    <Box sx={{ height: "100%", width: "300px", bgcolor: "#EDEDED" }}>
       <Grid
         container
         sx={{
-          bgcolor: "#EDEDED",
-          width: "250px",
           paddingBottom: "50px",
           paddingTop: "50px",
           justifyContent: "center",
@@ -76,103 +78,246 @@ function Sidebar() {
       </Grid>
       <Grid
         container
-        gap={1}
-        spacing={"2px"}
         sx={{
-          bgcolor: "#EDEDED",
-          width: "250px",
-          height: "100vh",
           paddingX: "10px",
           flexDirection: "column",
           alignItems: "center",
           alignContent: "center",
         }}
       >
-        {/* <Grid item>
-          <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-            <MenuOutlined />
-          </IconButton>
-          <Menu>
-            <Box>
-              <MenuItem
-                title="Dashboard"
-                to="/"
-                icon={<HomeOutlined />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-
-              <Typography variant="h6" sx={{ m: "15px 0 5px 20px" }}>
-                Data
-              </Typography>
-              <MenuItem
-                title="Manage Team"
-                to="/team"
-                icon={<PeopleOutlined />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-            </Box>
-          </Menu>
-        </Grid> */}
         <Grid item>
-          <List>
+          {/* <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+            <MenuOutlined />
+          </IconButton> */}
+        </Grid>
+        <Grid item>
+          <List display="flex" flexDirection="column">
             <Box
               sx={{
-                backgroundColor: "#1A548A",
-                color: "white",
-                borderRadius: "16px",
+                display: "flex",
               }}
             >
-              <ListItem>
-                <ListItemIcon sx={{ color: "white" }}>
+              <ListItemButton
+                sx={{
+                  height: "45px",
+                  "&.Mui-selected": {
+                    backgroundColor: "#1A548A",
+                    borderRadius: "16px",
+                    color: "white",
+                    "&.MuiListItemIcon-root": {
+                      color: "white",
+                    },
+                    "&.MuiSvgIcon-root": {
+                      color: "white",
+                      backgroundColor: "white",
+                    },
+                    ":hover": {
+                      backgroundColor: "#1A548A",
+                      color: "white",
+                    },
+                  },
+                }}
+                component={Link}
+                to="/dashboard"
+                selected={selectedIndex === 1}
+                onClick={(event) => handleListItemClick(event, 1)}
+              >
+                <ListItemIcon>
                   <HomeOutlined />
                 </ListItemIcon>
-                Dashboard
-              </ListItem>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
             </Box>
-            <ListItem>
-              <ListItemIcon>
-                <PersonOutlineOutlined />
-              </ListItemIcon>
-              Admin Profile
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <CalendarMonthOutlined />
-              </ListItemIcon>
-              Appointments
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <NoteAltOutlined />
-              </ListItemIcon>
-              Request
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <EngineeringOutlined />
-              </ListItemIcon>
-              Builders
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <PermIdentityOutlined />
-              </ListItemIcon>
-              Customers
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <CallOutlined />
-              </ListItemIcon>
-              Contact us
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <HelpOutline />
-              </ListItemIcon>
-              help
-            </ListItem>
+
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
+              <ListItemButton
+                sx={{
+                  height: "45px",
+                  "&.Mui-selected": {
+                    backgroundColor: "#1A548A",
+                    borderRadius: "16px",
+                    color: "white",
+                    ":hover": {
+                      backgroundColor: "#1A548A",
+                      color: "white",
+                    },
+                  },
+                }}
+                selected={selectedIndex === 2}
+                onClick={(event) => handleListItemClick(event, 2)}
+              >
+                <ListItemIcon sx={{ minWidth: "0", width: "40px" }}>
+                  <PersonOutlineOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Admin Profile" />
+              </ListItemButton>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
+              <ListItemButton
+                sx={{
+                  height: "45px",
+                  "&.Mui-selected": {
+                    backgroundColor: "#1A548A",
+                    borderRadius: "16px",
+                    color: "white",
+                    ":hover": {
+                      backgroundColor: "#1A548A",
+                      color: "white",
+                    },
+                  },
+                }}
+                selected={selectedIndex === 3}
+                onClick={(event) => handleListItemClick(event, 3)}
+              >
+                <ListItemIcon>
+                  <CalendarMonthOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Appointments" />
+              </ListItemButton>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
+              <ListItemButton
+                sx={{
+                  height: "45px",
+                  "&.Mui-selected": {
+                    backgroundColor: "#1A548A",
+                    borderRadius: "16px",
+                    color: "white",
+                    ":hover": {
+                      backgroundColor: "#1A548A",
+                      color: "white",
+                    },
+                  },
+                }}
+                selected={selectedIndex === 4}
+                onClick={(event) => handleListItemClick(event, 4)}
+              >
+                <ListItemIcon>
+                  <NoteAltOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Request" />
+              </ListItemButton>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
+              <ListItemButton
+                sx={{
+                  height: "45px",
+                  "&.Mui-selected": {
+                    backgroundColor: "#1A548A",
+                    borderRadius: "16px",
+                    color: "white",
+                    ":hover": {
+                      backgroundColor: "#1A548A",
+                      color: "white",
+                    },
+                  },
+                }}
+                selected={selectedIndex === 5}
+                onClick={(event) => handleListItemClick(event, 5)}
+              >
+                <ListItemIcon>
+                  <EngineeringOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Builders" />
+              </ListItemButton>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
+              <ListItemButton
+                sx={{
+                  height: "45px",
+                  "&.Mui-selected": {
+                    backgroundColor: "#1A548A",
+                    borderRadius: "16px",
+                    color: "white",
+                    ":hover": {
+                      backgroundColor: "#1A548A",
+                      color: "white",
+                    },
+                  },
+                }}
+                selected={selectedIndex === 6}
+                onClick={(event) => handleListItemClick(event, 6)}
+              >
+                <ListItemIcon>
+                  <PermIdentityOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Customers" />
+              </ListItemButton>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
+              <ListItemButton
+                sx={{
+                  height: "45px",
+                  "&.Mui-selected": {
+                    backgroundColor: "#1A548A",
+                    borderRadius: "16px",
+                    color: "white",
+                    ":hover": {
+                      backgroundColor: "#1A548A",
+                      color: "white",
+                    },
+                  },
+                }}
+                selected={selectedIndex === 7}
+                onClick={(event) => handleListItemClick(event, 7)}
+              >
+                <ListItemIcon>
+                  <CallOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Contact us" />
+              </ListItemButton>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
+              <ListItemButton
+                sx={{
+                  height: "45px",
+                  "&.Mui-selected": {
+                    backgroundColor: "#1A548A",
+                    borderRadius: "16px",
+                    color: "white",
+                    ":hover": {
+                      backgroundColor: "#1A548A",
+                      color: "white",
+                    },
+                  },
+                }}
+                selected={selectedIndex === 8}
+                onClick={(event) => handleListItemClick(event, 8)}
+              >
+                <ListItemIcon>
+                  <HelpOutline />
+                </ListItemIcon>
+                <ListItemText primary="Help" />
+              </ListItemButton>
+            </Box>
           </List>
         </Grid>
       </Grid>

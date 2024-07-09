@@ -3,14 +3,15 @@ import { useState, createContext, useMemo } from "react";
 export const StateContext = createContext();
 
 export const StateProvider = ({ children }) => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  console.log("AppState...", isCollapsed);
+  const handleToggle = () => {
+    setIsCollapsed(!isCollapsed);
   };
 
   const value = useMemo(
-    () => ({ mobileOpen, setMobileOpen, handleDrawerToggle }),
-    [mobileOpen, setMobileOpen]
+    () => ({ isCollapsed, setIsCollapsed, handleToggle }),
+    [isCollapsed, setIsCollapsed]
   );
 
   return (
