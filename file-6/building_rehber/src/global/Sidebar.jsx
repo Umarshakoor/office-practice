@@ -47,7 +47,7 @@ function Sidebar() {
   };
 
   return (
-    <Box sx={{ height: "100%", width: "300px", bgcolor: "#EDEDED" }}>
+    <Box sx={{ height: "100vh", width: "300px", bgcolor: "#EDEDED" }}>
       <Grid
         container
         sx={{
