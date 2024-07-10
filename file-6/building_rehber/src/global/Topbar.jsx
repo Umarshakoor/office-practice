@@ -83,15 +83,18 @@ function Topbar() {
             <Box
               sx={{
                 display: "flex",
-                gap: "20px",
-                marginRight: "25px",
+                marginRight: {
+                  xs: "0px",
+                  sm: "20px",
+                  md: "25px",
+                  lg: "25px",
+                  xl: "25px",
+                },
                 alignItems: "center",
-                justifyContent: { xs: "center", sm: "flex-end" },
+                justifyContent: { xs: "flex-end", sm: "flex-end" },
               }}
             >
-              <IconButton>
-                <Notifications sx={{ color: "white" }} fontSize="small" />
-              </IconButton>
+              <Notifications sx={{ color: "white" }} fontSize="small" />
               <IconButton>
                 <Textsms sx={{ color: "white" }} fontSize="small" />
               </IconButton>

@@ -20,21 +20,8 @@ import {
   PersonOutlineOutlined,
 } from "@mui/icons-material";
 import { StateContext } from "../state/AppState";
-// import { NavLink } from "react-router-dom";
-// import { styled } from "@mui/material/styles";
 
 function Sidebar() {
-  /*   const myListButton = styled(ListItemButton)({
-    "&.Mui-selected": {
-      backgroundColor: "#1A548A",
-      color: "white",
-      ":hover": {
-        backgroundColor: "#1A548A",
-        color: "white",
-      },
-    },
-  }); */
-
   const { isCollapsed } = useContext(StateContext);
   console.log("sidebar...", isCollapsed);
   // const [selected, setSelected] = useState("Dashboard");
