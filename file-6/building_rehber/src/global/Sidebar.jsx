@@ -7,7 +7,6 @@ import {
   ListItemIcon,
   ListItemButton,
   ListItemText,
-  Link,
 } from "@mui/material";
 import { useState, useContext } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -23,6 +22,7 @@ import {
   PersonOutlineOutlined,
 } from "@mui/icons-material";
 import { StateContext } from "../state/AppState";
+import { NavLink } from "react-router-dom";
 // import { styled } from "@mui/material/styles";
 
 function Sidebar() {
@@ -117,8 +117,8 @@ function Sidebar() {
                     },
                   },
                 }}
-                component={Link}
-                to="/dashboard"
+                component={NavLink}
+                to="/dasboard"
                 selected={selectedIndex === 1}
                 onClick={(event) => handleListItemClick(event, 1)}
               >
