@@ -1,9 +1,7 @@
 import {
   Box,
   Typography,
-  IconButton,
   List,
-  ListItem,
   ListItemIcon,
   ListItemButton,
   ListItemText,
@@ -22,7 +20,7 @@ import {
   PersonOutlineOutlined,
 } from "@mui/icons-material";
 import { StateContext } from "../state/AppState";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 // import { styled } from "@mui/material/styles";
 
 function Sidebar() {
@@ -37,9 +35,9 @@ function Sidebar() {
     },
   }); */
 
-  const { isCollapsed, setIsCollapsed } = useContext(StateContext);
+  const { isCollapsed } = useContext(StateContext);
   console.log("sidebar...", isCollapsed);
-  const [selected, setSelected] = useState("Dashboard");
+  // const [selected, setSelected] = useState("Dashboard");
   const [selectedIndex, setSelectedIndex] = useState(1);
 
   const handleListItemClick = (event, index) => {
@@ -117,8 +115,6 @@ function Sidebar() {
                     },
                   },
                 }}
-                component={NavLink}
-                to="/dasboard"
                 selected={selectedIndex === 1}
                 onClick={(event) => handleListItemClick(event, 1)}
               >
