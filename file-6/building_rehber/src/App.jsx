@@ -18,11 +18,18 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: ["Montserrat", "Poppins"].join(","),
+    button: {
+      textTransform: "none",
+    },
   },
   components: {
+    MuiButton: {
+      textTransform: "none",
+    },
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
+        textTransform: "none",
       },
     },
   },
@@ -33,6 +40,27 @@ const theme = createTheme({
         Animation: "none !important",
       },
     },
+  },
+
+  overrides: {
+    MuiButton: {
+      root: {
+        textTransform: "none",
+      },
+    },
+  },
+
+  MuiButtonBase: {
+    root: {
+      MuiButton: {
+        root: {
+          textTransform: "none",
+        },
+      },
+    },
+  },
+  MuiButton: {
+    textTransform: "none",
   },
 });
 

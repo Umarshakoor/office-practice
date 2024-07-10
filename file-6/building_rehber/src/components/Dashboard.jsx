@@ -4,7 +4,6 @@ import {
   HomeOutlined,
   InsertInvitation,
   KeyboardArrowDown,
-  MoveDown,
   Moving,
   Timeline,
 } from "@mui/icons-material";
@@ -97,16 +96,25 @@ function Dashboard() {
         sx={{
           backgroundColor: "white",
           boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-          height: "120px",
           marginTop: "10px",
           borderRadius: "25px",
         }}
       >
-        <Grid container justifyContent="space-around">
-          <Grid item>umar</Grid>
-          <Grid item>umar</Grid>
-          <Grid item>umar</Grid>
-          <Grid item>umar</Grid>
+        <Grid container sx={{ height: "120px" }}>
+          <Grid item flex={1} p="10px">
+            <Box border="1px solid red" height="100%">
+              Umar
+            </Box>
+          </Grid>
+          <Grid item flex={1}>
+            <Box>Umar</Box>
+          </Grid>
+          <Grid item flex={1}>
+            <Box>Umar</Box>
+          </Grid>
+          <Grid item flex={1}>
+            <Box>Umar</Box>
+          </Grid>
         </Grid>
       </Box>
       {/* request and appointment section */}
