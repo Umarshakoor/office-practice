@@ -1,4 +1,13 @@
-import { HomeOutlined, KeyboardArrowDown } from "@mui/icons-material";
+import {
+  AttachMoney,
+  EditNote,
+  HomeOutlined,
+  InsertInvitation,
+  KeyboardArrowDown,
+  MoveDown,
+  Moving,
+  Timeline,
+} from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
 import crossdown from "../assets/crossdown.svg";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -7,8 +16,7 @@ function Dashboard() {
   return (
     <Box
       sx={{
-        backgroundColor: "rgb(237, 237, 237)",
-        padding: { xs: "10px", sm: "0" },
+        padding: { xs: "10px", sm: "2px" },
       }}
     >
       {/* Dashboard Top navbar */}
@@ -16,50 +24,81 @@ function Dashboard() {
         sx={{
           backgroundColor: "#fbfbfb",
           height: "auto",
-          width: "100%",
+          width: "95%",
           marginX: "auto",
-          marginTop: "30px",
-          borderRadius: "8px",
-          padding: { xs: "10px", sm: "0" },
+          marginTop: "25px",
+          borderRadius: "10px",
+          padding: { xs: "10px", sm: "2px" },
         }}
       >
-        <Grid container justifyContent="space-between">
+        <Grid container justifyContent="space-around">
           <Grid item>
-            <Button startIcon={<HomeOutlined />}>Home</Button>
+            <Button
+              sx={{
+                "&.MuiButtonBase-root-MuiButton-root": {
+                  textTransform: "none",
+                },
+              }}
+              startIcon={<HomeOutlined />}
+            >
+              Home
+            </Button>
           </Grid>
           <Grid item>
-            <Button endIcon={<KeyboardArrowDown />}>
-              <img src={crossdown} alt="crossdown" />
+            <Button
+              sx={{ "& .MuiButton-startIcon": { marginLeft: "0px" } }}
+              endIcon={<KeyboardArrowDown sx={{ marginLeft: "0px" }} />}
+            >
+              <img
+                src={crossdown}
+                alt="crossdown"
+                style={{
+                  marginRight: "5px",
+                  filter:
+                    "invert(12%) sepia(37%) saturate(2232%) hue-rotate(183deg) brightness(101%) contrast(112%)",
+                }}
+              />
               Deadline
             </Button>
           </Grid>
           <Grid item>
-            <Button>Projects</Button>
+            <Button startIcon={<Moving />}>
+              Projects endIcon
+              {<KeyboardArrowDown sx={{ marginLeft: "0px" }} />}
+            </Button>
           </Grid>
           <Grid item>
-            <Button>Requests</Button>
+            <Button startIcon={<EditNote />}>Requests</Button>
           </Grid>
           <Grid item>
-            <Button>Activities</Button>
+            <Button startIcon={<Timeline />}>Activities</Button>
           </Grid>
           <Grid item>
-            <Button>Material</Button>
+            <Button
+              startIcon={<InsertInvitation />}
+              endIcon={<KeyboardArrowDown sx={{ marginLeft: "0px" }} />}
+            >
+              Material
+            </Button>
           </Grid>
           <Grid item>
-            <Button>Payment</Button>
+            <Button
+              startIcon={<AttachMoney />}
+              endIcon={<KeyboardArrowDown sx={{ marginRight: "0px" }} />}
+            >
+              Payment
+            </Button>
           </Grid>
         </Grid>
       </Box>
       {/* info board */}
       <Box
+        marginX={{ xs: "5%", sm: "5%", md: "10%", lg: "10%", xl: "5%" }}
         sx={{
           backgroundColor: "white",
           boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-          width: "100%",
-          maxWidth: "800px",
           height: "120px",
-          marginX: "auto",
-          marginTop: "15px",
+          marginTop: "10px",
           borderRadius: "25px",
         }}
       >
@@ -75,8 +114,8 @@ function Dashboard() {
         <Grid
           container
           spacing={3}
-          marginX={{ xs: "0", sm: "120px" }}
-          marginTop="20px"
+          marginX={{ xs: "5%", sm: "5%", md: "10%", lg: "10%", xl: "5%" }}
+          marginTop="1px"
         >
           <Grid item xs={12} sm={6}>
             <Box
@@ -97,7 +136,7 @@ function Dashboard() {
                 borderRadius: "20px",
               }}
             >
-              umar
+              shakoor
             </Box>
           </Grid>
         </Grid>
@@ -107,8 +146,8 @@ function Dashboard() {
         <Grid
           container
           spacing={3}
-          marginX={{ xs: "0", sm: "120px" }}
-          marginTop="20px"
+          marginX={{ xs: "5%", sm: "5%", md: "10%", lg: "10%", xl: "5%" }}
+          marginTop="1px"
         >
           <Grid item xs={12} sm={4}>
             <Box

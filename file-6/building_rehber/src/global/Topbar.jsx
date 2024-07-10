@@ -29,71 +29,86 @@ function Topbar() {
         padding: { xs: "10px", sm: "0" },
       }}
     >
-      <Grid container alignItems="center">
-        <Grid item xs={12} sm="auto" marginLeft="37px" marginY="15px">
+      <Grid container>
+        <Grid item xs={12} sm="auto" md="12" marginY="15px">
           <Typography
             sx={{
               color: "white",
               fontSize: { xs: "20px", sm: "24px" },
               fontWeight: "600",
+              marginLeft: "37px",
             }}
           >
             Dashboard
           </Typography>
         </Grid>
-        <Grid item xs={12} sm>
-          <Box
-            sx={{
-              display: "flex",
-              marginLeft: { xs: "0", sm: "37px" },
-              backgroundColor: "white",
-              alignItems: "center",
-              height: "30px",
-              borderRadius: "45px",
-              marginTop: { xs: "10px", sm: "0" },
-              justifyContent: "center",
-            }}
-          >
-            <InputBase
+        <Grid container alignItems={"center"}>
+          <Grid item xs={6}>
+            <Box
               sx={{
-                paddingLeft: "20px",
-                fontSize: "15px",
-                width: { xs: "100%", sm: "180px" },
+                display: "flex",
+                marginLeft: { xs: "0", sm: "37px" },
+                backgroundColor: "white",
+                alignItems: "center",
+                height: "30px",
+                borderRadius: "45px",
+                marginTop: { xs: "0", sm: "0" },
+                justifyContent: "space-around",
+                width: {
+                  xs: "100%",
+                  sm: "180px",
+                  md: "70%",
+                  lg: "50%",
+                  xl: "50%",
+                },
               }}
-              placeholder="Search"
-            />
-            <Search sx={{ fontSize: "medium", marginRight: "20px" }} />
-          </Box>
-        </Grid>
-        <Grid item xs={12} sm="auto">
-          <Box
-            sx={{
-              display: "flex",
-              gap: "20px",
-              marginRight: "20px",
-              alignItems: "center",
-              justifyContent: { xs: "center", sm: "flex-end" },
-            }}
-          >
-            <IconButton>
-              <Notifications sx={{ color: "white" }} fontSize="small" />
-            </IconButton>
-            <IconButton>
-              <Textsms sx={{ color: "white" }} fontSize="small" />
-            </IconButton>
-            <StyledBadge
-              overlap="circular"
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              variant="dot"
-              sx={{ fontSize: "9", height: "10", minWidth: "10" }}
             >
-              <Avatar
-                sx={{ fontSize: "medium", height: "26px", width: "26px" }}
-                alt="Remy Sharp"
-                src="/static/images/avatar/1.jpg"
+              <InputBase
+                sx={{
+                  fontSize: "15px",
+                  width: {
+                    xs: "100%",
+                    sm: "180px",
+                    md: "33%",
+                    lg: "33%",
+                    xl: "33%",
+                  },
+                }}
+                placeholder="Search"
               />
-            </StyledBadge>
-          </Box>
+              <Search sx={{ fontSize: "medium" }} />
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "20px",
+                marginRight: "25px",
+                alignItems: "center",
+                justifyContent: { xs: "center", sm: "flex-end" },
+              }}
+            >
+              <IconButton>
+                <Notifications sx={{ color: "white" }} fontSize="small" />
+              </IconButton>
+              <IconButton>
+                <Textsms sx={{ color: "white" }} fontSize="small" />
+              </IconButton>
+              <StyledBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                variant="dot"
+                sx={{ fontSize: "9", height: "10", minWidth: "10" }}
+              >
+                <Avatar
+                  sx={{ fontSize: "medium", height: "26px", width: "26px" }}
+                  alt="Remy Sharp"
+                  src="/static/images/avatar/1.jpg"
+                />
+              </StyledBadge>
+            </Box>
+          </Grid>
         </Grid>
       </Grid>
     </Box>
