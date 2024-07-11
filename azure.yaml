@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: office-practice
+metadata:
+    template: azd-init@1.9.4
+services:
+    NodeBox:
+        project: file-3\NodeBox
+        host: containerapp
+        language: js
+        dist: dist
+    admindashboard:
+        project: file-6\admindashboard
+        host: containerapp
+        language: js
+        dist: build
+    building_rehber:
+        project: file-6\building_rehber
+        host: containerapp
+        language: js
+        dist: dist
+    fortniteapi:
+        project: file-5\fortniteapi
+        host: containerapp
+        language: js
+        dist: dist
+    hooksdetailed:
+        project: file-3\hooksdetailed
+        host: containerapp
+        language: js
+        dist: dist
+    instaclone:
+        project: file-5\instaclone
+        host: containerapp
+        language: js
+        dist: dist
+    pokiredux:
+        project: file-4\pokiredux
+        host: containerapp
+        language: js
+        dist: dist
+    r-context:
+        project: file-4\r-context
+        host: containerapp
+        language: js
+        dist: dist
+    react-context:
+        project: file-4\react-context
+        host: containerapp
+        language: js
+        dist: dist
+    react-pokedex:
+        project: file-4\react-pokedex
+        host: containerapp
+        language: js
+        dist: dist
+    react-redux:
+        project: file-4\react-redux
+        host: containerapp
+        language: js
+        dist: dist
+    reactExample:
+        project: file-3\reactExample
+        host: containerapp
+        language: js
+        dist: dist
+    reactblog:
+        project: file-2\reactblog
+        host: containerapp
+        language: js
+        dist: dist
+    reactcontext:
+        project: file-4\reactcontext
+        host: containerapp
+        language: js
+        dist: dist
+    reactredux:
+        project: file-4\reactredux
+        host: containerapp
+        language: js
+        dist: dist
+    socialclone:
+        project: file-5\socialclone
+        host: containerapp
+        language: js
+        dist: build
+    use-context:
+        project: file-4\use-context
+        host: containerapp
+        language: js
+        dist: build
+    vite-project:
+        project: file-1\vite-project
+        host: containerapp
+        language: js
+        dist: dist
