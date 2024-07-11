@@ -1,17 +1,26 @@
 import {
+  AccessTime,
   AttachMoney,
   CalendarMonthOutlined,
   EditNote,
   HomeOutlined,
   InsertInvitation,
   KeyboardArrowDown,
-  KeyboardArrowLeft,
   KeyboardArrowRight,
   Moving,
   NoteAltOutlined,
+  ReportGmailerrorred,
   Timeline,
 } from "@mui/icons-material";
-import { Box, Button, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import crossdown from "../assets/crossdown.svg";
 import arrowup from "../assets/dashboardarrowup.svg";
 import dollor from "../assets/greendollor.svg";
@@ -380,7 +389,7 @@ function Dashboard() {
                     lineHeight: "5px",
                   }}
                 >
-                  Producrs
+                  Products
                 </Typography>
               </Box>
               <Box>
@@ -629,34 +638,202 @@ function Dashboard() {
           <Grid item xs={12} sm={4}>
             <Box
               sx={{
-                backgroundColor: "#F7DAD9",
+                backgroundColor: "white",
                 height: "120px",
                 borderRadius: "20px",
               }}
             >
-              umar
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "7px",
+                  p: "11px",
+                  alignItems: "center",
+                  ml: "9px",
+                }}
+              >
+                <Box sx={{ display: "flex" }}>
+                  <img src={dollor} height="14px" />
+                </Box>
+                <Box sx={{ display: "flex" }}>
+                  <Typography sx={{ fontWeight: "600", fontSize: "14px" }}>
+                    Payments
+                  </Typography>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  backgroundColor: "#6099ce",
+                  width: "auto",
+                  height: "80px",
+                  borderRadius: "20px",
+                }}
+              >
+                <Box>
+                  <List>
+                    <ListItem
+                      sx={{
+                        "&.MuiListItem-root": {
+                          paddingX: "0px",
+                          paddingBottom: "0px",
+                          flexDirection: "column",
+                        },
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{ color: "white", gap: "5px", fontSize: "12px" }}
+                      >
+                        <AccessTime fontSize="small" /> Payment Overdue (2)
+                      </ListItemIcon>
+                      <ListItemIcon
+                        sx={{
+                          color: "white",
+                          gap: "5px",
+                          fontSize: "12px",
+                          ml: "13px",
+                        }}
+                      >
+                        <ReportGmailerrorred fontSize="small" /> Upcoming
+                        Payment (8)
+                      </ListItemIcon>
+                    </ListItem>
+                  </List>
+                </Box>
+              </Box>
             </Box>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Box
               sx={{
-                backgroundColor: "#FFDEAD",
+                backgroundColor: "white",
                 height: "120px",
                 borderRadius: "20px",
               }}
             >
-              umar
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "7px",
+                  p: "11px",
+                  alignItems: "center",
+                  ml: "9px",
+                }}
+              >
+                <Box sx={{ display: "flex" }}>
+                  <img src={pulse} height="14px" />
+                </Box>
+                <Box sx={{ display: "flex" }}>
+                  <Typography sx={{ fontWeight: "600", fontSize: "14px" }}>
+                    Activities
+                  </Typography>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  backgroundColor: "#6099ce",
+                  width: "auto",
+                  height: "80px",
+                  borderRadius: "20px",
+                }}
+              >
+                <Box>
+                  <List>
+                    <ListItem
+                      sx={{
+                        "&.MuiListItem-root": {
+                          paddingX: "0px",
+                          paddingBottom: "0px",
+                          flexDirection: "column",
+                        },
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{ color: "white", gap: "5px", fontSize: "12px" }}
+                      >
+                        <AccessTime fontSize="small" /> Payment Overdue (2)
+                      </ListItemIcon>
+                      <ListItemIcon
+                        sx={{
+                          color: "white",
+                          gap: "5px",
+                          fontSize: "12px",
+                          ml: "13px",
+                        }}
+                      >
+                        <ReportGmailerrorred fontSize="small" /> Upcoming
+                        Payment (8)
+                      </ListItemIcon>
+                    </ListItem>
+                  </List>
+                </Box>
+              </Box>
             </Box>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Box
               sx={{
-                backgroundColor: "#B0E0E6",
+                backgroundColor: "white",
                 height: "120px",
                 borderRadius: "20px",
               }}
             >
-              umar
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "7px",
+                  p: "11px",
+                  alignItems: "center",
+                  ml: "9px",
+                }}
+              >
+                <Box sx={{ display: "flex" }}>
+                  <img src={vector} height="14px" />
+                </Box>
+                <Box sx={{ display: "flex" }}>
+                  <Typography sx={{ fontWeight: "600", fontSize: "14px" }}>
+                    Products
+                  </Typography>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  backgroundColor: "#6099ce",
+                  width: "auto",
+                  height: "80px",
+                  borderRadius: "20px",
+                }}
+              >
+                <Box>
+                  <List>
+                    <ListItem
+                      sx={{
+                        "&.MuiListItem-root": {
+                          paddingX: "0px",
+                          paddingBottom: "0px",
+                          flexDirection: "column",
+                        },
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{ color: "white", gap: "5px", fontSize: "12px" }}
+                      >
+                        <AccessTime fontSize="small" /> Payment Overdue (2)
+                      </ListItemIcon>
+                      <ListItemIcon
+                        sx={{
+                          color: "white",
+                          gap: "5px",
+                          fontSize: "12px",
+                          ml: "13px",
+                        }}
+                      >
+                        <ReportGmailerrorred fontSize="small" /> Upcoming
+                        Payment (8)
+                      </ListItemIcon>
+                    </ListItem>
+                  </List>
+                </Box>
+              </Box>
             </Box>
           </Grid>
         </Grid>

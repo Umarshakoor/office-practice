@@ -40,7 +40,7 @@ function Sidebar() {
   return (
     <>
       {isSmallScreen && (
-        <Box sx={{ height: "100vh", bgcolor: "#d9d9d9" }}>
+        <Box component={"nav"} sx={{ height: "100vh", bgcolor: "#d9d9d9" }}>
           <Grid
             container
             sx={{
