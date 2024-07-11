@@ -1,10 +1,14 @@
 import {
   AttachMoney,
+  CalendarMonthOutlined,
   EditNote,
   HomeOutlined,
   InsertInvitation,
   KeyboardArrowDown,
+  KeyboardArrowLeft,
+  KeyboardArrowRight,
   Moving,
+  NoteAltOutlined,
   Timeline,
 } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
@@ -468,23 +472,148 @@ function Dashboard() {
           <Grid item xs={12} sm={6}>
             <Box
               sx={{
+                display: "flex",
                 backgroundColor: "#a6d8da",
-                height: "120px",
+                height: "100px",
                 borderRadius: "20px",
+                alignItems: "center",
+                justifyContent: "space-between",
               }}
             >
-              umar
+              <Box sx={{ display: "flex" }}>
+                <Box
+                  sx={{
+                    backgroundColor: "#f2f2f2",
+                    width: { xs: "65px", sm: "60px", md: "55px", lg: "65px" },
+                    height: { xs: "65px", sm: "60px", md: "55px", lg: "65px" },
+                    borderRadius: "15px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    margin: { xs: "18px", sm: "15px", md: "9px", lg: "18px" },
+                  }}
+                >
+                  <NoteAltOutlined
+                    fontSize="large"
+                    sx={{ color: "primary.main" }}
+                  />
+                </Box>
+                <Box marginTop="20px">
+                  <Typography
+                    sx={{
+                      color: "white",
+                      fontWeight: "500",
+                      fontSize: "20px",
+                      lineHeight: "20px",
+                    }}
+                  >
+                    request
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "white",
+                      fontWeight: "400",
+                      fontSize: "11px",
+                    }}
+                  >
+                    Today<span style={{ color: "#2cb7bd" }}>(4)</span>
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box
+                sx={{
+                  backgroundColor: "#f2f2f2",
+                  width: { xs: "30px", sm: "20px", md: "20px", lg: "30px" },
+                  height: { xs: "30px", sm: "20px", md: "25px", lg: "30px" },
+                  borderRadius: "7px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: { xs: "18px", sm: "15px", md: "9px", lg: "18px" },
+                }}
+              >
+                <KeyboardArrowRight
+                  fontSize="small"
+                  sx={{ color: "rgba(144, 144, 144, 1)" }}
+                />
+              </Box>
             </Box>
           </Grid>
           <Grid item xs={12} sm={6}>
             <Box
               sx={{
-                backgroundColor: "#C1E1C1",
-                height: "120px",
+                display: "flex",
+                backgroundColor: "#eb9d9d",
+                height: "100px",
                 borderRadius: "20px",
+                alignItems: "center",
+                justifyContent: "space-between",
               }}
             >
-              shakoor
+              <Box sx={{ display: "flex" }}>
+                <Box
+                  sx={{
+                    backgroundColor: "#f2f2f2",
+                    width: { xs: "65px", sm: "65px", md: "55px", lg: "65px" },
+                    height: { xs: "65px", sm: "65px", md: "55px", lg: "65px" },
+                    borderRadius: "15px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    margin: { xs: "20px", sm: "20px", md: "10px", lg: "20px" },
+                  }}
+                >
+                  <CalendarMonthOutlined
+                    fontSize="large"
+                    sx={{ color: "primary.main" }}
+                  />
+                </Box>
+                <Box marginTop="20px">
+                  <Typography
+                    sx={{
+                      color: "white",
+                      fontWeight: "500",
+                      fontSize: {
+                        xs: "20px",
+                        sm: "20px",
+                        md: "15px",
+                        lg: "20px",
+                      },
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Appointments
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "white",
+                      fontWeight: "400",
+                      fontSize: "11px",
+                    }}
+                  >
+                    Today<span style={{ color: "#da5757" }}>(4)</span>
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box
+                sx={{
+                  backgroundColor: "#f2f2f2",
+                  width: { xs: "30px", sm: "20px", md: "28px", lg: "30px" },
+                  height: { xs: "30px", sm: "20px", md: "28px", lg: "30px" },
+                  borderRadius: "7px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: { xs: "20px", sm: "20px", md: "5px", lg: "20px" },
+                }}
+              >
+                <KeyboardArrowRight
+                  fontSize="small"
+                  sx={{ color: "rgba(144, 144, 144, 1)" }}
+                />
+              </Box>
             </Box>
           </Grid>
         </Grid>
