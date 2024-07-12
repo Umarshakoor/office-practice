@@ -4,7 +4,7 @@ body,
 .app,
 .content {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   font-family: "Poppins", "Montserrat";
   background-color: #e6e6e6;
 }

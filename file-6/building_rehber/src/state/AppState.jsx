@@ -3,7 +3,7 @@ import { useState, createContext, useMemo } from "react";
 export const StateContext = createContext();
 
 export const StateProvider = ({ children }) => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   console.log("AppState...", isCollapsed);
   const handleToggle = () => {
     setIsCollapsed(!isCollapsed);

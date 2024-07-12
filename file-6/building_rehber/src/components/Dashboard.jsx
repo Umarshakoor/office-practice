@@ -18,7 +18,6 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
   Typography,
 } from "@mui/material";
 import crossdown from "../assets/crossdown.svg";
@@ -51,6 +50,7 @@ function Dashboard() {
           marginTop: "25px",
           borderRadius: "10px",
           padding: { xs: "10px", sm: "2px" },
+          overflow: "hidden",
         }}
       >
         <Grid container justifyContent="space-evenly">
@@ -109,9 +109,13 @@ function Dashboard() {
           boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
           marginTop: "10px",
           borderRadius: "25px",
+          overflow: "hidden",
         }}
       >
-        <Grid container sx={{ height: { xs: "240px", md: "120px" } }}>
+        <Grid
+          container
+          sx={{ height: { xs: "auto", sm: "240px", md: "120px" } }}
+        >
           <Grid item xs={6} md={3} lg={3} xl={3} p="20px">
             <Box height="100%" sx={{ marginLeft: "5px" }}>
               <Box sx={{ display: "flex", alignItems: "baseline", gap: "8px" }}>
@@ -122,7 +126,7 @@ function Dashboard() {
                     color: "rgba(85, 82, 82, 1)",
                     fontSize: "12px",
                     fontWeight: "500",
-                    lineHeight: "5px",
+                    lineHeight: "20px",
                   }}
                 >
                   Projects
@@ -134,7 +138,7 @@ function Dashboard() {
                     fontSize: "14px",
                     fontWeight: "750",
                     color: "rgba(34, 19, 58, 1)",
-                    lineHeight: "35px",
+                    lineHeight: "20px",
                   }}
                 >
                   405
@@ -146,7 +150,7 @@ function Dashboard() {
                     fontSize: "10px",
                     fontWeight: "500",
                     color: "rgba(111, 106, 106, 1)",
-                    lineHeight: "0px",
+                    lineHeight: "20px",
                   }}
                 >
                   <span
@@ -158,18 +162,9 @@ function Dashboard() {
                   >
                     5{" "}
                   </span>
-                  Projects since Last
+                  Projects since Last month
                 </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "10px",
-                    fontWeight: "500",
-                    color: "rgba(111, 106, 106, 1)",
-                    lineHeight: "18px",
-                  }}
-                >
-                  month
-                </Typography>
+
                 <Typography
                   sx={{
                     fontSize: "10px",
@@ -215,7 +210,7 @@ function Dashboard() {
                     color: "rgba(85, 82, 82, 1)",
                     fontSize: "10px",
                     fontWeight: "500",
-                    lineHeight: "5px",
+                    lineHeight: "20px",
                   }}
                 >
                   Payments
@@ -227,7 +222,7 @@ function Dashboard() {
                     fontSize: "14px",
                     fontWeight: "750",
                     color: "rgba(34, 19, 58, 1)",
-                    lineHeight: "35px",
+                    lineHeight: "20px",
                   }}
                 >
                   $65,456
@@ -239,7 +234,7 @@ function Dashboard() {
                     fontSize: "10px",
                     fontWeight: "500",
                     color: "rgba(111, 106, 106, 1)",
-                    lineHeight: "0px",
+                    lineHeight: "20px",
                   }}
                 >
                   <span
@@ -251,18 +246,9 @@ function Dashboard() {
                   >
                     $3000{" "}
                   </span>
-                  Payment since Last
+                  Payment since Last Month
                 </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "10px",
-                    fontWeight: "500",
-                    color: "rgba(111, 106, 106, 1)",
-                    lineHeight: "18px",
-                  }}
-                >
-                  month
-                </Typography>
+
                 <Typography
                   sx={{
                     fontSize: "10px",
@@ -308,7 +294,7 @@ function Dashboard() {
                     color: "rgba(85, 82, 82, 1)",
                     fontSize: "10px",
                     fontWeight: "500",
-                    lineHeight: "5px",
+                    lineHeight: "20px",
                   }}
                 >
                   Projects
@@ -320,7 +306,7 @@ function Dashboard() {
                     fontSize: "14px",
                     fontWeight: "750",
                     color: "rgba(34, 19, 58, 1)",
-                    lineHeight: "35px",
+                    lineHeight: "20px",
                   }}
                 >
                   434
@@ -332,7 +318,7 @@ function Dashboard() {
                     fontSize: "10px",
                     fontWeight: "500",
                     color: "rgba(111, 106, 106, 1)",
-                    lineHeight: "0px",
+                    lineHeight: "20px",
                   }}
                 >
                   <span
@@ -344,18 +330,9 @@ function Dashboard() {
                   >
                     56{" "}
                   </span>
-                  Activities since Last
+                  Activities since Last Month
                 </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "10px",
-                    fontWeight: "500",
-                    color: "rgba(111, 106, 106, 1)",
-                    lineHeight: "18px",
-                  }}
-                >
-                  month
-                </Typography>
+
                 <Typography
                   sx={{
                     fontSize: "10px",
@@ -386,7 +363,7 @@ function Dashboard() {
                     color: "rgba(85, 82, 82, 1)",
                     fontSize: "12px",
                     fontWeight: "500",
-                    lineHeight: "5px",
+                    lineHeight: "20px",
                   }}
                 >
                   Products
@@ -398,7 +375,7 @@ function Dashboard() {
                     fontSize: "18px",
                     fontWeight: "700",
                     color: "rgba(34, 19, 58, 1)",
-                    lineHeight: "35px",
+                    lineHeight: "20px",
                   }}
                 >
                   36
@@ -410,7 +387,7 @@ function Dashboard() {
                     fontSize: "10px",
                     fontWeight: "500",
                     color: "rgba(111, 106, 106, 1)",
-                    lineHeight: "0px",
+                    lineHeight: "20px",
                   }}
                 >
                   <span
@@ -429,7 +406,7 @@ function Dashboard() {
                     fontSize: "10px",
                     fontWeight: "500",
                     color: "rgba(111, 106, 106, 1)",
-                    lineHeight: "18px",
+                    lineHeight: "10px",
                   }}
                 >
                   since Last month
@@ -472,34 +449,32 @@ function Dashboard() {
       </Box>
       {/* request and appointment section */}
       <Box>
-        <Grid
-          container
-          spacing={3}
-          marginX={{ xs: "5%", sm: "5%", md: "10%", lg: "10%", xl: "5%" }}
-          marginTop="1px"
-        >
-          <Grid item xs={12} sm={6}>
+        <Grid container spacing={3} marginX="5%" marginTop="1px">
+          <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <Box
               sx={{
                 display: "flex",
                 backgroundColor: "#a6d8da",
                 height: "100px",
+                width: "100%",
+                marginX: "auto",
                 borderRadius: "20px",
                 alignItems: "center",
                 justifyContent: "space-between",
+                overflow: "hidden",
               }}
             >
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
                     backgroundColor: "#f2f2f2",
-                    width: { xs: "65px", sm: "60px", md: "55px", lg: "65px" },
-                    height: { xs: "65px", sm: "60px", md: "55px", lg: "65px" },
+                    width: { xs: "65px", sm: "60px", md: "65px", lg: "65px" },
+                    height: { xs: "65px", sm: "60px", md: "65px", lg: "65px" },
                     borderRadius: "15px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    margin: { xs: "18px", sm: "15px", md: "9px", lg: "18px" },
+                    margin: "18px",
                   }}
                 >
                   <NoteAltOutlined
@@ -533,13 +508,14 @@ function Dashboard() {
               <Box
                 sx={{
                   backgroundColor: "#f2f2f2",
-                  width: { xs: "30px", sm: "20px", md: "20px", lg: "30px" },
-                  height: { xs: "30px", sm: "20px", md: "25px", lg: "30px" },
+                  width: "30px",
+                  height: "30px",
                   borderRadius: "7px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  margin: { xs: "18px", sm: "15px", md: "9px", lg: "18px" },
+                  margin: { xs: "18px", sm: "18px", md: "19px", lg: "18px" },
+                  overflow: "hidden",
                 }}
               >
                 <KeyboardArrowRight
@@ -549,28 +525,31 @@ function Dashboard() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <Box
               sx={{
                 display: "flex",
                 backgroundColor: "#eb9d9d",
                 height: "100px",
+                width: "100%",
+                marginX: "auto",
                 borderRadius: "20px",
                 alignItems: "center",
                 justifyContent: "space-between",
+                overflow: "hidden",
               }}
             >
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
                     backgroundColor: "#f2f2f2",
-                    width: { xs: "65px", sm: "65px", md: "55px", lg: "65px" },
-                    height: { xs: "65px", sm: "65px", md: "55px", lg: "65px" },
+                    width: { xs: "65px", sm: "60px", md: "65px", lg: "65px" },
+                    height: { xs: "65px", sm: "60px", md: "65px", lg: "65px" },
                     borderRadius: "15px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    margin: { xs: "20px", sm: "20px", md: "10px", lg: "20px" },
+                    margin: "18px",
                   }}
                 >
                   <CalendarMonthOutlined
@@ -583,12 +562,7 @@ function Dashboard() {
                     sx={{
                       color: "white",
                       fontWeight: "500",
-                      fontSize: {
-                        xs: "20px",
-                        sm: "20px",
-                        md: "15px",
-                        lg: "20px",
-                      },
+                      fontSize: "20px",
                       lineHeight: "20px",
                     }}
                   >
@@ -609,13 +583,14 @@ function Dashboard() {
               <Box
                 sx={{
                   backgroundColor: "#f2f2f2",
-                  width: { xs: "30px", sm: "20px", md: "28px", lg: "30px" },
-                  height: { xs: "30px", sm: "20px", md: "28px", lg: "30px" },
+                  width: "30px",
+                  height: "30px",
                   borderRadius: "7px",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  margin: { xs: "20px", sm: "20px", md: "5px", lg: "20px" },
+                  margin: { xs: "18px", sm: "18px", md: "19px", lg: "18px" },
+                  overflow: "hidden",
                 }}
               >
                 <KeyboardArrowRight
@@ -635,7 +610,7 @@ function Dashboard() {
           marginX={{ xs: "5%", sm: "5%", md: "10%", lg: "10%", xl: "5%" }}
           marginTop="1px"
         >
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Box
               sx={{
                 backgroundColor: "white",
@@ -650,6 +625,7 @@ function Dashboard() {
                   p: "11px",
                   alignItems: "center",
                   ml: "9px",
+                  overflow: "hidden",
                 }}
               >
                 <Box sx={{ display: "flex" }}>
@@ -665,8 +641,9 @@ function Dashboard() {
                 sx={{
                   backgroundColor: "#6099ce",
                   width: "auto",
-                  height: "80px",
+                  height: { xs: "80px", sm: "80px", md: "80px", lg: "80px" },
                   borderRadius: "20px",
+                  overflow: "hidden",
                 }}
               >
                 <Box>
@@ -702,7 +679,7 @@ function Dashboard() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Box
               sx={{
                 backgroundColor: "white",
@@ -717,6 +694,7 @@ function Dashboard() {
                   p: "11px",
                   alignItems: "center",
                   ml: "9px",
+                  overflow: "hidden",
                 }}
               >
                 <Box sx={{ display: "flex" }}>
@@ -734,6 +712,7 @@ function Dashboard() {
                   width: "auto",
                   height: "80px",
                   borderRadius: "20px",
+                  overflow: "hidden",
                 }}
               >
                 <Box>
@@ -769,7 +748,7 @@ function Dashboard() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Box
               sx={{
                 backgroundColor: "white",
@@ -784,6 +763,7 @@ function Dashboard() {
                   p: "11px",
                   alignItems: "center",
                   ml: "9px",
+                  overflow: "hidden",
                 }}
               >
                 <Box sx={{ display: "flex" }}>
@@ -801,6 +781,7 @@ function Dashboard() {
                   width: "auto",
                   height: "80px",
                   borderRadius: "20px",
+                  overflow: "hidden",
                 }}
               >
                 <Box>

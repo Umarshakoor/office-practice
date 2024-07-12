@@ -7,7 +7,6 @@ import {
   ListItemText,
   IconButton,
   useMediaQuery,
-  Menu,
   ListItem,
 } from "@mui/material";
 import { useState, useContext } from "react";
@@ -20,14 +19,16 @@ import {
   HelpOutline,
   HomeOutlined,
   KeyboardArrowRight,
+  MenuOpenOutlined,
   NoteAltOutlined,
   PermIdentityOutlined,
   PersonOutlineOutlined,
 } from "@mui/icons-material";
 import { StateContext } from "../state/AppState";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
-  const isSmallScreen = useMediaQuery("(max-width: 899px");
+  const isSmallScreen = useMediaQuery("(max-width: 900px");
 
   const { isCollapsed, setIsCollapsed } = useContext(StateContext);
   console.log("sidebar...", isCollapsed);
@@ -36,10 +37,9 @@ function Sidebar() {
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
-
   return (
     <>
-      {isSmallScreen && (
+      {isCollapsed && (
         <Box
           sx={{
             height: "100vh",
@@ -76,7 +76,7 @@ function Sidebar() {
                   </Typography>
                 </Box>
               </Grid>
-              <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+              <IconButton onClick={() => setIsCollapsed(isCollapsed)}>
                 <KeyboardArrowRight />
               </IconButton>
             </Grid>
@@ -321,283 +321,336 @@ function Sidebar() {
           </Grid>
         </Box>
       ) ? (
-        <list>
-          <ListItem>
+        <List sx={{ width: "0px" }}>
+          <ListItem
+            sx={{
+              paddingLeft: "0px",
+              paddingRight: "0pc",
+              paddingTop: "12px",
+              paddingBottom: "0px",
+            }}
+          >
             <ListItemIcon>
-              <IconButton onClick={() => setIsCollapsed(!isSmallScreen)}>
-                <Menu />
+              <IconButton
+                sx={{ color: "white" }}
+                onClick={() => setIsCollapsed(!isCollapsed)}
+              >
+                <MenuOpenOutlined />
               </IconButton>
             </ListItemIcon>
           </ListItem>
-        </list>
+        </List>
       ) : (
-        <Box sx={{ height: "100vh", bgcolor: "#d9d9d9" }}>
+        <Box>
           <Grid
             container
             sx={{
-              paddingBottom: "50px",
-              paddingTop: "50px",
+              bgcolor: "#d9d9d9",
+              width: "250px",
               justifyContent: "center",
-              alignItems: "baseline",
             }}
           >
-            <Grid item>
-              <Box sx={{ display: "flex", marginRight: "6px" }}>
-                <img src={RehberLogo} height="40px" />
-              </Box>
-            </Grid>
-            <Grid item>
-              <Box sx={{ display: "flex" }}>
-                <Typography
-                  sx={{
-                    fontFamily: "poppins",
-                    fontWeight: "600",
-                    fontSize: "18px",
-                  }}
-                >
-                  Building Rehber
-                </Typography>
-              </Box>
-            </Grid>
-            <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-              <KeyboardArrowRight />
-            </IconButton>
-          </Grid>
-          <Grid
-            container
-            sx={{
-              paddingX: "10px",
-              flexDirection: "column",
-              alignItems: "center",
-              alignContent: "center",
-            }}
-          >
-            <Grid item>
-              <List display="flex" flexDirection="column">
-                <Box
-                  sx={{
-                    display: "flex",
-                  }}
-                >
-                  <ListItemButton
-                    sx={{
-                      height: "45px",
-                      "&.Mui-selected": {
-                        backgroundColor: "#1A548A",
-                        borderRadius: "16px",
-                        color: "white",
-                        "&.MuiListItemIcon-root": {
-                          color: "white",
-                        },
-                        "&.MuiSvgIcon-root": {
-                          color: "white",
-                          backgroundColor: "white",
-                        },
-                        ":hover": {
-                          backgroundColor: "#1A548A",
-                          color: "white",
-                        },
-                      },
-                    }}
-                    selected={selectedIndex === 1}
-                    onClick={(event) => handleListItemClick(event, 1)}
-                  >
-                    <ListItemIcon>
-                      <HomeOutlined />
-                    </ListItemIcon>
-                    <ListItemText primary="Dashboard" />
-                  </ListItemButton>
+            <Grid
+              container
+              gap={1}
+              sx={{
+                py: "50px",
+                justifyContent: "center",
+                alignItems: "baseline",
+              }}
+            >
+              <Grid item>
+                <Box sx={{ display: "flex" }}>
+                  <img src={RehberLogo} height="35px" />
                 </Box>
+              </Grid>
+              <Grid item>
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <Typography
+                    sx={{
+                      fontFamily: "poppins",
+                      fontWeight: "600",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Building Rehber
+                  </Typography>
+                  <IconButton
+                    sx={{ p: 0 }}
+                    onClick={() => setIsCollapsed(!isCollapsed)}
+                  >
+                    <KeyboardArrowRight fontSize="large" />
+                  </IconButton>
+                </Box>
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              sx={{
+                flexDirection: "column",
+                alignItems: "center",
+                alignContent: "center",
+              }}
+            >
+              <List disablePadding>
+                <ListItemButton
+                  components={Link}
+                  to={"/dashboard"}
+                  sx={{
+                    transition: "none",
+                    height: "45px",
+                    "&.MuiButtonBase-root-MuiListItemButton-root": {
+                      transition: "none",
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "#1A548A",
+                      borderRadius: "16px",
+                      color: "white",
+                      ":hover": {
+                        backgroundColor: "#1A548A",
+                        color: "white",
+                        borderRadius: "16px",
+                      },
+                    },
+                  }}
+                  selected={selectedIndex === 1}
+                  onClick={(event) => handleListItemClick(event, 1)}
+                >
+                  <HomeOutlined />
 
-                <Box
-                  sx={{
-                    display: "flex",
-                  }}
-                >
-                  <ListItemButton
+                  <ListItemText
                     sx={{
-                      height: "45px",
-                      "&.Mui-selected": {
-                        backgroundColor: "#1A548A",
-                        borderRadius: "16px",
-                        color: "white",
-                        ":hover": {
-                          backgroundColor: "#1A548A",
-                          color: "white",
-                        },
-                      },
+                      marginLeft: "20px",
+                      fontWeight: "400",
+                      fontSize: "16px",
                     }}
-                    selected={selectedIndex === 2}
-                    onClick={(event) => handleListItemClick(event, 2)}
-                  >
-                    <ListItemIcon sx={{ minWidth: "0", width: "40px" }}>
-                      <PersonOutlineOutlined />
-                    </ListItemIcon>
-                    <ListItemText primary="Admin Profile" />
-                  </ListItemButton>
-                </Box>
-                <Box
+                    primary="Dashboard"
+                  />
+                </ListItemButton>
+
+                <ListItemButton
                   sx={{
-                    display: "flex",
-                  }}
-                >
-                  <ListItemButton
-                    sx={{
-                      height: "45px",
-                      "&.Mui-selected": {
+                    transition: "none",
+                    height: "45px",
+                    "&.Mui-selected": {
+                      backgroundColor: "#1A548A",
+                      borderRadius: "16px",
+                      color: "white",
+                      ":hover": {
                         backgroundColor: "#1A548A",
-                        borderRadius: "16px",
                         color: "white",
-                        ":hover": {
-                          backgroundColor: "#1A548A",
-                          color: "white",
-                        },
+                        borderRadius: "16px",
                       },
+                    },
+                  }}
+                  selected={selectedIndex === 2}
+                  onClick={(event) => handleListItemClick(event, 2)}
+                >
+                  <PersonOutlineOutlined />
+
+                  <ListItemText
+                    sx={{
+                      marginLeft: "20px",
+                      fontWeight: "400",
+                      fontSize: "16px",
                     }}
-                    selected={selectedIndex === 3}
-                    onClick={(event) => handleListItemClick(event, 3)}
-                  >
-                    <ListItemIcon>
-                      <CalendarMonthOutlined />
-                    </ListItemIcon>
-                    <ListItemText primary="Appointments" />
-                  </ListItemButton>
-                </Box>
-                <Box
+                    primary="Admin Profile"
+                  />
+                </ListItemButton>
+                <ListItemButton
                   sx={{
-                    display: "flex",
-                  }}
-                >
-                  <ListItemButton
-                    sx={{
-                      height: "45px",
-                      "&.Mui-selected": {
+                    transition: "none",
+                    height: "45px",
+                    "&.MuiButtonBase-root-MuiListItemButton-root": {
+                      transition: "none",
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "#1A548A",
+                      borderRadius: "16px",
+                      color: "white",
+                      ":hover": {
                         backgroundColor: "#1A548A",
-                        borderRadius: "16px",
                         color: "white",
-                        ":hover": {
-                          backgroundColor: "#1A548A",
-                          color: "white",
-                        },
+                        borderRadius: "16px",
                       },
+                    },
+                  }}
+                  selected={selectedIndex === 3}
+                  onClick={(event) => handleListItemClick(event, 3)}
+                >
+                  <CalendarMonthOutlined />
+
+                  <ListItemText
+                    sx={{
+                      marginLeft: "20px",
+                      fontWeight: "400",
+                      fontSize: "16px",
                     }}
-                    selected={selectedIndex === 4}
-                    onClick={(event) => handleListItemClick(event, 4)}
-                  >
-                    <ListItemIcon>
-                      <NoteAltOutlined />
-                    </ListItemIcon>
-                    <ListItemText primary="Request" />
-                  </ListItemButton>
-                </Box>
-                <Box
+                    primary="Appointments"
+                  />
+                </ListItemButton>
+                <ListItemButton
                   sx={{
-                    display: "flex",
-                  }}
-                >
-                  <ListItemButton
-                    sx={{
-                      height: "45px",
-                      "&.Mui-selected": {
+                    transition: "none",
+                    height: "45px",
+                    "&.MuiButtonBase-root-MuiListItemButton-root": {
+                      transition: "none",
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "#1A548A",
+                      borderRadius: "16px",
+                      color: "white",
+                      ":hover": {
                         backgroundColor: "#1A548A",
-                        borderRadius: "16px",
                         color: "white",
-                        ":hover": {
-                          backgroundColor: "#1A548A",
-                          color: "white",
-                        },
+                        borderRadius: "16px",
                       },
+                    },
+                  }}
+                  selected={selectedIndex === 4}
+                  onClick={(event) => handleListItemClick(event, 4)}
+                >
+                  <NoteAltOutlined />
+
+                  <ListItemText
+                    sx={{
+                      marginLeft: "20px",
+                      fontWeight: "400",
+                      fontSize: "16px",
                     }}
-                    selected={selectedIndex === 5}
-                    onClick={(event) => handleListItemClick(event, 5)}
-                  >
-                    <ListItemIcon>
-                      <EngineeringOutlined />
-                    </ListItemIcon>
-                    <ListItemText primary="Builders" />
-                  </ListItemButton>
-                </Box>
-                <Box
+                    primary="Request"
+                  />
+                </ListItemButton>
+                <ListItemButton
                   sx={{
-                    display: "flex",
-                  }}
-                >
-                  <ListItemButton
-                    sx={{
-                      height: "45px",
-                      "&.Mui-selected": {
+                    transition: "none",
+                    height: "45px",
+                    "&.MuiButtonBase-root-MuiListItemButton-root": {
+                      transition: "none",
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "#1A548A",
+                      borderRadius: "16px",
+                      color: "white",
+                      ":hover": {
                         backgroundColor: "#1A548A",
-                        borderRadius: "16px",
                         color: "white",
-                        ":hover": {
-                          backgroundColor: "#1A548A",
-                          color: "white",
-                        },
+                        borderRadius: "16px",
                       },
+                    },
+                  }}
+                  selected={selectedIndex === 5}
+                  onClick={(event) => handleListItemClick(event, 5)}
+                >
+                  <EngineeringOutlined />
+
+                  <ListItemText
+                    sx={{
+                      marginLeft: "20px",
+                      fontWeight: "400",
+                      fontSize: "16px",
                     }}
-                    selected={selectedIndex === 6}
-                    onClick={(event) => handleListItemClick(event, 6)}
-                  >
-                    <ListItemIcon>
-                      <PermIdentityOutlined />
-                    </ListItemIcon>
-                    <ListItemText primary="Customers" />
-                  </ListItemButton>
-                </Box>
-                <Box
+                    primary="Builders"
+                  />
+                </ListItemButton>
+                <ListItemButton
                   sx={{
-                    display: "flex",
-                  }}
-                >
-                  <ListItemButton
-                    sx={{
-                      height: "45px",
-                      "&.Mui-selected": {
+                    transition: "none",
+                    height: "45px",
+                    "&.MuiButtonBase-root-MuiListItemButton-root": {
+                      transition: "none",
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "#1A548A",
+                      borderRadius: "16px",
+                      color: "white",
+                      ":hover": {
                         backgroundColor: "#1A548A",
-                        borderRadius: "16px",
                         color: "white",
-                        ":hover": {
-                          backgroundColor: "#1A548A",
-                          color: "white",
-                        },
+                        borderRadius: "16px",
                       },
+                    },
+                  }}
+                  selected={selectedIndex === 6}
+                  onClick={(event) => handleListItemClick(event, 6)}
+                >
+                  <PermIdentityOutlined />
+
+                  <ListItemText
+                    sx={{
+                      marginLeft: "20px",
+                      fontWeight: "400",
+                      fontSize: "16px",
                     }}
-                    selected={selectedIndex === 7}
-                    onClick={(event) => handleListItemClick(event, 7)}
-                  >
-                    <ListItemIcon>
-                      <CallOutlined />
-                    </ListItemIcon>
-                    <ListItemText primary="Contact us" />
-                  </ListItemButton>
-                </Box>
-                <Box
+                    primary="Customers"
+                  />
+                </ListItemButton>
+
+                <ListItemButton
+                  activeClassName="Mui-selected"
                   sx={{
-                    display: "flex",
-                  }}
-                >
-                  <ListItemButton
-                    sx={{
-                      height: "45px",
-                      "&.Mui-selected": {
+                    transition: "none",
+                    height: "45px",
+                    "&.MuiButtonBase-root-MuiListItemButton-root": {
+                      transition: "none",
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "#1A548A",
+                      borderRadius: "16px",
+                      color: "white",
+                      ":hover": {
                         backgroundColor: "#1A548A",
-                        borderRadius: "16px",
                         color: "white",
-                        ":hover": {
-                          backgroundColor: "#1A548A",
-                          color: "white",
-                        },
+                        borderRadius: "16px",
                       },
+                    },
+                  }}
+                  selected={selectedIndex === 7}
+                  onClick={(event) => handleListItemClick(event, 7)}
+                >
+                  <CallOutlined />
+
+                  <ListItemText
+                    sx={{
+                      marginLeft: "20px",
+                      fontWeight: "400",
+                      fontSize: "16px",
                     }}
-                    selected={selectedIndex === 8}
-                    onClick={(event) => handleListItemClick(event, 8)}
-                  >
-                    <ListItemIcon>
-                      <HelpOutline />
-                    </ListItemIcon>
-                    <ListItemText primary="Help" />
-                  </ListItemButton>
-                </Box>
+                    primary="Contact us"
+                  />
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    transition: "none",
+                    height: "45px",
+                    "&.MuiButtonBase-root-MuiListItemButton-root": {
+                      transition: "none",
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "#1A548A",
+                      borderRadius: "16px",
+                      color: "white",
+                      ":hover": {
+                        backgroundColor: "#1A548A",
+                        color: "white",
+                        borderRadius: "16px",
+                      },
+                    },
+                  }}
+                  selected={selectedIndex === 8}
+                  onClick={(event) => handleListItemClick(event, 8)}
+                >
+                  <HelpOutline />
+
+                  <ListItemText
+                    sx={{
+                      marginLeft: "20px",
+                      fontWeight: "400",
+                      fontSize: "16px",
+                    }}
+                    primary="Help"
+                  />
+                </ListItemButton>
               </List>
             </Grid>
           </Grid>
