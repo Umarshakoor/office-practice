@@ -609,6 +609,7 @@ function Dashboard() {
           spacing={3}
           marginX={{ xs: "5%", sm: "5%", md: "10%", lg: "10%", xl: "5%" }}
           marginTop="1px"
+          justifyContent="center"
         >
           <Grid item xs={12} sm={6} md={4}>
             <Box

@@ -40,12 +40,7 @@ function Sidebar() {
   if (isSmallScreen && !isCollapsed) {
     setIsCollapsed(true);
   }
-  const { isSidebarOpen, toggleSidebar } = useContexts(StateContext);
 
-  const menuItems = [
-    { text: "Home", icon: <HomeIcon />, path: "/" },
-    { text: "Users", icon: <PeopleIcon />, path: "/users" },
-  ];
   return (
     <>
       {isCollapsed && (
@@ -661,32 +656,6 @@ function Sidebar() {
                   />
                 </ListItemButton>
               </List>
-              {/* <Drawer variant="persistent" anhor="left" open={isSidebarOpen}>
-                <div>
-                  <IconButton onClick={toggleSidebar}>
-                    <MenuI />
-                  </IconButton>
-                  {location.pathname !== "/" && (
-                    <IconButton onClick={handleBack}>
-                      <ArrowBackIcon />
-                    </IconButton>
-                  )}
-                  <List>
-                    {menuItems.map((item) => (
-                      <ListItem
-                        button
-                        key={item.text}
-                        onClick={() => handleNavigation(item.path)}
-                        selected={location.pathname === item.path}
-                      >
-                        <ListItemIcon>{item.icon}</ListItemIcon>
-                        <ListItemText primary={item.text} />
-                      </ListItem>
-                    ))}
-                  </List>
-                  
-                </div>
-              </Drawer> */}
             </Grid>
           </Grid>
         </Box>

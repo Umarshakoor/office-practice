@@ -7,6 +7,8 @@ import Sidebar from "./global/Sidebar";
 import Dashboard from "./components/Dashboard";
 import { StateContext } from "./state/AppState";
 import "./index.css";
+import NewSidebar from "./global/NewSidebar";
+import Appointments from "./components/Appointments";
 
 function App() {
   const { theme } = useContext(StateContext);
@@ -63,12 +65,13 @@ function App() {
       <CssBaseline />
       <div className="app">
         <Router>
-          <Sidebar />
+          <NewSidebar />
           <main className="content">
             <Topbar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/appointments" element={<Appointments />} />
             </Routes>
           </main>
         </Router>
