@@ -7,10 +7,15 @@ import {
   Badge,
   Avatar,
   Grid,
+  Switch,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { StateContext } from "../state/AppState";
+import { useContext } from "react";
 
 function Topbar() {
+  const { theme, toggleTheme } = useContext(StateContext);
+
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       backgroundColor: "#44b700",
@@ -94,6 +99,7 @@ function Topbar() {
                 justifyContent: { xs: "flex-end", sm: "flex-end" },
               }}
             >
+              <Switch checked={theme === "dark"} onChange={toggleTheme} />
               <Notifications sx={{ color: "white" }} fontSize="small" />
               <IconButton>
                 <Textsms sx={{ color: "white" }} fontSize="small" />

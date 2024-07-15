@@ -1,84 +1,77 @@
+import { useContext, useMemo } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Topbar from "./global/Topbar";
 import Sidebar from "./global/Sidebar";
-
-import "./index.css";
 import Dashboard from "./components/Dashboard";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "rgba(26, 84, 138, 1)",
-    },
-    secondary: {
-      main: "#f50057",
-    },
-  },
-  typography: {
-    fontFamily: ["Montserrat", "Poppins"].join(","),
-    button: {
-      textTransform: "none",
-    },
-  },
-  components: {
-    MuiButton: {
-      textTransform: "none",
-    },
-    MuiButtonBase: {
-      defaultProps: {
-        disableRipple: true,
-        textTransform: "none",
-      },
-    },
-  },
-  MuiCssBaseline: {
-    styleOverrides: {
-      ", *::before,::after": {
-        transitions: "none !important",
-        Animation: "none !important",
-      },
-    },
-  },
-
-  overrides: {
-    MuiButton: {
-      root: {
-        textTransform: "none",
-      },
-    },
-  },
-
-  MuiButtonBase: {
-    root: {
-      MuiButton: {
-        root: {
-          textTransform: "none",
-        },
-      },
-    },
-  },
-  MuiButton: {
-    textTransform: "none",
-  },
-});
+import { StateContext } from "./state/AppState";
+import "./index.css";
 
 function App() {
+  const { theme } = useContext(StateContext);
+
+  const muiTheme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: theme,
+          primary: {
+            main: theme === "light" ? "#1a548a" : "#000",
+          },
+          secondary: {
+            main: theme === "light" ? "#f50057" : "#f48fb1",
+          },
+          background: {
+            default: theme === "light" ? "#1a548a" : "#000",
+          },
+        },
+        typography: {
+          fontFamily: ["Montserrat", "Poppins"].join(","),
+          button: {
+            textTransform: "none",
+          },
+        },
+        components: {
+          MuiButton: {
+            styleOverrides: {
+              root: {
+                textTransform: "none",
+              },
+            },
+          },
+          MuiButtonBase: {
+            defaultProps: {
+              disableRipple: true,
+            },
+          },
+          MuiCssBaseline: {
+            styleOverrides: {
+              "*, *::before, *::after": {
+                transition: "none !important",
+                animation: "none !important",
+              },
+            },
+          },
+        },
+      }),
+    [theme]
+  );
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={muiTheme}>
       <CssBaseline />
       <div className="app">
-        <Sidebar />
-        <main className="content">
-          <Topbar />
-          <Router>
+        <Router>
+          <Sidebar />
+          <main className="content">
+            <Topbar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
-          </Router>
-        </main>
+          </main>
+        </Router>
       </div>
     </ThemeProvider>
   );
