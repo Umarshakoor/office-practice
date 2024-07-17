@@ -6,7 +6,7 @@ export const StateProvider = ({ children }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [theme, setTheme] = useState("light");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  console.log("AppState...", isCollapsed);
+  // console.log("AppState...", isCollapsed);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
