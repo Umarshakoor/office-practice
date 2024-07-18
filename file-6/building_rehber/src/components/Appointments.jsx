@@ -1,3 +1,4 @@
+import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import {
   Box,
@@ -29,8 +30,6 @@ function Appointments() {
   const addLabels = (e) => {
     setClick(true);
     e.preventDefault();
-    setMasterArray([obj, ...masterArry]);
-
     setArr([
       ...arr,
       {
@@ -44,12 +43,9 @@ function Appointments() {
   };
 
   const [subArr, setSubArr] = useState([]);
+
   const [subObj, setSubObj] = useState({
-    id: new Date().getTime,
-    subQuestion: "",
-    subQuestionType: "",
-    subQuestionPossibleValue: "",
-    subQuestionScore: "",
+    id: new Date().getTime(),
   });
 
   const [subClick, setSubClick] = useState(false);
@@ -59,7 +55,7 @@ function Appointments() {
     setSubArr([
       ...subArr,
       {
-        id: new Date().getTime,
+        id: new Date().getTime(),
         subQuestion: "",
         subQuestionType: "",
         subQuestionPossibleValue: "",
@@ -79,8 +75,23 @@ function Appointments() {
   };
 
   const handleSave = () => {
-    setMasterArray([obj, ...masterArry]);
+    if (!masterArry.length) {
+      setMasterArray([obj]);
+    } else {
+      setMasterArray([...masterArry, subObj]);
+      setSubObj({
+        id: new Date().getTime,
+        subQuestion: "",
+        subQuestionType: "",
+        subQuestionPossibleValue: "",
+        subQuestionScore: "",
+      });
+    }
   };
+
+  React.useEffect(() => {
+    console.log("/....", subObj);
+  }, [subObj]);
 
   const qType = [
     { value: "textbox" },
@@ -405,7 +416,7 @@ function Appointments() {
           </>
         )}
         {click &&
-          arr.map((array) => (
+          masterArry.map((array) => (
             <Box key={arr.id}>
               <Grid container gap="10px" p="10px">
                 <Grid
