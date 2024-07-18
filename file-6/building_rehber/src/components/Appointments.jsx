@@ -1,4 +1,3 @@
-import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import {
   Box,
@@ -9,7 +8,7 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
-import { Add, Remove, Save } from "@mui/icons-material";
+import { Add, Save } from "@mui/icons-material";
 import { useState } from "react";
 
 function Appointments() {
@@ -26,10 +25,16 @@ function Appointments() {
   console.log("arr...", arr);
   console.log("obj...", obj);
 
+  const handleSave = () => {
+    setMasterArray([obj, ...masterArry]);
+  };
+
   const [click, setClick] = useState(false);
   const addLabels = (e) => {
     setClick(true);
     e.preventDefault();
+    setMasterArray([obj, ...arr]);
+
     setArr([
       ...arr,
       {
@@ -43,10 +48,22 @@ function Appointments() {
   };
 
   const [subArr, setSubArr] = useState([]);
-
   const [subObj, setSubObj] = useState({
     id: new Date().getTime(),
+    subQuestion: "",
+    subQuestionType: "",
+    subQuestionPossibleValue: "",
+    subQuestionScore: "",
   });
+
+  console.log(subObj);
+
+  /*   const removeSub = () => {
+    {
+      subObj.id === "id";
+      const newSubObj = subArr
+    }
+  }; */
 
   const [subClick, setSubClick] = useState(false);
   const addSubQues = (e) => {
@@ -56,42 +73,24 @@ function Appointments() {
       ...subArr,
       {
         id: new Date().getTime(),
-        subQuestion: "",
-        subQuestionType: "",
         subQuestionPossibleValue: "",
         subQuestionScore: "",
       },
     ]);
   };
 
-  const addSubLabel = () => {
+  const addSubLabel = (e) => {
+    setSubClick(true);
+    e.preventDefault();
     setSubArr([
       ...subArr,
       {
+        id: new Date().getTime(),
         subQuestionPossibleValue: "",
         subQuestionScore: "",
       },
     ]);
   };
-
-  const handleSave = () => {
-    if (!masterArry.length) {
-      setMasterArray([obj]);
-    } else {
-      setMasterArray([...masterArry, subObj]);
-      setSubObj({
-        id: new Date().getTime,
-        subQuestion: "",
-        subQuestionType: "",
-        subQuestionPossibleValue: "",
-        subQuestionScore: "",
-      });
-    }
-  };
-
-  React.useEffect(() => {
-    console.log("/....", subObj);
-  }, [subObj]);
 
   const qType = [
     { value: "textbox" },
@@ -124,7 +123,8 @@ function Appointments() {
   const handleCatergoryChange = (e) => {
     setVCategory(e.target.value);
   };
-
+  console.log("obj id", obj.id);
+  console.log("arr id", arr.id);
   return (
     <Container>
       <Box sx={{ bgcolor: "white" }}>
@@ -144,6 +144,7 @@ function Appointments() {
         <Grid container gap="10px" p="10px">
           <Grid item xs={12} sm={6} sx={{ flex: { xs: "none", sm: "1" } }}>
             <TextField
+              name="selectCategoty"
               onChange={handleCatergoryChange}
               size="small"
               label="select catergory"
@@ -162,6 +163,7 @@ function Appointments() {
           </Grid>
           <Grid item xs={12} sm={6} sx={{ flex: { xs: "none", sm: "1" } }}>
             <TextField
+              name="selectSubCategory"
               label="select sub catergory"
               size="small"
               select
@@ -182,6 +184,7 @@ function Appointments() {
         <Grid container gap="10px" p="10px">
           <Grid item xs={12} sm={6} sx={{ flex: { xs: "none", sm: "1" } }}>
             <TextField
+              name="question"
               onChange={(e) => setObj({ ...obj, question: e.target.value })}
               label="Question"
               size="small"
@@ -193,6 +196,7 @@ function Appointments() {
           </Grid>
           <Grid item xs={12} sm={6} sx={{ flex: { xs: "none", sm: "1" } }}>
             <TextField
+              name="questionType"
               onChange={(e) => setObj({ ...obj, questionType: e.target.value })}
               label="Question Type"
               size="small"
@@ -217,6 +221,8 @@ function Appointments() {
             <Grid container gap="10px" p="10px">
               <Grid item xs={12} sm={6} sx={{ flex: { xs: "none", sm: "1" } }}>
                 <TextField
+                  key={obj.id}
+                  name="possibleValue"
                   onChange={(e) =>
                     setObj({ ...obj, possibleValue: e.target.value })
                   }
@@ -235,6 +241,8 @@ function Appointments() {
                 sx={{ flex: { xs: "none", sm: "1", display: "flex" } }}
               >
                 <TextField
+                  key={obj.id}
+                  name="score"
                   onChange={(e) => setObj({ ...obj, score: e.target.value })}
                   label="Score"
                   type="number"
@@ -253,27 +261,15 @@ function Appointments() {
                     alignItems: "center",
                   }}
                 >
-                  {arr.length > 0 ? (
-                    <Remove
-                      onClick={addLabels}
-                      sx={{
-                        backgroundColor: "red",
-                        color: "white",
-                        borderRadius: "50px",
-                        cursor: "pointer",
-                      }}
-                    />
-                  ) : (
-                    <Add
-                      onClick={addLabels}
-                      sx={{
-                        backgroundColor: "primary.main",
-                        color: "white",
-                        borderRadius: "50px",
-                        cursor: "pointer",
-                      }}
-                    />
-                  )}
+                  <Add
+                    onClick={addLabels}
+                    sx={{
+                      backgroundColor: "primary.main",
+                      color: "white",
+                      borderRadius: "50px",
+                      cursor: "pointer",
+                    }}
+                  />
                 </Box>
               </Grid>
             </Grid>
@@ -314,6 +310,7 @@ function Appointments() {
                         sx={{ flex: { xs: "none", sm: "1" } }}
                       >
                         <TextField
+                          name="questionType"
                           onChange={(e) =>
                             setSubObj({
                               ...subObj,
@@ -344,6 +341,7 @@ function Appointments() {
                         sx={{ flex: { xs: "none", sm: "1" } }}
                       >
                         <TextField
+                          name="possibleValue"
                           onChange={(e) =>
                             setSubObj({
                               ...subObj,
@@ -365,6 +363,7 @@ function Appointments() {
                         sx={{ flex: { xs: "none", sm: "1", display: "flex" } }}
                       >
                         <TextField
+                          name="score"
                           onChange={(e) =>
                             setSubObj({ ...subObj, score: e.target.value })
                           }
@@ -385,27 +384,15 @@ function Appointments() {
                             alignItems: "center",
                           }}
                         >
-                          {arr.length > 0 ? (
-                            <Add
-                              onClick={addSubLabel}
-                              sx={{
-                                backgroundColor: "primary.main",
-                                color: "white",
-                                borderRadius: "50px",
-                                cursor: "pointer",
-                              }}
-                            />
-                          ) : (
-                            <Remove
-                              onClick={addSubLabel}
-                              sx={{
-                                backgroundColor: "red",
-                                color: "white",
-                                borderRadius: "50px",
-                                cursor: "pointer",
-                              }}
-                            />
-                          )}
+                          <Add
+                            onClick={addSubLabel}
+                            sx={{
+                              backgroundColor: "primary.main",
+                              color: "white",
+                              borderRadius: "50px",
+                              cursor: "pointer",
+                            }}
+                          />
                         </Box>
                       </Grid>
                     </Grid>
@@ -416,8 +403,8 @@ function Appointments() {
           </>
         )}
         {click &&
-          masterArry.map((array) => (
-            <Box key={arr.id}>
+          arr.map((obj, id) => (
+            <Box key={id}>
               <Grid container gap="10px" p="10px">
                 <Grid
                   item
@@ -426,6 +413,8 @@ function Appointments() {
                   sx={{ flex: { xs: "none", sm: "1" } }}
                 >
                   <TextField
+                    key={obj.key}
+                    name="possibleValue"
                     onChange={(e) =>
                       setObj({ ...obj, possibleValue: e.target.value })
                     }
@@ -433,7 +422,7 @@ function Appointments() {
                     label="Possible Value"
                     variant="outlined"
                     fullWidth
-                    value={array.possibleValue}
+                    value={obj.possibleValue}
                     sx={{ bgcolor: "white" }}
                   ></TextField>
                 </Grid>
@@ -444,12 +433,13 @@ function Appointments() {
                   sx={{ flex: { xs: "none", sm: "1", display: "flex" } }}
                 >
                   <TextField
+                    key={obj.id}
                     name="score"
                     onChange={(e) => setObj({ ...obj, score: e.target.value })}
                     label="Score"
                     type="number"
                     size="small"
-                    value={array.score}
+                    value={obj.score}
                     variant="outlined"
                     fullWidth
                     sx={{ bgcolor: "white", width: "80%" }}
@@ -463,27 +453,15 @@ function Appointments() {
                       alignItems: "center",
                     }}
                   >
-                    {arr.length < 0 ? (
-                      <Add
-                        onClick={addLabels}
-                        sx={{
-                          backgroundColor: "primary.main",
-                          color: "white",
-                          borderRadius: "50px",
-                          cursor: "pointer",
-                        }}
-                      />
-                    ) : (
-                      <Remove
-                        onClick={addLabels}
-                        sx={{
-                          backgroundColor: "red",
-                          color: "white",
-                          borderRadius: "50px",
-                          cursor: "pointer",
-                        }}
-                      />
-                    )}
+                    <Add
+                      onClick={addLabels}
+                      sx={{
+                        backgroundColor: "primary.main",
+                        color: "white",
+                        borderRadius: "50px",
+                        cursor: "pointer",
+                      }}
+                    />
                   </Box>
                 </Grid>
               </Grid>
