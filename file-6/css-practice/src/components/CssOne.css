@@ -1,0 +1,221 @@
+/* 
+universal selectors
+element selectors
+class selector
+id selectos
+attribute
+group
+pseudo-element
+    a pseudo element style specific part of an element rather then element itself
+pseudo-class
+    a pseudo class selector style specific state of an element
+descendant selector
+    all the tags which are child of an tag
+child selector >
+    target direct child of an element
+(Next sibling)adjacent sibling selector +
+    targets the element immediatly next html element
+    If we have to select the paragraph that comes immediately after another paragraph, then by using the adjacent selector,
+     separates two selectors and matches the second element only if it immediately follows the first element, and both are children of the same parent element.
+(Subsequent sibling )general sibling selector ~
+    same parent sibling
+
+*/
+
+/* universal selector */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* element selector */
+/* p {
+  color: geen;
+} */
+
+/* attribute selectors */
+/* a[target] {
+  background-color: brown;
+} */
+
+/* Group selector */
+/* p,
+h1 {
+  text-decoration: line-through;
+} */
+/* pseudo class selector */
+/* a:hover {
+  background-color: blue;
+} */
+
+/* pseudo element selector */
+/* a::after {
+  content: "";
+} */
+
+/* descendant selector */
+/* div p {
+  color: blue;
+} */
+/* child selector */
+/* div > p {
+  color: rebeccapurple;
+} */
+
+/* adjacent sibling selector */
+/* h1 + p {
+  margin-top: 0;
+} */
+
+/* gernal sibling selector */
+/* h1 ~ p {
+  color: gray;
+} */
+
+/* portfolio is a website that showcase and highlights work,skills and experience
+hero section
+about me section
+project section
+contact me section
+*/
+
+/* .wrapper-gradient {
+  height: 95vh;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(103 161 255 / 20%),
+    rgba(107 255 199 / 20%)
+  );
+} */
+/* General Sibling */
+/* h4 ~ p {
+  color: red;
+} */
+
+/* adjacent sibling */
+/* h4 + p {
+  color: blue;
+} */
+
+/* child selector */
+/* div > p {
+  color: green;
+} */
+
+/* descendent selector */
+/* div > h4 {
+  background: yellow;
+} */
+/* #leftsidebar {
+  float: left;
+  width: auto;
+} */
+
+/* #menulist {
+  padding: 0;
+  margin: 3px;
+} */
+
+/* #menulist {
+  background: #cdf0f6;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  list-style-type: none;
+  margin: 4px;
+  padding: 2px;
+} */
+
+/* @media screen and (min-width: 480px) {
+  #leftsidebar {
+    width: 200px;
+    float: left;
+  }
+  #main {
+    margin-left: 216px;
+  }
+} */
+
+/* On screens that are 992px wide or less, the background color is blue */
+/* @media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+    color: white;
+  }
+  #menulist {
+    color: black;
+  }
+} */
+
+/* On screens that are 600px wide or less, the background color is olive */
+/* @media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+    color: white;
+  }
+  #menulist {
+    color: black;
+  }
+} */
+
+/* div.example {
+  background-color: yellow;
+  padding: 20px;
+} */
+
+/* @media screen and (max-width: 600px) {
+  div.example {
+    display: none;
+  }
+} */
+.image {
+  border: 3px solid red;
+  height: 30vh;
+  width: 50vw;
+  position: relative;
+  overflow: hidden;
+}
+
+div > img {
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  object-fit: contain;
+  justify-content: center;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+}
+
+.imagesWrapper {
+  display: flex;
+}
+@media screen and (max-width: 600px) {
+  .image {
+    border: 5px solid blue;
+    width: 100%;
+  }
+  .imagesWrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  div > img {
+    object-fit: scale-down;
+  }
+  .image {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.float {
+  text-align: center;
+  background-color: blueviolet;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  float: right;
+}
