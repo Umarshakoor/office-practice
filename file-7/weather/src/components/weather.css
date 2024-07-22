@@ -7,6 +7,11 @@ body {
   justify-content: center;
   padding: 50px;
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    108deg,
+    hwb(283 12% 34% / 0.3),
+    rgba(124, 67, 224, 0.3)
+  );
 }
 
 .app {
@@ -15,7 +20,11 @@ body {
   color: #e5e5e5;
   border-radius: 10px;
   box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(108deg, #821ea9, #7c43e0);
+  background: linear-gradient(
+    108deg,
+    rgba(130, 30, 169, 0.6),
+    rgba(124, 67, 224, 0.582)
+  );
 }
 .app h1 {
   text-align: center;
@@ -54,7 +63,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(262deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+  background: linear-gradient(262deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
   margin-top: 10px;
   border-radius: 10px;
 }

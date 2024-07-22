@@ -1,10 +1,14 @@
 import "./App.css";
-import PortfolioLandingPage from "./components/Portfolio";
+// import AccPure from "./components/AccPure";
+import AccordionTask from "./components/AccordionTask";
+// import PortfolioLandingPage from "./components/Portfolio";
 
 function App() {
   return (
     <>
-      <PortfolioLandingPage />
+      {/* <PortfolioLandingPage /> */}
+      <AccordionTask />
+      {/* <AccPure /> */}
     </>
   );
 }
