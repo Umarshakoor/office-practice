@@ -3,6 +3,9 @@ import { useState } from "react";
 
 function PricingSection() {
   const [isYearly, setIsYearly] = useState(false);
+  const handleChange = (event) => {
+    setIsYearly(event.target.checked);
+  };
 
   const packages = [
     {
@@ -11,6 +14,7 @@ function PricingSection() {
       yearlyPrice: 199,
       description:
         "A common form of lorem ipsum reads: Lorem ipsum dolar sit amet, we provide are best",
+      green: "/src/assets/circlegreen.png",
     },
     {
       name: "Advance",
@@ -18,6 +22,7 @@ function PricingSection() {
       yearlyPrice: 399,
       description:
         "A common form of lorem ipsum reads: Lorem ipsum dolar sit amet, we provide are best",
+      green: "/src/assets/circlegreen.png",
     },
     {
       name: "Premium",
@@ -25,6 +30,7 @@ function PricingSection() {
       yearlyPrice: 599,
       description:
         "A common form of lorem ipsum reads: Lorem ipsum dolar sit amet, we provide are best",
+      green: "/src/assets/circlegreen.png",
     },
   ];
   return (
@@ -39,9 +45,43 @@ function PricingSection() {
       <div>
         <label>
           <span>Montly</span>
-          <Switch />
+          <Switch checked={isYearly} onChange={handleChange} />
           <span>Yearly</span>
         </label>
+      </div>
+      <div>
+        {packages.map((pkg, index) => (
+          <div key={index}>
+            <h3>{pkg.name}</h3>
+            <p>{pkg.description}</p>
+            <p>
+              {isYearly ? `$${pkg.yearlyPrice}` : `$${pkg.monthlyPrice}`}
+              <span>/{isYearly ? "year" : "month"}</span>
+            </p>
+            <ul>
+              <li>
+                <img src={pkg.green} alt="" height="15px" />
+                Videos of Lesson
+              </li>
+              <li>
+                <img src={pkg.green} alt="" height="15px" />
+                Videos of Lesson
+              </li>
+              <li>
+                <img src={pkg.green} alt="" height="15px" />
+                Videos of Lesson
+              </li>
+              <li>
+                <img src={pkg.green} alt="" height="15px" />
+                Videos of Lesson
+              </li>
+              <li>
+                <img src={pkg.green} alt="" height="15px" />
+                Videos of Lesson
+              </li>
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,5 +1,11 @@
+import PricingSection from "./components/PricingSection";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <PricingSection />
+    </>
+  );
 }
 
 export default App;
