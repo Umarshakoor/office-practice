@@ -1,0 +1,114 @@
+.wrapper {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgb(103 161 255 / 40%),
+    rgba(107 255 199 / 40%)
+  );
+  height: 100vh;
+}
+
+.main-text {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}
+
+.switch {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.map-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  justify-content: space-around;
+}
+
+.map-wrapper {
+  display: flex;
+  height: 50%;
+}
+li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 25px;
+}
+p {
+  text-align: justify;
+  padding: 15px;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+#id0 {
+  position: relative;
+  border: 5px solid rgb(101, 101, 101);
+
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, rgba(11, 55, 233, 0.5), #7f06b333);
+}
+#id1 {
+  position: relative;
+  border: 5px solid rgb(101, 101, 101);
+  background: linear-gradient(
+    135deg,
+    rgba(233, 214, 11, 0.5),
+    rgba(179, 104, 6, 0.2)
+  );
+}
+#id2 {
+  position: relative;
+  border: 5px solid rgb(101, 101, 101);
+
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(198, 0, 178, 0.5),
+    rgba(98, 6, 179, 0.5)
+  );
+}
+
+.pkg-name {
+  background-color: white;
+  color: rgb(233, 11, 115);
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  vertical-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+}
+
+.pkg-price {
+  background-color: white;
+  color: rgb(233, 11, 115);
+  width: 120px;
+  height: 20px;
+  text-align: center;
+  vertical-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  transform: rotate(3deg);
+}

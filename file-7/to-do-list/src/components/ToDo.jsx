@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./todo.css";
 
 function ToDo() {
   const [inputText, setInputText] = useState("");
@@ -17,36 +18,45 @@ function ToDo() {
   };
 
   return (
-    <div>
-      <div>
-        <input
-          type="text"
-          placeholder="Enter your To Do"
-          value={inputText}
-          onChange={(e) => {
-            setInputText(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            addList(inputText);
-            setInputText("");
-          }}
-        >
-          +
-        </button>
+    <div className="wrapper">
+      <div className="input-btn">
+        <div className="app-text">
+          <h4>To Do List</h4>
+        </div>
+        <div className="inp-btn">
+          <input
+            type="text"
+            placeholder="Enter your To Do"
+            value={inputText}
+            onChange={(e) => {
+              setInputText(e.target.value);
+            }}
+          />
+          <button
+            className="btn-add"
+            onClick={() => {
+              addList(inputText);
+              setInputText("");
+            }}
+          >
+            +
+          </button>
+        </div>
       </div>
-      <div>
+      <div className="map-wrapper">
         {listTodo.map((listItem, index) => (
-          <div key={index}>
-            <li>{listItem}</li>
-            <button
-              onClick={(e) => {
-                handleDelete(e);
-              }}
-            >
-              -
-            </button>
+          <div key={index} className="list-map">
+            <div className="li-btn">
+              <li>{listItem}</li>
+              <button
+                className="btn-remove"
+                onClick={(e) => {
+                  handleDelete(e);
+                }}
+              >
+                -
+              </button>
+            </div>
           </div>
         ))}
       </div>
