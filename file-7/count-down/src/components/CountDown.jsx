@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./countdown.css";
 
 function CountDown() {
   const [hours, setHours] = useState(0);
@@ -65,28 +66,47 @@ function CountDown() {
     setHours(0);
   }
   return (
-    <div>
-      <h4>Countdown</h4>
-      <div>
-        <label>hh</label>
-        <input value={hours} onChange={handleHours} />
+    <div className="wrapper">
+      <div className="text-wrapper">
+        <h4>Countdown</h4>
       </div>
-      <div>
-        <label>mm</label>
-        <input value={minutes} onChange={handleMinutes} />
+
+      <div className="label-input">
+        <div className="hours">
+          <label>HH</label>
+          <input value={hours} onChange={handleHours} />
+        </div>
+        <div className="minutes">
+          <label>MM</label>
+          <input value={minutes} onChange={handleMinutes} />
+        </div>
+        <div className="seconds">
+          <label>SS</label>
+          <input value={seconds} onChange={handleSeconds} />
+        </div>
+        <div className="milliseconds">
+          <label>MS</label>
+          <input value={milliseconds} />
+        </div>
       </div>
-      <div>
-        <label>ss</label>
-        <input value={seconds} onChange={handleSeconds} />
-      </div>
-      <div>
-        <label>mm</label>
-        <input value={milliseconds} />
-      </div>
-      {!isRunning && <button onClick={startTimer}>start</button>}
-      {isRunning && <button onClick={puaseTime}>puase</button>}
-      <div>
-        <button onClick={stopTimer}>stop</button>
+      <div className="btn-wrapper">
+        <div>
+          {!isRunning && (
+            <button className="start" onClick={startTimer}>
+              Start
+            </button>
+          )}
+          {isRunning && (
+            <button className="puase" onClick={puaseTime}>
+              Puase
+            </button>
+          )}
+        </div>
+        <div>
+          <button className="stop" onClick={stopTimer}>
+            Stop
+          </button>
+        </div>
       </div>
     </div>
   );
