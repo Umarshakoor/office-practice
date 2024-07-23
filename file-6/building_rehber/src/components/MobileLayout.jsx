@@ -1,11 +1,10 @@
-import React from "react";
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import TyreMenu from "./TyreMenu";
+import TyreMenu from "./TyreMenu.jsx";
 
 const MobileLayout = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   return (
     <Box

@@ -3,7 +3,7 @@ import { useState, createContext, useMemo } from "react";
 export const StateContext = createContext();
 
 export const StateProvider = ({ children }) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [theme, setTheme] = useState("light");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   // console.log("AppState...", isCollapsed);
