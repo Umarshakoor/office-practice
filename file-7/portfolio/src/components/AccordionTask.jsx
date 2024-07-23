@@ -4,51 +4,42 @@ import logo from "../assets/gradient.png";
 
 function AccordionTask() {
   const [tabName, setTabName] = useState("Inspection Form");
-  /*   const [accordions] = useState([
-    {
-      name: "Accordion 1",
-      checkboxes: [
-        { id: 1, label: "Checkbox 1", type: "checkbox" },
-        { id: 2, label: "Checkbox 2", type: "checkbox" },
-      ],
-    },
-    {
-      name: "Accordion 2",
-      checkboxes: [
-        { id: 3, label: "Checkbox 3", type: "checkbox" },
-        { id: 4, label: "Checkbox 4", type: "checkbox" },
-      ],
-    },
-    {
-      name: "Accordion 2",
-      checkboxes: [
-        { id: 3, label: "Checkbox 3", type: "checkbox" },
-        { id: 4, label: "Checkbox 4", type: "checkbox" },
-      ],
-    },
-    {
-      name: "Accordion 2",
-      checkboxes: [
-        { id: 3, label: "Checkbox 3", type: "checkbox" },
-        { id: 4, label: "Checkbox 4", type: "checkbox" },
-      ],
-    },
-    {
-      name: "Accordion 2",
-      checkboxes: [
-        { id: 3, label: "Checkbox 3", type: "checkbox" },
-        { id: 4, label: "Checkbox 4", type: "checkbox" },
-      ],
-    },
-  ]); */
 
-  const [isActive, setIsActive] = useState(false);
-  console.log(isActive);
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleAccordion = () => {
-    setIsActive(!isActive);
+  const items = [
+    {
+      title: "Gear Shifting",
+      content: ["Link 1", "Link 2", "Link 3"],
+      rightText: "2 Questions",
+    },
+    {
+      title: "Mountings",
+      content: ["Link 1", "Link 2"],
+      rightText: "3 Questions",
+    },
+    {
+      title: "Noise",
+      content: ["Link 1", "Link 2", "Link 3"],
+      rightText: "2 Questions",
+    },
+    {
+      title: "Fluid and Oil Leaks",
+      content: ["Link 1", "Link 2"],
+      rightText: "5 Questions",
+    },
+    {
+      title: "Gear Selector and Lever",
+      content: ["Link 1", "Link 2", "Link 3"],
+      rightText: "2 Questions",
+    },
+  ];
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+    console.log(index);
   };
-
+  console.log(openIndex);
   return (
     <div className="app-wrapper">
       <header>
@@ -65,7 +56,38 @@ function AccordionTask() {
         <div className="Transmission">
           <h3 className="tran-text">Transmission</h3>
         </div>
-        <section className="accordion">
+        <div className="accordion">
+          {items.map((item, index) => (
+            <div key={index} className="accordion-item">
+              <div
+                className="accordion-title"
+                onClick={() => toggleAccordion(index)}
+              >
+                <div className="accordion-header">
+                  <span
+                    className={`arrow ${
+                      openIndex === index ? "down" : "right"
+                    }`}
+                  >
+                    ^
+                  </span>
+                  <span className="title">{item.title}</span>
+                  <span className="right-text">
+                    {item.content.length} Questions
+                  </span>
+                </div>
+              </div>
+              {openIndex === index && (
+                <div className="accordion-content">
+                  {item.content.map((contentItem, contentIndex) => (
+                    <div key={contentIndex}>{contentItem}</div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        {/*         <section className="accordion">
           <div>
             <input type="checkbox" id="title1" />
             <label htmlFor="title1">Gear Shifting</label>
@@ -134,7 +156,7 @@ function AccordionTask() {
               <a href="#">Link 3</a>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <footer>
         <div className="btn-div">
