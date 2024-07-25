@@ -3,34 +3,35 @@
   margin: 0;
 }
 main {
-  /* background-color: rgb(245, 245, 245); */
+  background-color: rgb(245, 245, 245);
   width: 100%;
   max-width: 1920px;
   margin: auto;
 }
 
 nav {
-  margin: 10px auto;
+  padding: 20px 50px;
+  @media screen and (max-width: 450px) {
+    padding: 20px 10px;
+  }
 }
-.dashboard-content {
-  background-color: white;
+
+li {
+  cursor: pointer;
 }
 
 .dashboard-ul {
   list-style: none;
-  margin: auto 50px;
+  font-size: 14px;
+  font-weight: 400;
   padding: 10px 25px;
   justify-content: space-between;
   display: flex;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
   @media screen and (max-width: 768px) {
     flex-wrap: wrap;
-    /* flex-direction: column;
-    align-content: center; */
     column-gap: 3px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
   }
 }
 .Construction-logo {
@@ -39,22 +40,40 @@ nav {
 
 .dashboard-image {
   margin: 30px 50px;
+  @media screen and (max-width: 450px) {
+    margin: 20px 10px;
+  }
 }
 .header-divider {
   border-bottom: 1px solid rgba(128, 128, 128, 0.495);
   width: 93%;
   margin: 0px 50px;
+  @media screen and (max-width: 450px) {
+    margin: 0px 10px;
+  }
 }
 .phase-summary {
   display: flex;
   gap: 20px;
   margin: 20px 50px;
+  @media screen and (max-width: 900px) {
+    justify-content: space-evenly;
+  }
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 10px;
+  }
 }
 .phase-summary-right {
   display: flex;
   gap: 20px;
   margin: 10px 10px;
   justify-content: space-between;
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .phase-details-text {
   margin: 10px 0;
@@ -66,15 +85,36 @@ nav {
 
 .first-column {
   width: 20%;
+  @media screen and (max-width: 900px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
 }
 .first-column-right {
   width: 50%;
+  @media screen and (max-width: 900px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 400px) {
+    width: 100%;
+  }
 }
 .second-column {
   width: 20%;
+  @media screen and (max-width: 900px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 400px) {
+    width: 100%;
+  }
 }
 .second-column-right {
   width: 50%;
+  @media screen and (max-width: 400px) {
+    width: 100%;
+  }
 }
 .item-divider {
   border-left: 1px solid rgba(0, 0, 0, 0.5);
@@ -102,6 +142,9 @@ nav {
   @media screen and (max-width: 900px) {
     flex-direction: column;
   }
+  @media screen and (max-width: 450px) {
+    margin: 20px 10px;
+  }
 }
 
 .phases {
@@ -112,11 +155,20 @@ nav {
 }
 .phase-details {
   flex: 45%;
+  @media screen and (max-width: 900px) {
+    flex: 100%;
+  }
+  @media screen and (max-width: 400px) {
+    flex: 100%;
+  }
 }
 .h2-btn {
   display: flex;
   justify-content: space-between;
   margin: 10px 0px;
+  @media screen and (max-width: 212px) {
+    flex-direction: column;
+  }
 }
 .left-column-heading {
   font-size: 20px;
@@ -139,6 +191,7 @@ nav {
 .add-new-button {
   font-size: 14px;
   font-weight: 400;
+  padding-left: 5px;
 }
 .project-cards {
   display: flex;
@@ -150,29 +203,43 @@ nav {
 
 .phase-card-completed {
   background-color: rgba(88, 205, 129, 0.2);
-  width: 100%;
+  width: 99%;
   height: auto;
-  border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 7px;
   display: flex;
   justify-content: space-between;
 }
+.phase-card-completed:hover {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  width: 98%;
+}
 .phase-card-delayed {
   background-color: rgba(231, 56, 56, 0.2);
-  width: 100%;
+  width: 99%;
+  height: auto;
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+  transition-property: border;
+  transition-delay: 4s;
+  transition: ease;
+}
+.phase-card-delayed:hover {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  width: 98%;
+}
+.phase-card-ongoing {
+  background-color: rgba(74, 138, 203, 0.2);
+  width: 99%;
   height: auto;
   border-radius: 7px;
   display: flex;
   justify-content: space-between;
 }
 
-.phase-card-ongoing {
-  background-color: rgba(74, 138, 203, 0.2);
-  width: 100%;
-  height: auto;
-  border-radius: 7px;
-  display: flex;
-  justify-content: space-between;
+.phase-card-ongoing:hover {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  width: 98%;
 }
 
 .phase-img-name {
@@ -275,7 +342,7 @@ nav {
 
 input[type="text"] {
   font-size: 16px;
-  background-color: white;
+  background-color: rgb(245, 245, 245);
 }
 .activity {
   display: flex;
@@ -286,6 +353,9 @@ input[type="text"] {
 .activity-heading {
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 215px) {
+    flex-direction: column;
+  }
 }
 .activity-card {
   display: flex;
@@ -294,6 +364,10 @@ input[type="text"] {
   border-radius: 5px;
   height: 60px;
   align-items: center;
+  @media screen and (max-width: 215px) {
+    flex-direction: column;
+    height: auto;
+  }
 }
 .activity-right {
   display: flex;
@@ -342,9 +416,15 @@ input[type="text"] {
 }
 .mtrl-img {
   width: 40px;
+  @media screen and (max-width: 300px) {
+    display: none;
+  }
 }
 .pht-img {
   width: 28px;
+  @media screen and (max-width: 300px) {
+    display: none;
+  }
 }
 .activity-start-date {
   font-size: 12px;
@@ -379,4 +459,16 @@ input[type="text"] {
 
 ::-webkit-scrollbar-button {
   display: none;
+}
+
+.rotate-arrow {
+  transform: rotate(180deg);
+  display: inline-block;
+  font-family: cursive;
+}
+.mobile-menu {
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
 }

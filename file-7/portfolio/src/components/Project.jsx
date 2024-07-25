@@ -1,23 +1,53 @@
+import { useState } from "react";
 import "./project.css";
 import construction1 from "./construction1.png";
 import dotsVertical from "./dotsVertical.png";
 import EllipseHouse from "./EllipseHouse.png";
 import photo from "./photo.svg";
 import material from "./material.svg";
+import { Menu, Minimize2 } from "lucide-react";
 function Project() {
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
   return (
     <div>
       <main className="dashboard">
         <header className="dashboard-header">
           <nav className="dashboard-nav">
             <ul className="dashboard-ul">
-              <li>Home</li>
-              <li>Deadlines</li>
-              <li>Project</li>
-              <li>Request</li>
-              <li>Activities</li>
-              <li>Material</li>
-              <li>Payment</li>
+              <li onClick={closeMobileMenu} className="option">
+                Home
+              </li>
+              <li onClick={closeMobileMenu} className="option">
+                Deadlines <span className="rotate-arrow">^</span>
+              </li>
+              <li
+                onClick={closeMobileMenu}
+                className="option"
+                style={{ color: "rgb(15, 97, 174)" }}
+              >
+                Project <span className="rotate-arrow">^</span>
+              </li>
+              <li onClick={closeMobileMenu} className="option">
+                Request
+              </li>
+              <li onClick={closeMobileMenu} className="option">
+                Activities <div className="rotate-arrow">^</div>
+              </li>
+              <li onClick={closeMobileMenu} className="option">
+                Material <span className="rotate-arrow">^</span>
+              </li>
+              <li onClick={closeMobileMenu} className="option">
+                Payment <span className="rotate-arrow">^</span>
+              </li>
+              <div className="mobile-menu" onClick={handleClick}>
+                {click ? (
+                  <Minimize2 className="menu-icon" />
+                ) : (
+                  <Menu className="menu-icon" />
+                )}
+              </div>
             </ul>
           </nav>
           <div className="dashboard-image">
