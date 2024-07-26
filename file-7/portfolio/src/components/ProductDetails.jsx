@@ -177,23 +177,64 @@ function ProductDetails() {
               </div>
               <div className="first-column-divider"></div>
             </div>
+            <div className="first-column-btn-div">
+              <button className="first-column-btn">Add Builder</button>
+            </div>
           </div>
           <div className="second-column">
             <div className="second-column-heading">
               <h4>Product details</h4>
             </div>
-            <div>
-              <img src={brick} alt="" />
+            <div className="second-column-image">
+              <img className="second-column-image-brick" src={brick} alt="" />
             </div>
             <div className="label-input">
               <label className="label-text" htmlFor="">
-                Phase Name
+                Product Name
+              </label>
+              <input className="form-input" type="text" placeholder="Bricks" />
+            </div>
+            <div className="label-input">
+              <label className="label-text" htmlFor="">
+                Company Name
               </label>
               <input
                 className="form-input"
                 type="text"
-                placeholder="IDK Phase"
+                placeholder="ABC Company"
               />
+            </div>
+            <div className="label-input">
+              <label className="label-text" htmlFor="">
+                Quality
+              </label>
+              <input className="form-input" type="text" placeholder="Premium" />
+            </div>
+            <div className="label-input">
+              <label
+                className="label-text instock"
+                style={{
+                  position: "relative",
+                }}
+                data-domain="(instock)"
+                htmlFor=""
+              >
+                Quantity
+              </label>
+              <input className="form-input" type="text" placeholder="100k" />
+            </div>
+            <div className="label-input">
+              <label
+                className="label-text perprice"
+                data-domain="Per Price"
+                style={{
+                  position: "relative",
+                }}
+                htmlFor=""
+              >
+                Price
+              </label>
+              <input className="form-input" type="text" placeholder="10" />
             </div>
           </div>
         </div>

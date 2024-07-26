@@ -19,7 +19,9 @@ main {
 .option-li {
   cursor: pointer;
 }
-
+.option-li:hover {
+  background-color: rgba(74, 142, 206, 0.3);
+}
 .rotate-arrow {
   transform: rotate(180deg);
   display: inline-block;
@@ -30,8 +32,10 @@ main {
   list-style: none;
   font-size: 14px;
   font-weight: 400;
-  padding: 10px 25px;
+  padding: 0px 25px;
+  height: 40px;
   justify-content: space-between;
+  align-items: center;
   display: flex;
   background-color: white;
   border-radius: 5px;
@@ -103,4 +107,43 @@ main {
 }
 .product-quality-div {
   padding-left: 10px;
+}
+.perprice::after {
+  content: "" attr(data-domain);
+  position: absolute;
+  right: 5px;
+  display: block;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 300;
+}
+.instock::after {
+  content: "" attr(data-domain);
+  position: absolute;
+  right: 5px;
+  display: block;
+  color: rgba(88, 205, 129, 0.767);
+  font-weight: 300;
+}
+.second-column-image-brick {
+}
+.second-column-image {
+  display: flex;
+  height: 18%;
+  justify-content: center;
+}
+
+.first-column-btn-div {
+}
+.first-column-btn {
+  color: white;
+  width: 150px;
+  height: 40px;
+  background-color: #4a8fce;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  top: 20px;
+  left: 200px;
 }
