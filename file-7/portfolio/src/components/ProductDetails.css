@@ -5,8 +5,9 @@
 main {
   background-color: rgb(245, 245, 245);
   width: 100%;
-  max-width: 1920px;
+  max-width: 1500px;
   margin: auto;
+  margin-bottom: 7vh;
 }
 
 .dashboard-nav {
@@ -49,15 +50,26 @@ main {
   display: flex;
   padding: 10px 50px;
   gap: 20px;
+  @media screen and (max-width: 670px) {
+    flex-direction: column;
+  }
 }
 
 .first-column {
   display: flex;
   flex-direction: column;
   flex: 50%;
+  @media screen and (max-width: 670px) {
+    flex: 100%;
+    width: 100%;
+  }
 }
 .second-column {
   flex: 50%;
+  @media screen and (max-width: 670px) {
+    flex: 100%;
+    width: 100%;
+  }
 }
 .first-column-heading {
 }
@@ -125,15 +137,15 @@ main {
   font-weight: 300;
 }
 .second-column-image-brick {
+  width: 100px;
+  height: 100px;
 }
 .second-column-image {
   display: flex;
-  height: 18%;
+  width: 100%;
   justify-content: center;
 }
 
-.first-column-btn-div {
-}
 .first-column-btn {
   color: white;
   width: 150px;
