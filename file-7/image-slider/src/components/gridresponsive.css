@@ -1,0 +1,60 @@
+.chair-img {
+  height: 200px;
+}
+.item-description {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.price-span {
+  padding: 20px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: center;
+  gap: 20px;
+}
+main {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  grid-template-rows: 200px 250px 150px auto;
+  grid-template-areas:
+    "   header    header   header"
+    "   fyellow    fpurple   fred"
+    "   signup    signup   signup"
+    "   content    content   content";
+  @media screen and (max-width: 1000px) {
+    grid-template-areas:
+      "   header    header   header"
+      "   content    content   content"
+      "   fyellow    fpurple   fpurple"
+      "   signup    signup   fred";
+  }
+}
+.header {
+  background-color: skyblue;
+  grid-area: header;
+}
+.feature-yello {
+  background-color: yellow;
+  grid-area: fyellow;
+}
+.feature-purple {
+  background-color: purple;
+  grid-area: fpurple;
+}
+.feature-red {
+  background-color: red;
+  grid-area: fred;
+}
+.sign-up {
+  background-color: aqua;
+  grid-area: signup;
+}
+.content {
+  background-color: bisque;
+  grid-area: content;
+}

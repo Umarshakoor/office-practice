@@ -1,0 +1,58 @@
+.img-div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.image-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+  transition: translate 300ms ease-in-out;
+}
+.img-slider-left-btn {
+  all: unset;
+  display: block;
+  position: absolute;
+  padding: 1rem;
+  cursor: pointer;
+  bottom: 50%;
+  background-color: white;
+  border-radius: 50%;
+}
+.img-slider-right-btn {
+  all: unset;
+  display: block;
+  position: absolute;
+  padding: 1rem;
+  cursor: pointer;
+  right: 0;
+  bottom: 50%;
+  background-color: white;
+  border-radius: 50%;
+}
+.img-slider-right-btn:hover {
+  background-color: rgba(107, 1, 136, 0.601);
+}
+.img-slider-left-btn:hover {
+  background-color: rgba(107, 1, 136, 0.601);
+}
+.img-slider-dot-btn {
+  all: unset;
+  display: block;
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+}
+.img-slider-dot-btn:hover {
+  scale: 1.2;
+}
+
+.img-slider-dot-btn > * {
+  stroke: white;
+  fill: black;
+  height: 100%;
+  width: 100%;
+}
