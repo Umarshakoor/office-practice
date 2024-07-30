@@ -1,5 +1,6 @@
 import "./App.css";
-import WidthHeightMinMax from "./components/WidthHeightMinMax";
+import Animation from "./components/Animation";
+// import WidthHeightMinMax from "./components/WidthHeightMinMax";
 // import FlexLayout from "./components/FlexLayout";
 // import GridResponsive from "./components/GridResponsive";
 // import ImageSlider from "./ImageSlider";
@@ -20,7 +21,8 @@ function App() {
     <div>
       {/* <FlexLayout /> */}
       {/* <GridResponsive /> */}
-      <WidthHeightMinMax />
+      {/* <WidthHeightMinMax /> */}
+      <Animation />
     </div>
   );
 }
