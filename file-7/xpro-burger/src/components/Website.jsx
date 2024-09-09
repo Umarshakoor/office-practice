@@ -1,11 +1,13 @@
 import Header from "./header/Header";
+import Feature from "./main/Feature";
+import Main from "./main/Main";
 
 function Website() {
   return (
     <div>
-      <header>
-        <Header />
-      </header>
+      <Header />
+      <Main />
+      <Feature />
     </div>
   );
 }

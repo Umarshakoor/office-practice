@@ -112,27 +112,45 @@
   height: 400px;
   width: 100%;
   background: linear-gradient(0deg, #ff8c08 5%, #ffca0b 50%, #e6a337 100%);
-}
-.hero-section {
   display: flex;
+  gap: 70px;
+  @media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 }
+
 .starving-card {
   flex: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  @media screen and (max-width: 920px) {
+    align-items: center;
+    z-index: 2;
+  }
+  @media screen and (min-width: 2160px) {
+    flex: 50%;
+  }
 }
 .spaghetti-image {
   display: flex;
   align-items: flex-end;
   flex: 40%;
+  @media screen and (max-width: 920px) {
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    bottom: 150px;
+  }
+  @media screen and (min-width: 2160px) {
+    flex: 50%;
+  }
 }
 .spaghetti-img {
   height: 280px;
 }
-.starving-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 140px;
-}
+
 .starving-main-text {
   color: #fff;
   font-size: 45px;
