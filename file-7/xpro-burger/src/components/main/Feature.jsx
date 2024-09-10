@@ -20,10 +20,15 @@ import { AccessTime, Sell } from "@mui/icons-material";
 function Feature() {
   return (
     <div>
+      <div>
+        <h4 style={{ fontSize: "50px", display: "flex", margin: "40 0px" }}>
+          Featured section
+        </h4>
+      </div>
       <section className="feature-cards">
         <div className="feature-card-span">
           <div className="feature-position-relative">
-            <img className="feature-card-img" src={egg1} />
+            <img className="feature-card-img" src={egg} />
             <div className="feature-card-action">
               <div className="feature-text-badge">
                 <div className="feature-off-text">
@@ -139,7 +144,7 @@ function Feature() {
         </div>
         <div className="feature-card-span">
           <div className="feature-position-relative">
-            <img className="feature-card-img" src={egg1} />
+            <img className="feature-card-img" src={green} />
             <div className="feature-card-action">
               <div className="feature-text-badge">
                 <div className="feature-off-text">

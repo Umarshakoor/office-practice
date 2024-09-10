@@ -12,8 +12,3 @@ p.then((message) => {
 }).catch((err) => {
   console.log("this is in the catch " + err);
 });
-function Promices() {
-  return <></>;
-}
-
-export default Promices;
