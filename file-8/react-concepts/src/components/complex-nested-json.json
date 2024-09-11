@@ -1,0 +1,55 @@
+{
+  "store": {
+    "name": "Tech Hub",
+    "location": {
+      "city": "New York",
+      "state": "NY",
+      "address": {
+        "street": "123 tech street",
+        "zipcode": "10001"
+      }
+    },
+    "category": [
+      {
+        "name": "electronics",
+        "prodicts": [
+          {
+            "id": "1",
+            "name": "laptop",
+            "specs": {
+              "brand": "Dell",
+              "model": "xps 15",
+              "price": "999"
+            },
+            "availablity": "in stock"
+          },
+          {
+            "id": "2",
+            "name": "smartphone",
+            "specs": {
+              "brand": "Apple",
+              "model": "iphone 16",
+              "price": "799"
+            },
+            "availablity": "pre-order"
+          }
+        ]
+      },
+      {
+        "name": "Home Appliances",
+        "products": [
+          {
+            "id": "3",
+            "name": "vacuum cleaner",
+            "specs": {
+              "brand": "philips",
+              "model": "v11",
+              "price": "599"
+            },
+            "availablity": "out of stock"
+          }
+        ]
+      }
+    ]
+  }
+}

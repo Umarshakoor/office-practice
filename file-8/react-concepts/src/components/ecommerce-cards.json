@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "wireless Headphone",
+      "description": "Noise-cancelling over-ear headphones",
+      "image": "htpps://example.com/headphones.jpg",
+      "dateAdded": "2024-09-01",
+      "state": "available",
+      "onSale": "true",
+      "category": "electronics"
+    },
+    {
+      "id": "2",
+      "title": "Gaming Mouse",
+      "description": "Erogonomic gaming mouse with RGB lighting",
+      "image": "htpps://example.com/mouse.jpg",
+      "dateAdded": "2024-09-03",
+      "state": "Sold out",
+      "onSale": "false",
+      "category": "gaming"
+    },
+    {
+      "id": "3",
+      "title": "Running shoes",
+      "description": "Comfortable running shoes for all terrains",
+      "image": "htpps://example.com/shoes.jpg",
+      "dateAdded": "2024-09-05",
+      "state": "available",
+      "onSale": "true",
+      "category": "sportswear"
+    }
+  ]
+}
