@@ -1,17 +1,11 @@
-import './App.css'
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-} from "react-router-dom";
-import HomePage from './components/HomePage'
-import FeedPage from './components/FeedPage'
+import "./App.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import HomePage from "./components/HomePage";
+import FeedPage from "./components/FeedPage";
 
-import AppState from './context/AppState'
+import AppState from "./context/AppState";
 
 function App() {
-
   return (
     <>
       <div className="App">
@@ -20,10 +14,10 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/home" >Home</Link>
+                <Link to="/home">Home</Link>
               </li>
               <li>
-                <Link to="/feed" >feed</Link>
+                <Link to="/feed">feed</Link>
               </li>
             </ul>
           </nav>
@@ -36,7 +30,7 @@ function App() {
         </BrowserRouter>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
