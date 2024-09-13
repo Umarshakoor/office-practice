@@ -1,6 +1,7 @@
 import Header from "./header/Header";
 import Feature from "./main/Feature";
 import Main from "./main/Main";
+import SearchFood from "./main/SearchFood";
 
 function Website() {
   return (
@@ -8,6 +9,7 @@ function Website() {
       <Header />
       <Main />
       <Feature />
+      <SearchFood />
     </div>
   );
 }

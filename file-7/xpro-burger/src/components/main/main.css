@@ -126,10 +126,11 @@
 }
 .card-slider {
   overflow: hidden;
+  width: 100%;
 }
 
 .card-container {
-  max-width: 1400px;
+  max-width: 1000px;
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: calc(100% * 6);

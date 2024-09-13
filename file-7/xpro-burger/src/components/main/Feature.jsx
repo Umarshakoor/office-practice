@@ -71,70 +71,12 @@ function Feature() {
             </div>
           </div>
           <div className="brand-img-name-star">
-            <img src={foodworld} alt="" />
+            <img src={pizzahub} alt="" />
             <div className="name-star-value">
-              <h4>Foodworld</h4>
+              <h4>Pizza Hub</h4>
               <div className="star-value">
                 <img src={star} alt="" />
-                <span>46</span>
-              </div>
-            </div>
-          </div>
-          <button className="open-tomorrow">Opens Tomorrow</button>
-        </div>
-        <div className="feature-card-span">
-          <div className="feature-position-relative">
-            <img className="feature-card-img" src={egg1} />
-            <div className="feature-card-action">
-              <div className="feature-text-badge">
-                <div className="feature-off-text">
-                  <Sell />
-                  <span>20%</span>
-                  <span>off</span>
-                </div>
-                <div className="feature-fast-text">
-                  <AccessTime />
-                  <span>Fast</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="brand-img-name-star">
-            <img src={foodworld} alt="" />
-            <div className="name-star-value">
-              <h4>Foodworld</h4>
-              <div className="star-value">
-                <img src={star} alt="" />
-                <span>46</span>
-              </div>
-            </div>
-          </div>
-          <button className="open-tomorrow">Opens Tomorrow</button>
-        </div>
-        <div className="feature-card-span">
-          <div className="feature-position-relative">
-            <img className="feature-card-img" src={egg1} />
-            <div className="feature-card-action">
-              <div className="feature-text-badge">
-                <div className="feature-off-text">
-                  <Sell />
-                  <span>20%</span>
-                  <span>off</span>
-                </div>
-                <div className="feature-fast-text">
-                  <AccessTime />
-                  <span>Fast</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="brand-img-name-star">
-            <img src={foodworld} alt="" />
-            <div className="name-star-value">
-              <h4>Foodworld</h4>
-              <div className="star-value">
-                <img src={star} alt="" />
-                <span>46</span>
+                <span>40</span>
               </div>
             </div>
           </div>
@@ -143,6 +85,151 @@ function Feature() {
         <div className="feature-card-span">
           <div className="feature-position-relative">
             <img className="feature-card-img" src={green} />
+            <div className="feature-card-action">
+              <div className="feature-text-badge">
+                <div className="feature-off-text">
+                  <Sell />
+                  <span>20%</span>
+                  <span>off</span>
+                </div>
+                <div className="feature-fast-text">
+                  <AccessTime />
+                  <span>Fast</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="brand-img-name-star">
+            <img src={dunkin} alt="" />
+            <div className="name-star-value">
+              <h4>Foodworld</h4>
+              <div className="star-value">
+                <img src={star} alt="" />
+                <span>30</span>
+              </div>
+            </div>
+          </div>
+          <button className="open-tomorrow">Opens Tomorrow</button>
+        </div>
+        <div className="feature-card-span">
+          <div className="feature-position-relative">
+            <img className="feature-card-img" src={tomato} />
+            <div className="feature-card-action">
+              <div className="feature-text-badge">
+                <div className="feature-off-text">
+                  <Sell />
+                  <span>20%</span>
+                  <span>off</span>
+                </div>
+                <div className="feature-fast-text">
+                  <AccessTime />
+                  <span>Fast</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="brand-img-name-star">
+            <img src={kfc} alt="" />
+            <div className="name-star-value">
+              <h4>Foodworld</h4>
+              <div className="star-value">
+                <img src={star} alt="" />
+                <span>11</span>
+              </div>
+            </div>
+          </div>
+          <button className="open-tomorrow">Opens Tomorrow</button>
+        </div>
+        <div className="feature-card-span">
+          <div className="feature-position-relative">
+            <img className="feature-card-img" src={honey} />
+            <div className="feature-card-action">
+              <div className="feature-text-badge">
+                <div className="feature-off-text">
+                  <Sell />
+                  <span>20%</span>
+                  <span>off</span>
+                </div>
+                <div className="feature-fast-text">
+                  <AccessTime />
+                  <span>Fast</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="brand-img-name-star">
+            <img src={taco} alt="" />
+            <div className="name-star-value">
+              <h4>Foodworld</h4>
+              <div className="star-value">
+                <img src={star} alt="" />
+                <span>46</span>
+              </div>
+            </div>
+          </div>
+          <button className="open-tomorrow">Opens Tomorrow</button>
+        </div>
+        <div className="feature-card-span">
+          <div className="feature-position-relative">
+            <img className="feature-card-img" src={cupcake} />
+            <div className="feature-card-action">
+              <div className="feature-text-badge">
+                <div className="feature-off-text">
+                  <Sell />
+                  <span>20%</span>
+                  <span>off</span>
+                </div>
+                <div className="feature-fast-text">
+                  <AccessTime />
+                  <span>Fast</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="brand-img-name-star">
+            <img src={red} alt="" />
+            <div className="name-star-value">
+              <h4>Foodworld</h4>
+              <div className="star-value">
+                <img src={star} alt="" />
+                <span>46</span>
+              </div>
+            </div>
+          </div>
+          <button className="open-tomorrow">Opens Tomorrow</button>
+        </div>
+        <div className="feature-card-span">
+          <div className="feature-position-relative">
+            <img className="feature-card-img" src={grill} />
+            <div className="feature-card-action">
+              <div className="feature-text-badge">
+                <div className="feature-off-text">
+                  <Sell />
+                  <span>20%</span>
+                  <span>off</span>
+                </div>
+                <div className="feature-fast-text">
+                  <AccessTime />
+                  <span>Fast</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="brand-img-name-star">
+            <img src={ruby} alt="" />
+            <div className="name-star-value">
+              <h4>Foodworld</h4>
+              <div className="star-value">
+                <img src={star} alt="" />
+                <span>46</span>
+              </div>
+            </div>
+          </div>
+          <button className="open-tomorrow">Opens Tomorrow</button>
+        </div>
+        <div className="feature-card-span">
+          <div className="feature-position-relative">
+            <img className="feature-card-img" src={grill2} />
             <div className="feature-card-action">
               <div className="feature-text-badge">
                 <div className="feature-off-text">
@@ -170,6 +257,31 @@ function Feature() {
           <button className="open-tomorrow">Opens Tomorrow</button>
         </div>
       </section>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "30px 0",
+        }}
+      >
+        <button
+          style={{
+            backgroundColor: "#ffb20e",
+            background: "linear-gradient(#FFBA26,#FF9A0E)",
+            border: "none",
+            color: "#fff",
+            fontSize: "15px",
+            fontWeight: "600",
+            borderRadius: "15px",
+            width: "150px",
+            height: "50px",
+            boxShadow: "0px 0px 10px 1px #ffb20e",
+          }}
+        >
+          View All
+        </button>
+      </div>
     </div>
   );
 }

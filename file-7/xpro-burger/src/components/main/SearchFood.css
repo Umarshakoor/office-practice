@@ -1,0 +1,29 @@
+.prev-next {
+  background-color: #ffb20e;
+  font-size: 25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0px 0px 10px 1px #ffb20e;
+}
+
+.search-food {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 400px;
+}
+
+.search-two-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.two-button {
+  display: flex;
+  flex-direction: row-reverse;
+}
