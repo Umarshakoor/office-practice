@@ -8,6 +8,14 @@
     align-items: center;
   }
 }
+.featureItems {
+  display: flex;
+  margin: 50px auto;
+  font-size: 35px;
+  font-weight: 750;
+  justify-content: center;
+}
+
 .feature-card-span {
   flex: 25%;
 }

@@ -21,9 +21,7 @@ function Feature() {
   return (
     <div>
       <div>
-        <h4 style={{ fontSize: "50px", display: "flex", margin: "40 0px" }}>
-          Featured section
-        </h4>
+        <h2 className="featureItems">Feature Items</h2>
       </div>
       <section className="feature-cards">
         <div className="feature-card-span">
