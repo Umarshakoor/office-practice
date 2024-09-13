@@ -1,10 +1,8 @@
 /* General Styles */
 .blog-app {
-  width: 99%;
-  margin: 10px auto;
-  padding: 10px auto;
   font-family: Arial, sans-serif;
   transition: background-color 0.3s, color 0.3s;
+  height: 100vh;
 }
 
 .blog-form {

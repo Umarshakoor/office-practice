@@ -5,6 +5,7 @@ const BlogApp = () => {
   const [blogs, setBlogs] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [empty, setEmpty] = useState(false);
   const [editingIndex, setEditingIndex] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -78,13 +79,18 @@ const BlogApp = () => {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
         <textarea
           placeholder="Content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
+          required
         />
-        <button onClick={handleAddBlog}>
+        <button
+          onClick={handleAddBlog}
+          disabled={title.trim() === "" || content.trim() === ""}
+        >
           {editingIndex !== null ? "Update Blog" : "Add Blog"}
         </button>
       </div>
