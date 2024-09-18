@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="resnav.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">my logo</div>
+        <div class="nav-items">
+          <ul>
+            <li>
+              <a href="#"><i class="fas fa-home"></i>Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-info-circle"></i>about</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-phone"></i>contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            class="search-input"
+            placeholder="search"
+          />
+          <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navItems = document.querySelector(".nav-items");
+
+      hamburger.addEventListener("click", () => {
+        navItems.classList.toggle("active");
+      });
+
+      const searchIcon = document.querySelector(".search-icon");
+      const searchInput = document.querySelector(".search-input");
+
+      searchIcon.addEventListener("click", () => {
+        searchInput.classList.toggle("active");
+      });
+      XMLDocument;
+    </script>
+  </body>
+</html>
