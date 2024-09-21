@@ -42,13 +42,9 @@ const FetchFort = () => {
       </List>
       <p>{shop?.date}</p>
       <img height={50} src={`${shop?.vbuckIcon}?w=248&fit=crop&auto=format`} />
-      <div
-        style={{
-          backgroundImage: `url("https://cdn2.unrealengine.com/emeraldglass-shopbg-gray-1920x1080-5668be34808e.png")`,
-        }}
-      >
+      <div>
         <p>{shop?.featured?.name}</p>
-        <ImageList sx={{ width: "100%", height: 450, overflow: "scroll" }}>
+        <ImageList>
           {shop?.featured?.entries?.map((item, i) => (
             <div key={i}>
               {!item.bundle?.image ? (

@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   AccessTime,
   AttachMoney,
@@ -26,8 +27,17 @@ import dollor from "../assets/greendollor.svg";
 import pulse from "../assets/pulse.svg";
 import vector from "../assets/Vector.svg";
 import Grid from "@mui/material/Unstable_Grid2";
+import { StateContext } from "../state/AppState";
 
 function Dashboard() {
+  const { theme } = useContext(StateContext);
+
+  // Dynamic colors based on the theme
+  const bgc = theme === "dark" ? "#2E2E2E" : "#fbfbfb";
+  const cardBackgroundColor = theme === "dark" ? "#424242" : "white";
+  const textColor = theme === "dark" ? "#FFFFFF" : "#000000";
+  const secondaryTextColor = theme === "dark" ? "#B0B0B0" : "#757575";
+  const highlightColor = theme === "dark" ? "#64FFDA" : "#3677b3"; // Dark green for dark theme
   return (
     <Box
       sx={{
@@ -37,7 +47,7 @@ function Dashboard() {
       {/* Dashboard Top navbar */}
       <Box
         sx={{
-          backgroundColor: "#fbfbfb",
+          backgroundColor: bgc,
           height: {
             xs: "auto",
             sm: "auto",
@@ -105,7 +115,7 @@ function Dashboard() {
       <Box
         marginX={{ xs: "5%", sm: "5%", md: "5%", lg: "5%", xl: "5%" }}
         sx={{
-          backgroundColor: "white",
+          backgroundColor: bgc,
           boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
           marginTop: "10px",
           borderRadius: "25px",
@@ -454,7 +464,7 @@ function Dashboard() {
             <Box
               sx={{
                 display: "flex",
-                backgroundColor: "#a6d8da",
+                backgroundColor: bgc,
                 height: "100px",
                 width: "100%",
                 marginX: "auto",
@@ -467,7 +477,7 @@ function Dashboard() {
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
-                    backgroundColor: "#f2f2f2",
+                    backgroundColor: bgc,
                     width: { xs: "65px", sm: "60px", md: "65px", lg: "65px" },
                     height: { xs: "65px", sm: "60px", md: "65px", lg: "65px" },
                     borderRadius: "15px",
@@ -485,7 +495,7 @@ function Dashboard() {
                 <Box marginTop="20px">
                   <Typography
                     sx={{
-                      color: "white",
+                      color: bgc,
                       fontWeight: "500",
                       fontSize: "20px",
                       lineHeight: "20px",
@@ -507,7 +517,7 @@ function Dashboard() {
 
               <Box
                 sx={{
-                  backgroundColor: "#f2f2f2",
+                  backgroundColor: cardBackgroundColor,
                   width: "30px",
                   height: "30px",
                   borderRadius: "7px",
