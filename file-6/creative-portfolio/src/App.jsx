@@ -1,7 +1,12 @@
 import "./App.css";
+import Website from "./Pages/Website";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Website />
+    </>
+  );
 }
 
 export default App;
