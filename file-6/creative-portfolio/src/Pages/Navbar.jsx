@@ -10,7 +10,7 @@ const navMenu = [
   {
     id: 1,
     title: "Home",
-    icon: <BiHome style={{ fontSize: "18px" }} />,
+    icon: <BiHome style={{ fontSize: "15px" }} />,
     path: "/",
   },
   {
@@ -35,12 +35,20 @@ const navMenu = [
 
 const Navbar = () => {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        height: "120px",
+        justifyContent: "flex-end",
+        alignItems: "end",
+      }}
+    >
       <ul className="nav-ul">
         {navMenu.map((item, i) => (
           <li key={i} className="">
             <Link to={item.path} className="nav-link">
-              {item.icon} {item.title}
+              <div className="item-icon">{item.icon}</div>
+              <div className="item-title">{item.title}</div>
             </Link>
           </li>
         ))}
