@@ -41,6 +41,7 @@ const Navbar = () => {
         height: "120px",
         justifyContent: "flex-end",
         alignItems: "end",
+        marginBottom: "30px",
       }}
     >
       <ul className="nav-ul">

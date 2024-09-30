@@ -54,8 +54,6 @@ header {
 
 .left-right {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 .left-profile-card {
   flex: 38%;
@@ -63,4 +61,8 @@ header {
 
 .right-section {
   flex: 62%;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  margin-right: 40px;
 }

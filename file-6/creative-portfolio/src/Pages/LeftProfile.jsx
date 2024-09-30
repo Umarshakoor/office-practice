@@ -46,7 +46,14 @@ const profileDetail = [
 
 const LeftProfile = () => {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "end",
+        width: "100%",
+      }}
+    >
       <div className="card-wrapper">
         <img className="card-img" src={profileDetail[0].image} alt="profile" />
         <div className="info-wrapper">
