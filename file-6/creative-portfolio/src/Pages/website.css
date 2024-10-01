@@ -53,16 +53,31 @@ header {
 }
 
 .left-right {
+  max-width: 1920px;
+  margin: 0 auto;
   display: flex;
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    height: auto;
+    row-gap: 30px;
+  }
 }
 .left-profile-card {
-  flex: 38%;
+  flex: 30%;
+  margin-left: 60px;
+  @media screen and (max-width: 1200px) {
+    flex: 100%;
+  }
 }
 
 .right-section {
-  flex: 62%;
+  flex: 70%;
   background-color: #fff;
   border-radius: 20px;
-  padding: 40px;
-  margin-right: 40px;
+  padding: 20px 70px;
+  margin-right: 70px;
+  margin-bottom: 20px;
+  @media screen and (max-width: 1200px) {
+    flex: 100%;
+  }
 }

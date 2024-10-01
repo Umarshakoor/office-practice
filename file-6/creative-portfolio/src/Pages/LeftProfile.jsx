@@ -1,4 +1,3 @@
-import React from "react";
 import "./leftprofile.css";
 import profile from "../assets/linkedin-profile.jpg";
 import { FaFacebookF } from "react-icons/fa";
@@ -46,14 +45,7 @@ const profileDetail = [
 
 const LeftProfile = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "end",
-        width: "100%",
-      }}
-    >
+    <div className="div-wrapper">
       <div className="card-wrapper">
         <img className="card-img" src={profileDetail[0].image} alt="profile" />
         <div className="info-wrapper">

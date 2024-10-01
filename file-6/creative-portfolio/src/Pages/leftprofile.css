@@ -1,12 +1,24 @@
+.div-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @media screen and (max-width: 1200px) {
+    justify-content: center;
+    margin-top: 50px;
+  }
+}
+
 .card-wrapper {
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 60px;
+  /* margin: 0 60px; */
   position: relative;
   border-radius: 10px;
   min-width: 350px;
+  width: 380px;
   max-width: 400px;
 }
 .card-img {

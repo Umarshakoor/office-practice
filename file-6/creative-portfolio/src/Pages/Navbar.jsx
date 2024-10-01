@@ -1,4 +1,3 @@
-import React from "react";
 import { CgNotes } from "react-icons/cg";
 import { BiHome } from "react-icons/bi";
 import { BsBag } from "react-icons/bs";
