@@ -4,13 +4,13 @@ import { Link, useSearchParams } from "react-router-dom";
 function PokemonList() {
   const { offset, setOffSet, limit } = useMyContext();
   const [pokemons, setPokemons] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get("page") || "1");
   const baseUrl = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
   useEffect(() => {
     fetchPokemon();
-  }, [offset]);
+  });
 
   const fetchPokemon = async () => {
     try {

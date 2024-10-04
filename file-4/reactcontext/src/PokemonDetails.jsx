@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function PokemonDetails() {
   const [pokemon, setPokemon] = useState(null);
   // const { name } = useParams();
   // console.log(name);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const name = searchParams.get("name");
   console.log([...searchParams]);
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function PokemonDetails() {
 
   useEffect(() => {
     fetchPokemon();
-  }, [name]);
+  });
 
   const fetchPokemon = async () => {
     try {
